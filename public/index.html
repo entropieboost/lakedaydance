@@ -16,16 +16,16 @@
   
   <style>
     :root {
-      --bg-dark: #060c11;
-      --bg-card: rgba(13, 25, 34, 0.65);
-      --border-card: rgba(0, 240, 255, 0.15);
+      --bg-dark: #080808;
+      --bg-card: rgba(18, 18, 18, 0.7);
+      --border-card: rgba(255, 255, 255, 0.12);
       
-      --neon-cyan: #00f0ff;
-      --neon-pink: #ff007f;
-      --neon-purple: #9d4edd;
+      --neon-cyan: #ffffff;
+      --neon-pink: #cccccc;
+      --neon-purple: #52525b;
       
-      --text-primary: #f8f9fa;
-      --text-muted: #a9d6e5;
+      --text-primary: #f3f4f6;
+      --text-muted: #9ca3af;
       
       --font-heading: 'Outfit', -apple-system, sans-serif;
       --font-body: 'Inter', -apple-system, sans-serif;
@@ -75,8 +75,8 @@
     }
 
     .glass-panel:hover {
-      border-color: rgba(0, 240, 255, 0.35);
-      box-shadow: 0 12px 40px 0 rgba(0, 240, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 12px 40px 0 rgba(255, 255, 255, 0.05);
     }
 
     /* Header & Logo */
@@ -100,7 +100,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: 0.15em;
-      text-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
     }
 
     /* Hero Section */
@@ -196,12 +196,12 @@
     .btn-primary {
       background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
       color: #000;
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.45);
       filter: brightness(1.1);
     }
 
@@ -209,13 +209,13 @@
       background: transparent;
       color: var(--text-primary);
       border: 2px solid var(--neon-pink);
-      box-shadow: inset 0 0 10px rgba(255, 0, 127, 0.1);
+      box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
     }
 
     .btn-secondary:hover {
       transform: translateY(-2px);
-      background: rgba(255, 0, 127, 0.15);
-      box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
     }
 
     /* Event Basics Section */
@@ -254,6 +254,18 @@
       gap: 0.5rem;
     }
 
+    .basic-card.interactive {
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .basic-card.interactive:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 12px 40px 0 rgba(255, 255, 255, 0.08);
+    }
+
     .card-icon {
       font-size: 2rem;
       margin-bottom: 0.25rem;
@@ -282,7 +294,7 @@
       grid-column: 1 / -1;
       border-color: var(--neon-pink);
       text-align: center;
-      background: linear-gradient(135deg, rgba(255, 0, 127, 0.08), rgba(6, 12, 17, 0.7));
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(10, 10, 10, 0.7));
     }
 
     /* Game Section */
@@ -290,7 +302,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: linear-gradient(180deg, var(--bg-dark), #0b151e);
+      background: linear-gradient(180deg, var(--bg-dark), #121212);
       padding: 4rem 1rem;
     }
 
@@ -298,10 +310,10 @@
       width: 100%;
       max-width: 380px;
       position: relative;
-      background: #0d1216;
+      background: #0f0f0f;
       border-radius: 24px;
       padding: 10px;
-      box-shadow: 0 0 40px rgba(0, 240, 255, 0.15);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
       border: 2px solid var(--neon-cyan);
       overflow: hidden;
     }
@@ -801,27 +813,31 @@
     <section class="section-container" id="details">
       <h2 class="section-title">Event Infos</h2>
       <div class="basics-grid">
-        <div class="glass-panel basic-card">
+        <!-- Ort -->
+        <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="glass-panel basic-card interactive">
           <span class="card-icon">📍</span>
           <h3 class="card-title">Ort</h3>
           <p class="card-value">Untere Au, Frastanz</p>
           <p class="card-desc">Daydance direkt am malerischen Badesee. Parkplätze vor Ort vorhanden.</p>
-        </div>
+        </a>
 
-        <div class="glass-panel basic-card">
+        <!-- Zeit -->
+        <div class="glass-panel basic-card interactive" onclick="downloadCalendarEvent()">
           <span class="card-icon">⏰</span>
           <h3 class="card-title">Zeit</h3>
           <p class="card-value">18:00 - 24:00 Uhr</p>
-          <p class="card-desc">Einlass ab 18:00 Uhr. Tanzen bis Mitternacht direkt unter freiem Himmel.</p>
+          <p class="card-desc">Einlass ab 18:00 Uhr. Klicke hier, um den Termin im Kalender zu speichern.</p>
         </div>
 
-        <div class="glass-panel basic-card">
+        <!-- Musik -->
+        <div class="glass-panel basic-card interactive" onclick="document.getElementById('lineup').scrollIntoView({ behavior: 'smooth' })">
           <span class="card-icon">🔊</span>
           <h3 class="card-title">Musik & Lineup</h3>
           <p class="card-value">Techno / Psy-Techno / Dark Prog</p>
-          <p class="card-desc">Treibende elektronische Bässe von regionalen & nationalen Acts.</p>
+          <p class="card-desc">Treibende elektronische Bässe von regionalen & nationalen Acts. Klicke hier zum Lineup.</p>
         </div>
 
+        <!-- Stimmung -->
         <div class="glass-panel basic-card">
           <span class="card-icon">🌅</span>
           <h3 class="card-title">Vibe</h3>
@@ -829,11 +845,12 @@
           <p class="card-desc">Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.</p>
         </div>
 
-        <div class="glass-panel basic-card">
+        <!-- Wetter -->
+        <div class="glass-panel basic-card interactive" onclick="window.open('https://www.google.com/search?q=wetter+frastanz', '_blank')">
           <span class="card-icon">🌦️</span>
           <h3 class="card-title">Wetter</h3>
           <p class="card-value">Ausweichtermin vorhanden</p>
-          <p class="card-desc">Bei schlechtem Wetter gibt es einen Ausweichtermin. Bereits gekaufte Tickets behalten ihre Gültigkeit.</p>
+          <p class="card-desc">Klicke hier für das aktuelle Wetter in Frastanz. Bei Regen gibt es einen Ausweichtermin.</p>
         </div>
 
         <div class="glass-panel ticket-notice-card">
@@ -1033,6 +1050,33 @@
        JavaScript Game Engine & API client
        ========================================================================= -->
   <script>
+    function downloadCalendarEvent() {
+      const icsData = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Lake Daydance//DE',
+        'BEGIN:VEVENT',
+        'UID:daydance-frastanz-2026',
+        'DTSTAMP:20260604T180000Z',
+        'DTSTART:20260815T160000Z',
+        'DTEND:20260815T220000Z',
+        'SUMMARY:Lake Daydance Frastanz',
+        'DESCRIPTION:Daydance direkt am malerischen Badesee Untere Au. Techno\\, Psy-Techno\\, Dark Prog.',
+        'LOCATION:Badesee Untere Au\\, Frastanz',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'daydance.ics');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
     // Global error listener to display runtime console crashes as screen popups
     window.onerror = function (message, source, lineno, colno, error) {
       alert("❌ JavaScript-Fehler:\n" + message + "\n\nDatei: " + source + "\nZeile: " + lineno);

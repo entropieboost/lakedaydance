@@ -11,7 +11,7 @@ export class AudioSynth {
     // AudioContext will be initialized on first user interaction due to browser autoplay policies
   }
 
-  private init() {
+  public init() {
     if (!this.ctx) {
       const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
       if (AudioContextClass) {

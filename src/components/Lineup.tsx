@@ -1,9 +1,14 @@
 import React from 'react';
 
+interface LabelLink {
+  text: string;
+  url: string;
+}
+
 interface DJ {
   name: string;
   origin: string;
-  label: string;
+  labels: LabelLink[];
   instagram: string;
   soundcloud: string;
   image: string;
@@ -14,7 +19,9 @@ export const Lineup: React.FC = () => {
     {
       name: 'Falzar',
       origin: 'Frankreich 🇫🇷',
-      label: 'Zenon Records',
+      labels: [
+        { text: 'Zenon Records', url: 'https://www.instagram.com/zenonrecords/' }
+      ],
       instagram: 'https://www.instagram.com/falzaroparadise/',
       soundcloud: 'https://soundcloud.com/user-612695582',
       image: '/falzar.jpg',
@@ -22,7 +29,10 @@ export const Lineup: React.FC = () => {
     {
       name: 'Rico',
       origin: 'Frankreich 🇫🇷',
-      label: 'AlpaKa MuziK / Frequency Squad Rec.',
+      labels: [
+        { text: 'AlpaKa MuziK', url: 'https://www.instagram.com/alpaka.muzik/' },
+        { text: 'Frequency Squad Rec.', url: 'https://www.instagram.com/frequencysquad/' }
+      ],
       instagram: 'https://www.instagram.com/rico_utr/',
       soundcloud: 'https://soundcloud.com/rico-chiraque',
       image: '/rico.jpg',
@@ -30,7 +40,9 @@ export const Lineup: React.FC = () => {
     {
       name: 'Medved',
       origin: 'Feldkirch 🇦🇹',
-      label: 'Sektor Kollektiv',
+      labels: [
+        { text: 'Sektor Kollektiv', url: 'https://www.instagram.com/sektorkollektiv/' }
+      ],
       instagram: 'https://www.instagram.com/medved_music/',
       soundcloud: 'https://soundcloud.com/medved_198',
       image: '/medved.jpg',
@@ -38,7 +50,9 @@ export const Lineup: React.FC = () => {
     {
       name: "Play'N'Error",
       origin: 'Lindau (DE) 🇩🇪',
-      label: 'Kultur Lindau e.V.',
+      labels: [
+        { text: 'Kultur Lindau e.V.', url: 'https://www.instagram.com/kultur.lindau/' }
+      ],
       instagram: 'https://www.instagram.com/play_n_error/',
       soundcloud: 'https://soundcloud.com/playnerror',
       image: '/playnerror.jpg',
@@ -61,7 +75,21 @@ export const Lineup: React.FC = () => {
             <img src={dj.image} alt={dj.name} className="dj-image" />
 
             <h3 className="dj-name">{dj.name}</h3>
-            <p className="dj-label">{dj.label}</p>
+            <p className="dj-label">
+              {dj.labels.map((lbl, idx) => (
+                <React.Fragment key={idx}>
+                  {idx > 0 && ' / '}
+                  <a
+                    href={lbl.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="dj-label-link"
+                  >
+                    {lbl.text}
+                  </a>
+                </React.Fragment>
+              ))}
+            </p>
             
             <div className="dj-social-icons">
               <a
@@ -96,9 +124,25 @@ export const Lineup: React.FC = () => {
       {/* Cooperation Box */}
       <div className="glass-panel cooperation-box" style={{ marginTop: '3rem' }}>
         <p className="cooperation-text">
-          🤝 Dieses Event wird in enger Freundschaft und Kooperation von den Vereinen 
-          <strong> Frequency Squad</strong> und <strong>Kultur Lindau e.V.</strong> veranstaltet, 
-          um die elektronische Musikkultur in der Region Bodensee-Vorarlberg zu stärken.
+          🤝 Dieses Event wird in enger Freundschaft und Kooperation von den Vereinen{' '}
+          <a
+            href="https://www.instagram.com/frequencysquad/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cooperation-link"
+          >
+            Frequency Squad
+          </a>{' '}
+          und{' '}
+          <a
+            href="https://www.instagram.com/kultur.lindau/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cooperation-link"
+          >
+            Kultur Lindau e.V.
+          </a>{' '}
+          veranstaltet, um die elektronische Musikkultur in der Region Bodensee-Vorarlberg zu stärken.
         </p>
       </div>
     </section>

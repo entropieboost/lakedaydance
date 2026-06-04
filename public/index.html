@@ -689,6 +689,17 @@
       min-height: 1.25rem;
     }
 
+    .dj-label-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .dj-label-link:hover {
+      color: var(--text-primary);
+      text-decoration: underline;
+    }
+
     .dj-image {
       width: 120px;
       height: 120px;
@@ -776,6 +787,18 @@
     .cooperation-text strong {
       color: #fff;
       font-weight: 700;
+    }
+
+    .cooperation-link {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .cooperation-link:hover {
+      text-decoration: underline;
+      color: var(--neon-cyan);
     }
   </style>
 </head>
@@ -882,7 +905,7 @@
           <span class="dj-origin">Frankreich 🇫🇷</span>
           <img src="/falzar.jpg" alt="Falzar" class="dj-image" />
           <h3 class="dj-name">Falzar</h3>
-          <p class="dj-label">Zenon Records</p>
+          <p class="dj-label"><a href="https://www.instagram.com/zenonrecords/" target="_blank" rel="noopener noreferrer" class="dj-label-link">Zenon Records</a></p>
           
           <div class="dj-social-icons">
             <a href="https://soundcloud.com/user-612695582" target="_blank" rel="noopener noreferrer" class="dj-icon-link soundcloud" title="SoundCloud">
@@ -905,7 +928,7 @@
           <span class="dj-origin">Frankreich 🇫🇷</span>
           <img src="/rico.jpg" alt="Rico" class="dj-image" />
           <h3 class="dj-name">Rico</h3>
-          <p class="dj-label">AlpaKa MuziK / Frequency Squad Rec.</p>
+          <p class="dj-label"><a href="https://www.instagram.com/alpaka.muzik/" target="_blank" rel="noopener noreferrer" class="dj-label-link">AlpaKa MuziK</a> / <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="dj-label-link">Frequency Squad Rec.</a></p>
           
           <div class="dj-social-icons">
             <a href="https://soundcloud.com/rico-chiraque" target="_blank" rel="noopener noreferrer" class="dj-icon-link soundcloud" title="SoundCloud">
@@ -928,7 +951,7 @@
           <span class="dj-origin">Feldkirch 🇦🇹</span>
           <img src="/medved.jpg" alt="Medved" class="dj-image" />
           <h3 class="dj-name">Medved</h3>
-          <p class="dj-label">Sektor Kollektiv</p>
+          <p class="dj-label"><a href="https://www.instagram.com/sektorkollektiv/" target="_blank" rel="noopener noreferrer" class="dj-label-link">Sektor Kollektiv</a></p>
           
           <div class="dj-social-icons">
             <a href="https://soundcloud.com/medved_198" target="_blank" rel="noopener noreferrer" class="dj-icon-link soundcloud" title="SoundCloud">
@@ -951,7 +974,7 @@
           <span class="dj-origin">Lindau (DE) 🇩🇪</span>
           <img src="/playnerror.jpg" alt="Play'N'Error" class="dj-image" />
           <h3 class="dj-name">Play'N'Error</h3>
-          <p class="dj-label">Kultur Lindau e.V.</p>
+          <p class="dj-label"><a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="dj-label-link">Kultur Lindau e.V.</a></p>
           
           <div class="dj-social-icons">
             <a href="https://soundcloud.com/playnerror" target="_blank" rel="noopener noreferrer" class="dj-icon-link soundcloud" title="SoundCloud">
@@ -974,7 +997,8 @@
       <div class="glass-panel cooperation-box">
         <p class="cooperation-text">
           🤝 Dieses Event wird in enger Freundschaft und Kooperation von den Vereinen 
-          <strong>Frequency Squad</strong> und <strong>Kultur Lindau e.V.</strong> veranstaltet, 
+          <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Frequency Squad</a> und 
+          <a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Kultur Lindau e.V.</a> veranstaltet, 
           um die elektronische Musikkultur in der Region Bodensee-Vorarlberg zu stärken.
         </p>
       </div>

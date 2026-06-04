@@ -668,6 +668,17 @@ h1, h2, h3, h4 {
   min-height: 1.25rem;
 }
 
+.dj-label-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.dj-label-link:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
 .dj-image {
   width: 120px;
   height: 120px;
@@ -755,4 +766,16 @@ h1, h2, h3, h4 {
 .cooperation-text strong {
   color: #fff;
   font-weight: 700;
+}
+
+.cooperation-link {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.cooperation-link:hover {
+  text-decoration: underline;
+  color: var(--neon-cyan);
 }

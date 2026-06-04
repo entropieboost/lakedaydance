@@ -59,25 +59,31 @@ export const Lineup: React.FC = () => {
               {dj.badge}
             </span>
             <span className="dj-origin">{dj.origin}</span>
+            
+            {/* Profile Image Placeholder */}
+            <div className="dj-image-placeholder">
+              <span className="dj-image-icon">🎧</span>
+            </div>
+
             <h3 className="dj-name">{dj.name}</h3>
             <p className="dj-label">{dj.label}</p>
             
             <div className="dj-links">
-              <a
-                href={dj.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="dj-link-btn instagram"
-              >
-                <span>📸 Instagram</span>
-              </a>
               <a
                 href={dj.soundcloud}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="dj-link-btn"
               >
-                <span>🎵 SoundCloud</span>
+                <span>🎵 SoundCloud Link</span>
+              </a>
+              <a
+                href={dj.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="dj-link-btn instagram"
+              >
+                <span>📸 Instagram Link</span>
               </a>
             </div>
           </div>

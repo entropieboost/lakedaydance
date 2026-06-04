@@ -37,6 +37,14 @@ export const EventBasics: React.FC = () => {
           <p className="card-desc">Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.</p>
         </div>
 
+        {/* Wetter */}
+        <div className="glass-panel basic-card">
+          <span className="card-icon">🌦️</span>
+          <h3 className="card-title">Wetter</h3>
+          <p className="card-value">Ausweichtermin vorhanden</p>
+          <p className="card-desc">Bei schlechtem Wetter gibt es einen Ausweichtermin. Bereits gekaufte Tickets behalten ihre Gültigkeit.</p>
+        </div>
+
         {/* Ticket-Hinweis */}
         <div className="glass-panel ticket-notice-card">
           <span className="card-icon">🎟️</span>

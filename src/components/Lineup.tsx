@@ -4,9 +4,9 @@ interface DJ {
   name: string;
   origin: string;
   label: string;
-  badge: 'International' | 'Local Support';
   instagram: string;
   soundcloud: string;
+  image: string;
 }
 
 export const Lineup: React.FC = () => {
@@ -15,33 +15,33 @@ export const Lineup: React.FC = () => {
       name: 'Falzar',
       origin: 'Frankreich 🇫🇷',
       label: 'Zenon Records',
-      badge: 'International',
       instagram: 'https://www.instagram.com/falzaroparadise/',
       soundcloud: 'https://soundcloud.com/user-612695582',
+      image: '/falzar.jpg',
     },
     {
       name: 'Rico',
       origin: 'Frankreich 🇫🇷',
       label: 'AlpaKa MuziK / Frequency Squad Rec.',
-      badge: 'International',
       instagram: 'https://www.instagram.com/rico_utr/',
       soundcloud: 'https://soundcloud.com/rico-chiraque',
+      image: '/rico.jpg',
     },
     {
       name: 'Medved',
       origin: 'Feldkirch 🇦🇹',
       label: 'Sektor Kollektiv',
-      badge: 'Local Support',
       instagram: 'https://www.instagram.com/medved_music/',
       soundcloud: 'https://soundcloud.com/medved_198',
+      image: '/medved.jpg',
     },
     {
       name: "Play'N'Error",
       origin: 'Lindau (DE) 🇩🇪',
       label: 'Kultur Lindau e.V.',
-      badge: 'Local Support',
       instagram: 'https://www.instagram.com/play_n_error/',
       soundcloud: 'https://soundcloud.com/playnerror',
+      image: '/playnerror.jpg',
     },
   ];
 
@@ -55,13 +55,10 @@ export const Lineup: React.FC = () => {
       <div className="lineup-grid">
         {djs.map((dj, index) => (
           <div key={index} className="glass-panel dj-card">
-            <span className={`dj-badge ${dj.badge === 'Local Support' ? 'local' : ''}`}>
-              {dj.badge}
-            </span>
             <span className="dj-origin">{dj.origin}</span>
             
             {/* Profile Image */}
-            <img src="/dj-placeholder.png" alt={dj.name} className="dj-image" />
+            <img src={dj.image} alt={dj.name} className="dj-image" />
 
             <h3 className="dj-name">{dj.name}</h3>
             <p className="dj-label">{dj.label}</p>

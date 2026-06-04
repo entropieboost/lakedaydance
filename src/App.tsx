@@ -1,5 +1,6 @@
 import React from 'react';
 import { EventBasics } from './components/EventBasics';
+import { Lineup } from './components/Lineup';
 import { GameContainer } from './components/GameContainer';
 import { Leaderboard } from './components/Leaderboard';
 
@@ -51,6 +52,9 @@ export default function App() {
 
         {/* Event Basics Section */}
         <EventBasics />
+
+        {/* Lineup Section */}
+        <Lineup />
 
         {/* Game Console Section */}
         <GameContainer />

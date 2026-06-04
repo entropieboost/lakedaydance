@@ -16,32 +16,32 @@ export const Lineup: React.FC = () => {
       origin: 'Frankreich 🇫🇷',
       label: 'Zenon Records',
       badge: 'International',
-      instagram: 'https://www.instagram.com/zenonrecords/',
-      soundcloud: 'https://soundcloud.com/zenon-records',
+      instagram: 'https://www.instagram.com/falzaroparadise/',
+      soundcloud: 'https://soundcloud.com/user-612695582',
     },
     {
       name: 'Rico',
       origin: 'Frankreich 🇫🇷',
       label: 'AlpaKa MuziK / Frequency Squad Rec.',
       badge: 'International',
-      instagram: 'https://www.instagram.com/frequencysquad/',
-      soundcloud: 'https://soundcloud.com/fqsqd',
+      instagram: 'https://www.instagram.com/rico_utr/',
+      soundcloud: 'https://soundcloud.com/rico-chiraque',
     },
     {
       name: 'Medved',
       origin: 'Feldkirch 🇦🇹',
       label: 'Sektor Kollektiv',
       badge: 'Local Support',
-      instagram: 'https://www.instagram.com/sektorkollektiv/', // Fallback, commonly sektorkollektiv
-      soundcloud: 'https://soundcloud.com/tinkosektor', // Tinko Sektor collective soundcloud reference
+      instagram: 'https://www.instagram.com/medved_music/',
+      soundcloud: 'https://soundcloud.com/medved_198',
     },
     {
       name: "Play'N'Error",
       origin: 'Lindau (DE) 🇩🇪',
       label: 'Kultur Lindau e.V.',
       badge: 'Local Support',
-      instagram: 'https://www.instagram.com/kultur.lindau/',
-      soundcloud: 'https://soundcloud.com/hoerklangsoundsystem',
+      instagram: 'https://www.instagram.com/play_n_error/',
+      soundcloud: 'https://soundcloud.com/playnerror',
     },
   ];
 

@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Lake Daydance Challenge | Daydance Frastanz, Untere Au</title>
+  <meta name="description" content="Spiele die Lake Jump Challenge beim Daydance in Frastanz (Untere Au)! Die besten 5 gültigen Highscores gewinnen Free Entry & Goodies. Techno, Psy-Techno & am See." />
+  <meta name="keywords" content="Daydance, Frastanz, Untere Au, Techno, Open Air, Minigame, Gewinnspiel, Lake Jump, Elektronische Musik" />
+  <meta property="og:title" content="Lake Daydance Challenge | Daydance Frastanz" />
+  <meta property="og:description" content="Spring über Steine und gewinne Tickets für den Daydance am See! Die Top 5 Scores gewinnen Eintritt & Goodies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/lake-view.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #060c11;
+      --bg-card: rgba(13, 25, 34, 0.65);
+      --border-card: rgba(0, 240, 255, 0.15);
+      
+      --neon-cyan: #00f0ff;
+      --neon-pink: #ff007f;
+      --neon-purple: #9d4edd;
+      
+      --text-primary: #f8f9fa;
+      --text-muted: #a9d6e5;
+      
+      --font-heading: 'Outfit', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      
+      --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.5;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .game-active {
+      overflow: hidden !important;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      letter-spacing: 0.05em;
+    }
+
+    /* Glassmorphism Styles */
+    .glass-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      padding: 1.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .glass-panel:hover {
+      border-color: rgba(0, 240, 255, 0.35);
+      box-shadow: 0 12px 40px 0 rgba(0, 240, 255, 0.1);
+    }
+
+    /* Header & Logo */
+    .app-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .logo-text {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.15em;
+      text-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 6rem 1.5rem 3rem;
+      background-image: linear-gradient(to bottom, rgba(6, 12, 17, 0.6), var(--bg-dark)), url('/lake-view.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--neon-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.9rem;
+    }
+
+    .hero-title {
+      font-size: 2.75rem;
+      font-weight: 900;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title span {
+      display: block;
+      background: linear-gradient(135deg, #ffffff 40%, var(--neon-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-meta {
+      color: var(--text-muted);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 4rem;
+      }
+      .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 2rem;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+      color: #000;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+      filter: brightness(1.1);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 2px solid var(--neon-pink);
+      box-shadow: inset 0 0 10px rgba(255, 0, 127, 0.1);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 0, 127, 0.15);
+      box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
+    }
+
+    /* Event Basics Section */
+    .section-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      text-align: center;
+      background: linear-gradient(90deg, #fff, var(--neon-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .basics-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .basics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .basic-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-title {
+      color: var(--neon-cyan);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .card-value {
+      color: var(--text-primary);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .ticket-notice-card {
+      grid-column: 1 / -1;
+      border-color: var(--neon-pink);
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255, 0, 127, 0.08), rgba(6, 12, 17, 0.7));
+    }
+
+    /* Game Section */
+    .game-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(180deg, var(--bg-dark), #0b151e);
+      padding: 4rem 1rem;
+    }
+
+    .game-console {
+      width: 100%;
+      max-width: 380px;
+      position: relative;
+      background: #0d1216;
+      border-radius: 24px;
+      padding: 10px;
+      box-shadow: 0 0 40px rgba(0, 240, 255, 0.15);
+      border: 2px solid var(--neon-cyan);
+      overflow: hidden;
+    }
+
+    .canvas-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9/16;
+      background: #060d13;
+      border-radius: 16px;
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    .game-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .game-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      background: rgba(6, 12, 17, 0.85);
+      z-index: 5;
+    }
+
+    .game-overlay-title {
+      font-size: 2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .game-overlay-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      max-width: 260px;
+    }
+
+    .game-controls-hint {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .console-hud {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0.25rem 0;
+    }
+
+    .hud-button {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.25rem 0.5rem;
+      text-transform: uppercase;
+      transition: var(--transition-smooth);
+    }
+
+    .hud-button:hover {
+      color: var(--neon-cyan);
+    }
+
+    /* Forms */
+    .submit-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      text-align: left;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .form-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--neon-cyan);
+      letter-spacing: 0.05em;
+    }
+
+    .form-input {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      border-radius: 8px;
+      color: #fff;
+      padding: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      transition: var(--transition-smooth);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--neon-cyan);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+    }
+
+    .form-checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1.3;
+    }
+
+    .form-checkbox-label input {
+      margin-top: 0.15rem;
+      accent-color: var(--neon-cyan);
+    }
+
+    .privacy-disclaimer {
+      font-size: 0.68rem;
+      color: rgba(255, 255, 255, 0.35);
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    /* Leaderboard */
+    .leaderboard-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .leaderboard-table th {
+      padding: 0.75rem 1rem;
+      color: var(--neon-cyan);
+      font-family: var(--font-heading);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+    }
+
+    .leaderboard-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.95rem;
+    }
+
+    .leaderboard-row {
+      transition: var(--transition-smooth);
+    }
+
+    .leaderboard-row:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .leaderboard-row-top-1 {
+      background: rgba(255, 215, 0, 0.05);
+    }
+    .leaderboard-row-top-1 td {
+      border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+    }
+    .leaderboard-row-top-1 .rank-cell {
+      color: #ffd700;
+      font-weight: 900;
+    }
+
+    .leaderboard-row-top-2 {
+      background: rgba(192, 192, 192, 0.03);
+    }
+    .leaderboard-row-top-2 .rank-cell {
+      color: #c0c0c0;
+      font-weight: 900;
+    }
+
+    .leaderboard-row-top-3 {
+      background: rgba(205, 127, 50, 0.03);
+    }
+    .leaderboard-row-top-3 .rank-cell {
+      color: #cd7f32;
+      font-weight: 900;
+    }
+
+    .rank-cell {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      text-align: center;
+      width: 50px;
+    }
+
+    .score-cell {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      color: var(--neon-cyan);
+      text-align: right;
+    }
+
+    .name-cell {
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ig-handle {
+      font-size: 0.78rem;
+      color: var(--neon-pink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .badge-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      color: #fff;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      align-self: flex-start;
+    }
+
+    .leaderboard-disclaimer {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.4;
+      margin-top: 0.5rem;
+    }
+
+    .rules-box {
+      margin-top: 2rem;
+      border-color: rgba(255, 255, 255, 0.1);
+      text-align: left;
+    }
+
+    .rules-title {
+      color: var(--neon-pink);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .rules-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .app-footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    /* Loading Spinner */
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid var(--border-card);
+      border-top-color: var(--neon-cyan);
+      borderRadius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header className="app-header" style="position: absolute; top: 0; left: 0; width: 100%; padding: 1.5rem; display: flex; justify-content: center; z-index: 10;">
+    <div class="logo-text">Lake Daydance</div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <p class="hero-subtitle">Daydance am See</p>
+        <h1 class="hero-title">
+          Daydance <span>Frastanz</span>
+        </h1>
+        <p class="hero-meta">
+          📍 Untere Au, Frastanz &nbsp;·&nbsp; ⏰ 18:00 bis 24:00 &nbsp;·&nbsp; 🌅 Open Air
+        </p>
+        
+        <div class="hero-buttons">
+          <a href="https://eventfrog.ch" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Tickets sichern 🎟️
+          </a>
+          <button onclick="scrollToGame()" class="btn btn-secondary">
+            Lake Challenge spielen 🕹️
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Infos Section -->
+    <section class="section-container" id="details">
+      <h2 class="section-title">Event Infos</h2>
+      <div class="basics-grid">
+        <div class="glass-panel basic-card">
+          <span class="card-icon">📍</span>
+          <h3 class="card-title">Ort</h3>
+          <p class="card-value">Untere Au, Frastanz</p>
+          <p class="card-desc">Daydance direkt am malerischen Badesee. Parkplätze vor Ort vorhanden.</p>
+        </div>
+
+        <div class="glass-panel basic-card">
+          <span class="card-icon">⏰</span>
+          <h3 class="card-title">Zeit</h3>
+          <p class="card-value">18:00 - 24:00 Uhr</p>
+          <p class="card-desc">Einlass ab 18:00 Uhr. Tanzen bis Mitternacht direkt unter freiem Himmel.</p>
+        </div>
+
+        <div class="glass-panel basic-card">
+          <span class="card-icon">🔊</span>
+          <h3 class="card-title">Musik & Lineup</h3>
+          <p class="card-value">Techno / Psy-Techno / Dark Prog</p>
+          <p class="card-desc">Treibende elektronische Bässe von regionalen & nationalen Acts.</p>
+        </div>
+
+        <div class="glass-panel basic-card">
+          <span class="card-icon">🌅</span>
+          <h3 class="card-title">Vibe</h3>
+          <p class="card-value">Open Air & Sonnenuntergang</p>
+          <p class="card-desc">Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.</p>
+        </div>
+
+        <div class="glass-panel ticket-notice-card">
+          <span class="card-icon">🎟️</span>
+          <h3 class="card-title">Tickets & Eintritt</h3>
+          <p class="card-value" style="margin: 0.25rem 0 0.5rem; font-size: 1.4rem;">
+            Sichere dir dein Ticket im Vorverkauf!
+          </p>
+          <p class="card-desc" style="margin-bottom: 1rem; color: var(--text-primary);">
+            Der Vorverkauf über Event Frog ist deutlich günstiger als die Abendkassa vor Ort. Kontingent ist limitiert!
+          </p>
+          <a href="https://eventfrog.ch" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.75rem 1.75rem;">
+            Tickets bei Event Frog kaufen
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game Console Section -->
+    <section class="game-section" id="game-section">
+      <h2 class="section-title">Lake Jump Challenge</h2>
+      
+      <div class="game-console">
+        <div class="canvas-wrapper" id="canvas-wrapper">
+          <canvas id="game-canvas" class="game-canvas"></canvas>
+
+          <!-- Overlay Screens -->
+          <div class="game-overlay" id="overlay-screen">
+            <!-- Screen content injected dynamically by JS -->
+          </div>
+        </div>
+
+        <div class="console-hud">
+          <button class="hud-button" id="mute-btn" onclick="toggleMute()">🔊 Sound: An</button>
+          <button class="hud-button" id="pause-btn" style="display:none;" onclick="pauseGame()">⏸️ Pause</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highscore Leaderboard Section -->
+    <section class="section-container" id="leaderboard">
+      <h2 class="section-title">Leaderboard</h2>
+      
+      <div class="glass-panel leaderboard-container">
+        <div id="leaderboard-loading" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+          Lade Highscores...
+        </div>
+        <div style="overflow-x: auto; display: none;" id="leaderboard-table-wrapper">
+          <table class="leaderboard-table">
+            <thead>
+              <tr>
+                <th class="rank-cell">Rang</th>
+                <th>Raver</th>
+                <th style="text-align: right;">Score</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+              <!-- Injected by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="leaderboard-disclaimer">
+          🔒 <strong>Fairplay & Info:</strong> Verdächtige oder manipulierte Scores werden automatisch gefiltert und gelöscht. Pro Person zählt nur der beste gültige Score. Wer bei Auslosung 24h vor Eventstart ganz oben steht, gewinnt!
+        </div>
+
+        <div class="glass-panel rules-box">
+          <h3 class="rules-title">Gewinnspiel-Regeln</h3>
+          <p class="rules-text">
+            Die Top 3 gültigen Scores gewinnen je 1 Free-Entry-Ticket + Goodie. Pro Person zählt nur der beste gültige Score.
+            Mehrfach-Accounts, Fake-Daten oder manipulierte Scores können entfernt werden. Die Gewinner werden über Instagram oder E-Mail kontaktiert.
+            Der Rechtsweg ist ausgeschlossen.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>© 2026 Lake Daydance Challenge Frastanz. Alle Rechte vorbehalten.</p>
+    <p>Daydance Untere Au - Musik, See & Gemeinschaft.</p>
+  </footer>
+
+  <!-- =========================================================================
+       JavaScript Game Engine & API client
+       ========================================================================= -->
+  <script>
+    // Global error listener to display runtime console crashes as screen popups
+    window.onerror = function (message, source, lineno, colno, error) {
+      alert("❌ JavaScript-Fehler:\n" + message + "\n\nDatei: " + source + "\nZeile: " + lineno);
+      return false;
+    };
+
+    // Polyfill roundRect for older or specific browser engines to prevent canvas runtime crashes
+    if (typeof CanvasRenderingContext2D.prototype.roundRect !== 'function') {
+      CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+        let radius = 0;
+        if (typeof r === 'number') {
+          radius = r;
+        } else if (Array.isArray(r)) {
+          radius = r[0] || 0;
+        }
+        if (w < 2 * radius) radius = w / 2;
+        if (h < 2 * radius) radius = h / 2;
+        this.beginPath();
+        this.moveTo(x + radius, y);
+        this.arcTo(x + w, y, x + w, y + h, radius);
+        this.arcTo(x + w, y + h, x, y + h, radius);
+        this.arcTo(x, y + h, x, y, radius);
+        this.arcTo(x, y, x + w, y, radius);
+        this.closePath();
+        return this;
+      };
+    }
+
+    // Scroll to game section instantly to prevent iOS smooth scroll cancel on overflow: hidden
+    function scrollToGame() {
+      const el = document.getElementById('game-canvas');
+      if (el) {
+        el.scrollIntoView({ behavior: 'auto', block: 'center' });
+      }
+    }
+
+    // =========================================================================
+    // Game Classes
+    // =========================================================================
+
+    class PRNG {
+      constructor(seed) {
+        this.state = (seed ^ 0xDEADBEEF) >>> 0;
+      }
+      next() {
+        let t = (this.state += 0x6d2b79f5) | 0;
+        t = Math.imul(t ^ (t >>> 15), t | 1);
+        t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      }
+      nextRange(min, max) {
+        return min + this.next() * (max - min);
+      }
+    }
+
+    class PlatformManager {
+      constructor(seed) {
+        this.prng = new PRNG(seed);
+        this.generatedPlatforms = [
+          { index: 0, x: 0, y: 460, width: 500, height: 200 }
+        ];
+      }
+
+      getPlatform(index) {
+        while (this.generatedPlatforms.length <= index) {
+          const prev = this.generatedPlatforms[this.generatedPlatforms.length - 1];
+          const i = this.generatedPlatforms.length;
+          const difficulty = Math.min(i / 60, 1.0);
+
+          const minGap = 80 + difficulty * 20;
+          const maxGap = 130 + difficulty * 60;
+          const gap = this.prng.nextRange(minGap, maxGap);
+
+          const minWidth = Math.max(55, 90 - difficulty * 25);
+          const maxWidth = Math.max(75, 130 - difficulty * 45);
+          const width = this.prng.nextRange(minWidth, maxWidth);
+
+          const yOffset = this.prng.nextRange(-25, 20);
+          const y = Math.max(420, Math.min(480, 460 + yOffset));
+
+          const x = prev.x + prev.width + gap;
+
+          this.generatedPlatforms.push({
+            index: i,
+            x,
+            y,
+            width,
+            height: 250
+          });
+        }
+        return this.generatedPlatforms[index];
+      }
+
+      getPlatformsInRange(startX, endX) {
+        const list = [];
+        let idx = 0;
+        while (true) {
+          const p = this.getPlatform(idx);
+          if (p.x + p.width < startX) {
+            idx++;
+            continue;
+          }
+          if (p.x > endX) {
+            break;
+          }
+          list.push(p);
+          idx++;
+        }
+        return list;
+      }
+    }
+
+    class AudioSynth {
+      constructor() {
+        this.ctx = null;
+        this.isMuted = false;
+      }
+      init() {
+        if (!this.ctx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (AudioContextClass) this.ctx = new AudioContextClass();
+        }
+        if (this.ctx && this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+        // Force context activation on iOS/Safari by playing a micro-buffer of silence
+        if (this.ctx) {
+          try {
+            const buffer = this.ctx.createBuffer(1, 1, 22050);
+            const source = this.ctx.createBufferSource();
+            source.buffer = buffer;
+            source.connect(this.ctx.destination);
+            source.start(0);
+          } catch (e) {
+            // Ignore silent playback errors
+          }
+        }
+      }
+      playJump() {
+        if (this.isMuted) return;
+        this.init();
+        if (!this.ctx) return;
+        try {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.type = 'triangle';
+          const now = this.ctx.currentTime;
+          osc.frequency.setValueAtTime(180, now);
+          osc.frequency.exponentialRampToValueAtTime(600, now + 0.12);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.linearRampToValueAtTime(0.01, now + 0.15);
+          osc.start(now);
+          osc.stop(now + 0.16);
+        } catch (e) {}
+      }
+      playSplash() {
+        if (this.isMuted) return;
+        this.init();
+        if (!this.ctx) return;
+        try {
+          const now = this.ctx.currentTime;
+          const bufferSize = this.ctx.sampleRate * 0.35;
+          const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            data[i] = Math.random() * 2 - 1;
+          }
+          const noiseNode = this.ctx.createBufferSource();
+          noiseNode.buffer = buffer;
+          const filter = this.ctx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(1000, now);
+          filter.frequency.exponentialRampToValueAtTime(80, now + 0.3);
+          const gain = this.ctx.createGain();
+          gain.gain.setValueAtTime(0.25, now);
+          gain.gain.linearRampToValueAtTime(0.01, now + 0.32);
+          noiseNode.connect(filter);
+          filter.connect(gain);
+          gain.connect(this.ctx.destination);
+          noiseNode.start(now);
+          noiseNode.stop(now + 0.35);
+        } catch (e) {}
+      }
+      playLevelUp() {
+        if (this.isMuted) return;
+        this.init();
+        if (!this.ctx) return;
+        try {
+          const now = this.ctx.currentTime;
+          const playNote = (freq, delay, dur) => {
+            if (!this.ctx) return;
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'sine';
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.frequency.setValueAtTime(freq, now + delay);
+            gain.gain.setValueAtTime(0, now + delay);
+            gain.gain.linearRampToValueAtTime(0.12, now + delay + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + delay + dur);
+            osc.start(now + delay);
+            osc.stop(now + delay + dur);
+          };
+          playNote(440, 0, 0.25);
+          playNote(659.25, 0.08, 0.3);
+        } catch (e) {}
+      }
+      setMute(muted) {
+        this.isMuted = muted;
+        if (!muted) {
+          this.init();
+        }
+      }
+      toggleMute() {
+        this.setMute(!this.isMuted);
+        return this.isMuted;
+      }
+    }
+
+    class GameEngine {
+      constructor(canvas, seed, callbacks, audio) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.dpr = 1;
+        this.logicalWidth = 360;
+        this.logicalHeight = 640;
+        
+        this.platformManager = new PlatformManager(seed);
+        this.callbacks = callbacks;
+        this.audio = audio;
+
+        this.GRAVITY = 0.55;
+        this.JUMP_FORCE = -11.0;
+        this.START_SPEED = 3.0;
+        this.MAX_SPEED = 7.0;
+        this.PLAYER_WIDTH = 26;
+        this.PLAYER_HEIGHT = 46;
+
+        this.playerX = 50;
+        this.playerY = 0;
+        this.playerVy = 0;
+        this.grounded = false;
+        this.standingPlatformIdx = 0;
+
+        this.speed = 3.0;
+        this.score = 0;
+        this.isRunning = false;
+        this.isPaused = false;
+        this.startTimestamp = 0;
+        this.pauseStartedAt = 0;
+        this.totalPausedDurationMs = 0;
+        this.animationFrameId = null;
+        this.lastFrameTime = 0;
+        
+        this.jumpEvents = [];
+        this.legCycle = 0;
+        this.waterOffset = 0;
+        this.splashParticles = [];
+        this.speedNotificationTimer = 0;
+
+        const startPlatform = this.platformManager.getPlatform(0);
+        this.playerY = startPlatform.y - this.PLAYER_HEIGHT;
+        this.grounded = true;
+
+        this.resizeCanvas = this.resizeCanvas.bind(this);
+        this.gameLoop = this.gameLoop.bind(this);
+
+        this.resizeCanvas();
+        window.addEventListener('resize', this.resizeCanvas);
+      }
+
+      resizeCanvas() {
+        this.dpr = window.devicePixelRatio || 1;
+        const rect = this.canvas.getBoundingClientRect();
+        this.canvas.width = rect.width * this.dpr;
+        this.canvas.height = rect.height * this.dpr;
+        this.ctx.resetTransform();
+        this.ctx.scale(this.canvas.width / this.logicalWidth, this.canvas.height / this.logicalHeight);
+      }
+
+      destroy() {
+        window.removeEventListener('resize', this.resizeCanvas);
+        if (this.animationFrameId) cancelAnimationFrame(this.animationFrameId);
+      }
+
+      start() {
+        this.isRunning = true;
+        this.isPaused = false;
+        this.startTimestamp = Date.now();
+        this.totalPausedDurationMs = 0;
+        this.lastFrameTime = performance.now();
+        this.animationFrameId = requestAnimationFrame(this.gameLoop);
+      }
+
+      pause() {
+        if (!this.isRunning || this.isPaused) return;
+        this.isPaused = true;
+        this.pauseStartedAt = Date.now();
+        if (this.animationFrameId) {
+          cancelAnimationFrame(this.animationFrameId);
+          this.animationFrameId = null;
+        }
+        this.draw();
+      }
+
+      resume() {
+        if (!this.isRunning || !this.isPaused) return;
+        this.isPaused = false;
+        this.totalPausedDurationMs += (Date.now() - this.pauseStartedAt);
+        this.lastFrameTime = performance.now();
+        this.animationFrameId = requestAnimationFrame(this.gameLoop);
+      }
+
+      jump() {
+        if (!this.isRunning || this.isPaused) return;
+        if (this.grounded) {
+          this.playerVy = this.JUMP_FORCE;
+          this.grounded = false;
+          this.audio.playJump();
+
+          const standingPlatform = this.platformManager.getPlatform(this.standingPlatformIdx);
+          this.jumpEvents.push({
+            t: Date.now() - this.startTimestamp - this.totalPausedDurationMs,
+            pIdx: this.standingPlatformIdx,
+            pX: standingPlatform.x,
+            pY: standingPlatform.y,
+            x: this.playerX,
+            y: this.playerY
+          });
+        }
+      }
+
+      triggerGameOver() {
+        this.isRunning = false;
+        if (this.animationFrameId) cancelAnimationFrame(this.animationFrameId);
+        
+        this.audio.playSplash();
+        this.createSplashParticles(this.playerX + this.PLAYER_WIDTH / 2, this.playerY + this.PLAYER_HEIGHT);
+
+        let splashFrames = 0;
+        const animate = () => {
+          splashFrames++;
+          this.updateParticles();
+          this.draw();
+          if (splashFrames < 45) {
+            requestAnimationFrame(animate);
+          } else {
+            const durationMs = Date.now() - this.startTimestamp - this.totalPausedDurationMs;
+            this.callbacks.onGameOver({
+              score: this.score,
+              durationMs,
+              finalDistance: Math.floor(this.playerX),
+              jumpEvents: this.jumpEvents
+            });
+          }
+        };
+        animate();
+      }
+
+      gameLoop(timestamp) {
+        if (!this.isRunning || this.isPaused) return;
+        const elapsed = timestamp - this.lastFrameTime;
+        this.lastFrameTime = timestamp;
+        const dt = Math.min(elapsed / 16.666, 3);
+
+        this.update(dt);
+        this.draw();
+
+        if (this.isRunning) {
+          this.animationFrameId = requestAnimationFrame(this.gameLoop);
+        }
+      }
+
+      update(dt) {
+        this.speed = this.START_SPEED + Math.min(this.playerX / 2500, this.MAX_SPEED - this.START_SPEED);
+        const oldScore = this.score;
+        this.playerX += this.speed * dt;
+        this.score = Math.floor(this.playerX / 15);
+
+        if (this.score !== oldScore) {
+          this.callbacks.onScoreUpdate(this.score);
+          if (this.score > 0 && this.score % 300 === 0) {
+            this.audio.playLevelUp();
+            this.speedNotificationTimer = 40;
+          }
+        }
+
+        if (!this.grounded) {
+          this.playerVy += this.GRAVITY * dt;
+          this.playerY += this.playerVy * dt;
+        }
+
+        const activePlatforms = this.platformManager.getPlatformsInRange(
+          this.playerX - 100,
+          this.playerX + 150
+        );
+
+        let foundLanding = false;
+        for (const p of activePlatforms) {
+          const overlapLeft = this.playerX + this.PLAYER_WIDTH > p.x;
+          const overlapRight = this.playerX < p.x + p.width;
+          if (overlapLeft && overlapRight) {
+            if (this.playerVy >= 0) {
+              const feetY = this.playerY + this.PLAYER_HEIGHT;
+              if (feetY >= p.y && feetY <= p.y + 12 + this.playerVy * dt) {
+                this.playerY = p.y - this.PLAYER_HEIGHT;
+                this.playerVy = 0;
+                this.grounded = true;
+                this.standingPlatformIdx = p.index;
+                foundLanding = true;
+                break;
+              }
+            }
+          }
+        }
+
+        if (this.grounded && !foundLanding) this.grounded = false;
+
+        if (this.playerY + this.PLAYER_HEIGHT > 510) {
+          this.triggerGameOver();
+          return;
+        }
+
+        if (this.grounded) this.legCycle += 0.15 * this.speed * dt;
+        this.waterOffset += 0.04 * dt;
+        if (this.speedNotificationTimer > 0) this.speedNotificationTimer -= dt;
+        this.updateParticles();
+      }
+
+      createSplashParticles(x, y) {
+        for (let i = 0; i < 24; i++) {
+          const angle = Math.random() * Math.PI - Math.PI;
+          const speed = Math.random() * 5 + 3;
+          this.splashParticles.push({
+            x, y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            radius: Math.random() * 3 + 2,
+            color: i % 2 === 0 ? '#00f0ff' : '#00b4d8',
+            alpha: 1
+          });
+        }
+      }
+
+      updateParticles() {
+        for (let i = this.splashParticles.length - 1; i >= 0; i--) {
+          const p = this.splashParticles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.2;
+          p.alpha -= 0.02;
+          if (p.alpha <= 0) this.splashParticles.splice(i, 1);
+        }
+      }
+
+      draw() {
+        this.ctx.clearRect(0, 0, this.logicalWidth, this.logicalHeight);
+
+        // 1. Sunset Background
+        const bgGrad = this.ctx.createLinearGradient(0, 0, 0, 500);
+        bgGrad.addColorStop(0, '#060d13');
+        bgGrad.addColorStop(0.5, '#1b122e');
+        bgGrad.addColorStop(0.75, '#ff477e');
+        bgGrad.addColorStop(0.9, '#feb47b');
+        this.ctx.fillStyle = bgGrad;
+        this.ctx.fillRect(0, 0, this.logicalWidth, this.logicalHeight);
+
+        // 2. Sun
+        this.ctx.fillStyle = '#ff7e5f';
+        this.ctx.shadowColor = '#ff007f';
+        this.ctx.shadowBlur = 30;
+        this.ctx.beginPath();
+        this.ctx.arc(this.logicalWidth / 2, 380, 50, 0, Math.PI, true);
+        this.ctx.fill();
+        this.ctx.shadowBlur = 0;
+
+        // 3. Mountains
+        this.ctx.fillStyle = '#160f26';
+        this.ctx.beginPath();
+        this.ctx.moveTo(0, 480);
+        this.ctx.lineTo(0, 390);
+        this.ctx.quadraticCurveTo(80, 340, 160, 370);
+        this.ctx.quadraticCurveTo(240, 320, 360, 400);
+        this.ctx.lineTo(360, 480);
+        this.ctx.fill();
+
+        // 4. Central Tree Island
+        const cameraX = this.playerX - 100;
+        const islandX = 300 - (cameraX * 0.15) % 450;
+        this.ctx.fillStyle = '#0f2214';
+        this.ctx.beginPath();
+        this.ctx.ellipse(islandX, 440, 45, 12, 0, 0, Math.PI * 2);
+        this.ctx.fill();
+        this.ctx.fillStyle = '#1e1107';
+        this.ctx.fillRect(islandX - 3, 415, 6, 20);
+        this.ctx.fillStyle = '#22543d';
+        this.ctx.beginPath();
+        this.ctx.arc(islandX, 405, 18, 0, Math.PI * 2);
+        this.ctx.arc(islandX - 10, 400, 14, 0, Math.PI * 2);
+        this.ctx.arc(islandX + 10, 400, 14, 0, Math.PI * 2);
+        this.ctx.fill();
+
+        // 5. Stones
+        const activePlatforms = this.platformManager.getPlatformsInRange(
+          cameraX - 100,
+          cameraX + this.logicalWidth + 100
+        );
+
+        for (const p of activePlatforms) {
+          const renderX = p.x - cameraX;
+          this.ctx.save();
+          const rockGrad = this.ctx.createLinearGradient(renderX, p.y, renderX, p.y + 60);
+          rockGrad.addColorStop(0, '#5a6268');
+          rockGrad.addColorStop(0.3, '#343a40');
+          rockGrad.addColorStop(1, '#1b1e21');
+          this.ctx.fillStyle = rockGrad;
+          
+          this.ctx.beginPath();
+          const r = 10;
+          this.ctx.moveTo(renderX + r, p.y);
+          this.ctx.lineTo(renderX + p.width - r, p.y);
+          this.ctx.quadraticCurveTo(renderX + p.width, p.y, renderX + p.width, p.y + r);
+          this.ctx.lineTo(renderX + p.width - 2, p.y + p.height);
+          this.ctx.lineTo(renderX + 2, p.y + p.height);
+          this.ctx.quadraticCurveTo(renderX, p.y + p.height, renderX, p.y + r);
+          this.ctx.quadraticCurveTo(renderX, p.y, renderX + r, p.y);
+          this.ctx.closePath();
+          this.ctx.fill();
+
+          this.ctx.strokeStyle = '#00f0ff';
+          this.ctx.lineWidth = 2.5;
+          this.ctx.beginPath();
+          this.ctx.moveTo(renderX + 6, p.y + 1);
+          this.ctx.lineTo(renderX + p.width - 6, p.y + 1);
+          this.ctx.stroke();
+
+          this.ctx.fillStyle = '#6c757d';
+          this.ctx.font = '9px Outfit, sans-serif';
+          this.ctx.textAlign = 'center';
+          this.ctx.fillText(`${p.index}`, renderX + p.width / 2, p.y + 18);
+          this.ctx.restore();
+        }
+
+        // 6. Draw Player (Techno Raver)
+        if (this.isRunning || !this.grounded) {
+          const renderPlayerX = this.playerX - cameraX;
+          const renderPlayerY = this.playerY;
+          this.ctx.save();
+
+           this.ctx.fillStyle = '#39ff14'; // bright green hoodie
+           this.ctx.fillRect(renderPlayerX + 4, renderPlayerY + 12, 18, 22);
+ 
+           this.ctx.fillStyle = '#111'; // black shorts
+           this.ctx.fillRect(renderPlayerX + 4, renderPlayerY + 32, 18, 6);
+ 
+           this.ctx.fillStyle = '#ffd1a9'; // face
+           this.ctx.beginPath();
+           this.ctx.arc(renderPlayerX + 13, renderPlayerY + 7, 7, 0, Math.PI * 2);
+           this.ctx.fill();
+ 
+           this.ctx.fillStyle = '#ff007f'; // neon pink sunglasses
+           this.ctx.fillRect(renderPlayerX + 11, renderPlayerY + 4, 11, 4);
+           this.ctx.strokeStyle = '#fff';
+           this.ctx.lineWidth = 0.8;
+           this.ctx.strokeRect(renderPlayerX + 11, renderPlayerY + 4, 11, 4);
+
+          this.ctx.fillStyle = '#39ff14'; // hood cap
+          this.ctx.beginPath();
+          this.ctx.arc(renderPlayerX + 12, renderPlayerY + 7, 7, Math.PI, 0);
+          this.ctx.fill();
+
+          this.ctx.lineWidth = 3.5;
+          this.ctx.strokeStyle = '#222';
+          const leftLegAngle = Math.sin(this.legCycle) * 0.7;
+          const rightLegAngle = -Math.sin(this.legCycle) * 0.7;
+
+          if (this.grounded) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(renderPlayerX + 8, renderPlayerY + 38);
+            this.ctx.lineTo(renderPlayerX + 8 + Math.sin(leftLegAngle) * 10, renderPlayerY + 46);
+            this.ctx.stroke();
+
+            this.ctx.beginPath();
+            this.ctx.moveTo(renderPlayerX + 18, renderPlayerY + 38);
+            this.ctx.lineTo(renderPlayerX + 18 + Math.sin(rightLegAngle) * 10, renderPlayerY + 46);
+            this.ctx.stroke();
+
+            this.ctx.strokeStyle = '#39ff14';
+            this.ctx.beginPath();
+            this.ctx.moveTo(renderPlayerX + 6, renderPlayerY + 16);
+            this.ctx.lineTo(renderPlayerX + 1 + Math.sin(rightLegAngle) * 8, renderPlayerY + 24);
+            this.ctx.stroke();
+          } else {
+            this.ctx.beginPath();
+            this.ctx.moveTo(renderPlayerX + 8, renderPlayerY + 38);
+            this.ctx.lineTo(renderPlayerX + 5, renderPlayerY + 42);
+            this.ctx.lineTo(renderPlayerX + 9, renderPlayerY + 44);
+            this.ctx.stroke();
+
+            this.ctx.beginPath();
+            this.ctx.moveTo(renderPlayerX + 18, renderPlayerY + 38);
+            this.ctx.lineTo(renderPlayerX + 21, renderPlayerY + 42);
+            this.ctx.lineTo(renderPlayerX + 17, renderPlayerY + 44);
+            this.ctx.stroke();
+
+            this.ctx.strokeStyle = '#39ff14';
+            this.ctx.beginPath();
+            this.ctx.moveTo(renderPlayerX + 6, renderPlayerY + 16);
+            this.ctx.lineTo(renderPlayerX + 2, renderPlayerY + 10);
+            this.ctx.stroke();
+          }
+          this.ctx.restore();
+        }
+
+        // 7. Splash Particles
+        for (const p of this.splashParticles) {
+          this.ctx.save();
+          this.ctx.globalAlpha = p.alpha;
+          this.ctx.fillStyle = p.color;
+          this.ctx.beginPath();
+          this.ctx.arc(p.x - cameraX, p.y, p.radius, 0, Math.PI * 2);
+          this.ctx.fill();
+          this.ctx.restore();
+        }
+
+        // 8. Water foreground
+        const waterBaseY = 480;
+        const waves = [
+          { color: 'rgba(0, 180, 216, 0.4)', speed: 0.8, amp: 6, freq: 0.015 },
+          { color: 'rgba(0, 240, 255, 0.35)', speed: -1.2, amp: 4, freq: 0.025 },
+          { color: 'rgba(5, 78, 102, 0.8)', speed: 0.4, amp: 8, freq: 0.01 }
+        ];
+
+        for (const w of waves) {
+          this.ctx.fillStyle = w.color;
+          this.ctx.beginPath();
+          this.ctx.moveTo(0, this.logicalHeight);
+          this.ctx.lineTo(0, waterBaseY);
+          for (let tx = 0; tx <= this.logicalWidth; tx++) {
+            const angle = (tx * w.freq) + (this.waterOffset * w.speed);
+            const ty = waterBaseY + Math.sin(angle) * w.amp;
+            this.ctx.lineTo(tx, ty);
+          }
+          this.ctx.lineTo(this.logicalWidth, this.logicalHeight);
+          this.ctx.closePath();
+          this.ctx.fill();
+        }
+
+        // 9. ScoreHUD
+        this.ctx.fillStyle = '#ffffff';
+        this.ctx.font = '800 20px Outfit, sans-serif';
+        this.ctx.textAlign = 'left';
+        this.ctx.fillText(`${this.score}`, 18, 38);
+
+        this.ctx.fillStyle = '#00f0ff';
+        this.ctx.font = '800 11px Outfit, sans-serif';
+        this.ctx.textAlign = 'right';
+        const speedFact = (this.speed * 10).toFixed(0);
+        this.ctx.fillText(`KMN/H: ${speedFact}`, this.logicalWidth - 18, 34);
+
+        if (this.speedNotificationTimer > 0) {
+          this.ctx.save();
+          this.ctx.fillStyle = '#ff007f';
+          this.ctx.font = '900 16px Outfit, sans-serif';
+          this.ctx.textAlign = 'center';
+          this.ctx.shadowColor = '#ff007f';
+          this.ctx.shadowBlur = 8;
+          const alpha = Math.min(1, this.speedNotificationTimer / 10);
+          this.ctx.globalAlpha = alpha;
+          this.ctx.fillText('SPEED UP! ⚡', this.logicalWidth / 2, 100);
+          this.ctx.restore();
+        }
+
+        if (this.isPaused) {
+          this.ctx.fillStyle = 'rgba(6, 13, 19, 0.75)';
+          this.ctx.fillRect(0, 0, this.logicalWidth, this.logicalHeight);
+          this.ctx.fillStyle = '#ffffff';
+          this.ctx.font = '800 24px Outfit, sans-serif';
+          this.ctx.textAlign = 'center';
+          this.ctx.fillText('PAUSE', this.logicalWidth / 2, this.logicalHeight / 2 - 10);
+          this.ctx.fillStyle = '#a9d6e5';
+          this.ctx.font = '12px Inter, sans-serif';
+          this.ctx.fillText('Hier tippen zum Weiterspielen', this.logicalWidth / 2, this.logicalHeight / 2 + 15);
+        }
+      }
+    }
+
+    // =========================================================================
+    // Interface State Manager & API Handlers
+    // =========================================================================
+
+    let currentSessionId = null;
+    let currentRunData = null;
+    let audioController = new AudioSynth();
+    let gameEngineInstance = null;
+
+    // View State Renderers
+    function renderOverlay(state, params = {}) {
+      const container = document.getElementById('overlay-screen');
+      if (state === 'HIDDEN') {
+        container.style.display = 'none';
+        return;
+      }
+      container.style.display = 'flex';
+
+      if (state === 'START') {
+        container.innerHTML = `
+          <h3 class="game-overlay-title">Lake Jump</h3>
+          <p class="game-overlay-desc">Springe von Stein zu Stein und fall nicht ins Wasser! Die Top 3 gewinnen Free Entry + Goodies.</p>
+          <button class="btn btn-primary" onclick="triggerStartGame()">Spiel Starten</button>
+          <div class="game-controls-hint">Desktop: Leertaste / Klick<br>Mobile: Tippen auf Display</div>
+        `;
+      } else if (state === 'GAMEOVER') {
+        const { score, finalDistance, durationMs } = params;
+        const savedName = localStorage.getItem('game_displayName') || '';
+        const savedEmail = localStorage.getItem('game_email') || '';
+        const savedInstagram = localStorage.getItem('game_instagram') || '';
+        container.innerHTML = `
+          <h3 class="game-overlay-title" style="color: var(--neon-pink); margin-top: 0.5rem;">Game Over</h3>
+          <p style="font-size: 1.5rem; font-weight: 800; color: #fff; margin: 0.25rem 0;">${score} Punkte</p>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">Distanz: ${finalDistance}m · Zeit: ${(durationMs / 1000).toFixed(1)}s</p>
+
+          <form class="submit-form" onsubmit="triggerSubmitScore(event)">
+            <div class="form-group">
+              <label class="form-label">Anzeigename</label>
+              <input type="text" id="form-name" required maxlength="16" placeholder="z.B. TechnoRaver" class="form-input" value="${savedName}">
+            </div>
+            <div class="form-group">
+              <label class="form-label">E-Mail (Privat für Gewinn)</label>
+              <input type="email" id="form-email" required placeholder="name@domain.com" class="form-input" value="${savedEmail}">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Instagram Handle</label>
+              <input type="text" id="form-instagram" required placeholder="z.B. @dein.name" class="form-input" value="${savedInstagram}">
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.4rem; margin: 0.25rem 0;">
+              <label class="form-checkbox-label">
+                <input type="checkbox" required id="form-consent-display">
+                <span>Ich bin einverstanden, dass mein Name & IG im Leaderboard angezeigt werden.</span>
+              </label>
+              <label class="form-checkbox-label">
+                <input type="checkbox" required id="form-consent-rules">
+                <span>Ich akzeptiere die Gewinnspielregeln.</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.65rem;">Score Eintragen</button>
+          </form>
+
+          <button class="btn btn-secondary" onclick="triggerStartGame()" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem; font-size: 0.85rem;">
+            Direkt noch einmal spielen
+          </button>
+        `;
+      } else if (state === 'SUBMITTING') {
+        container.innerHTML = `
+          <h3 class="game-overlay-title">Verifiziere Score...</h3>
+          <p class="game-overlay-desc">Anti-Cheat Analyse läuft...</p>
+          <div class="spinner"></div>
+        `;
+      } else if (state === 'SUBMITTED') {
+        const { success, message } = params;
+        container.innerHTML = `
+          <h3 class="game-overlay-title" style="color: ${success ? 'var(--neon-cyan)' : 'var(--neon-pink)'}">
+            ${success ? 'Erfolgreich!' : 'Upps!'}
+          </h3>
+          <p class="game-overlay-desc" style="color: #fff; margin-bottom: 1.5rem;">${message}</p>
+          <button class="btn btn-primary" onclick="showLeaderboardView()">Leaderboard ansehen</button>
+          <button class="btn btn-secondary" onclick="triggerStartGame()" style="margin-top: 0.5rem; font-size: 0.85rem; padding: 0.6rem 1.5rem;">
+            Nochmal spielen
+          </button>
+        `;
+      }
+    }
+
+    function showLeaderboardView() {
+      renderOverlay('START');
+      const lb = document.getElementById('leaderboard');
+      if (lb) lb.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Toggle mute logic
+    function toggleMute() {
+      const muted = audioController.toggleMute();
+      document.getElementById('mute-btn').innerText = muted ? '🔇 Mute: An' : '🔊 Sound: An';
+    }
+
+    // Pause logic
+    function pauseGame() {
+      if (gameEngineInstance) {
+        if (gameEngineInstance.isPaused) {
+          gameEngineInstance.resume();
+          document.getElementById('pause-btn').innerText = '⏸️ Pause';
+        } else {
+          gameEngineInstance.pause();
+          document.getElementById('pause-btn').innerText = '▶️ Weiter';
+        }
+      }
+    }
+
+    // Launch the game engine
+    async function triggerStartGame() {
+      // Unlock Web Audio Context synchronously inside user click event before any async calls
+      audioController.init();
+
+      renderOverlay('HIDDEN');
+      scrollToGame();
+      document.body.classList.add('game-active');
+      document.getElementById('pause-btn').style.display = 'inline-block';
+      document.getElementById('pause-btn').innerText = '⏸️ Pause';
+
+      let seed = Math.floor(Math.random() * 1000000);
+      currentSessionId = null;
+      currentRunData = null;
+
+      try {
+        const response = await fetch('/api/session/start', { method: 'POST' });
+        if (response.ok) {
+          const data = await response.json();
+          seed = data.seed;
+          currentSessionId = data.sessionId;
+        }
+      } catch (e) {
+        console.warn('API start error, running locally/offline:', e);
+      }
+
+      if (gameEngineInstance) gameEngineInstance.destroy();
+
+      const canvas = document.getElementById('game-canvas');
+      gameEngineInstance = new GameEngine(
+        canvas,
+        seed,
+        {
+          onScoreUpdate: () => {},
+          onGameOver: (data) => {
+            currentRunData = data;
+            document.body.classList.remove('game-active');
+            document.getElementById('pause-btn').style.display = 'none';
+            renderOverlay('GAMEOVER', data);
+          }
+        },
+        audioController
+      );
+
+      audioController.setMute(audioController.isMuted);
+      gameEngineInstance.start();
+    }
+
+    // Submit score via form
+    async function triggerSubmitScore(e) {
+      e.preventDefault();
+      if (!currentRunData) return;
+
+      const consentDisplay = document.getElementById('form-consent-display').checked;
+      const consentRules = document.getElementById('form-consent-rules').checked;
+
+      if (!consentDisplay || !consentRules) {
+        alert('Bitte stimme den Bedingungen zu.');
+        return;
+      }
+
+      const displayName = document.getElementById('form-name').value;
+      const email = document.getElementById('form-email').value;
+      const instagram = document.getElementById('form-instagram').value;
+
+      renderOverlay('SUBMITTING');
+
+      const payload = {
+        sessionId: currentSessionId,
+        score: currentRunData.score,
+        durationMs: currentRunData.durationMs,
+        finalDistance: currentRunData.finalDistance,
+        jumpEvents: currentRunData.jumpEvents,
+        deviceInfo: {
+          userAgent: navigator.userAgent,
+          screenWidth: window.innerWidth,
+          screenHeight: window.innerHeight,
+        },
+        displayName,
+        email,
+        instagramHandle: instagram,
+      };
+
+      if (!currentSessionId) {
+        // Dev fallback simulation
+        setTimeout(() => {
+          localStorage.setItem('game_displayName', displayName);
+          localStorage.setItem('game_email', email);
+          localStorage.setItem('game_instagram', instagram);
+          renderOverlay('SUBMITTED', {
+            success: true,
+            message: `[MOCK] Score von ${currentRunData.score} Punkten lokal eingetragen!`
+          });
+          fetchLeaderboard();
+        }, 1000);
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/session/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const resData = await response.json();
+        if (response.ok) {
+          localStorage.setItem('game_displayName', displayName);
+          localStorage.setItem('game_email', email);
+          localStorage.setItem('game_instagram', instagram);
+          renderOverlay('SUBMITTED', { success: true, message: resData.message });
+        } else {
+          renderOverlay('SUBMITTED', { success: false, message: resData.error || 'Fehler beim Eintragen.' });
+        }
+        fetchLeaderboard();
+      } catch (err) {
+        renderOverlay('SUBMITTED', { success: false, message: 'Verbindungsfehler zum Server.' });
+      }
+    }
+
+    // Fetch and populate leaderboard
+    async function fetchLeaderboard() {
+      const loader = document.getElementById('leaderboard-loading');
+      const tableWrapper = document.getElementById('leaderboard-table-wrapper');
+      const tbody = document.getElementById('leaderboard-body');
+
+      try {
+        const response = await fetch('/api/leaderboard');
+        if (response.ok) {
+          const list = await response.json();
+          tbody.innerHTML = '';
+          
+          list.forEach((entry, index) => {
+            const rank = index + 1;
+            let rowClass = 'leaderboard-row';
+            if (rank === 1) rowClass += ' leaderboard-row-top-1';
+            if (rank === 2) rowClass += ' leaderboard-row-top-2';
+            if (rank === 3) rowClass += ' leaderboard-row-top-3';
+
+            const cleanIg = entry.instagramHandle.replace(/^@/, '');
+            
+            tbody.innerHTML += `
+              <tr class="${rowClass}">
+                <td class="rank-cell">${rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : rank}</td>
+                <td>
+                  <div class="name-cell">
+                    <span>${entry.displayName}</span>
+                    ${cleanIg ? `<a href="https://instagram.com/${cleanIg}" target="_blank" rel="noopener noreferrer" class="ig-handle">@${cleanIg}</a>` : ''}
+                    ${rank <= 3 ? '<span class="badge-tag">🏆 Free Entry + Goodie</span>' : ''}
+                  </div>
+                </td>
+                <td class="score-cell">${entry.score} pts</td>
+              </tr>
+            `;
+          });
+
+          loader.style.display = 'none';
+          tableWrapper.style.display = 'block';
+        }
+      } catch (e) {
+        loader.innerText = 'Fehler beim Laden des Leaderboards.';
+      }
+    }
+
+    // Canvas click jump handlers
+    const wrapper = document.getElementById('canvas-wrapper');
+    wrapper.addEventListener('touchstart', (e) => {
+      if (gameEngineInstance && gameEngineInstance.isRunning) {
+        e.preventDefault();
+        gameEngineInstance.jump();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (gameEngineInstance && gameEngineInstance.isRunning && !gameEngineInstance.isPaused) {
+        if (['Space', ' ', 'ArrowUp'].includes(e.code) || e.key === ' ') {
+          e.preventDefault();
+          gameEngineInstance.jump();
+        }
+      }
+    });
+
+    // Prevent scrolling while game is active on mobile touchscreens
+    window.addEventListener('touchmove', (e) => {
+      if (gameEngineInstance && gameEngineInstance.isRunning && !gameEngineInstance.isPaused) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    // Initialize page
+    window.onload = () => {
+      renderOverlay('START');
+      fetchLeaderboard();
+    };
+  </script>
+</body>
+</html>

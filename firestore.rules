@@ -1,0 +1,27 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Leaderboard Collection:
+    // Anyone can read (fetch/subscribe) the leaderboard entries.
+    // Client-side writes are strictly BLOCKED. Must be written by server SDK only.
+    match /leaderboard/{document} {
+      allow read: if true;
+      allow write: if false;
+    }
+    
+    // Game Sessions Collection:
+    // Fully protected. Client-side access is completely BLOCKED.
+    match /gameSessions/{document} {
+      allow read, write: if false;
+    }
+    
+    // Flagged Scores Collection:
+    // Private log of failed verification attempts. Client-side access is completely BLOCKED.
+    match /flaggedScores/{document} {
+      allow read, write: if false;
+    }
+    
+  }
+}

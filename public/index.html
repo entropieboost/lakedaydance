@@ -1778,6 +1778,19 @@
           const list = await response.json();
           tbody.innerHTML = '';
           
+          if (list.length === 0) {
+            tbody.innerHTML = `
+              <tr>
+                <td colspan="3" style="text-align: center; padding: 2.5rem; color: var(--text-muted);">
+                  Noch keine Highscores eingetragen. Sei der Erste! 🚀
+                </td>
+              </tr>
+            `;
+            loader.style.display = 'none';
+            tableWrapper.style.display = 'block';
+            return;
+          }
+          
           list.forEach((entry, index) => {
             const rank = index + 1;
             let rowClass = 'leaderboard-row';

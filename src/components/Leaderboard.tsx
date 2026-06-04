@@ -10,19 +10,7 @@ export interface LeaderboardEntry {
   timestamp: any;
 }
 
-// Visual mock highscores used if Firebase credentials are not yet configured
-const MOCK_LEADERBOARD: LeaderboardEntry[] = [
-  { id: '1', displayName: 'TechnoTom', instagramHandle: 'tom.raves', score: 3820, timestamp: new Date() },
-  { id: '2', displayName: 'RaverSarah', instagramHandle: 'sarah_bassline', score: 3510, timestamp: new Date() },
-  { id: '3', displayName: 'DaydanceQueen', instagramHandle: 'lisa.sky', score: 3200, timestamp: new Date() },
-  { id: '4', displayName: 'AcidMax', instagramHandle: 'max_acid', score: 2890, timestamp: new Date() },
-  { id: '5', displayName: 'VinylDJ', instagramHandle: 'dj_vinyl', score: 2450, timestamp: new Date() },
-  { id: '6', displayName: 'HiHatGuy', instagramHandle: 'hihat_frequency', score: 2110, timestamp: new Date() },
-  { id: '7', displayName: 'BassDropper', instagramHandle: 'bassdrop_frst', score: 1950, timestamp: new Date() },
-  { id: '8', displayName: 'SunsetGroover', instagramHandle: 'groove_untere_au', score: 1820, timestamp: new Date() },
-  { id: '9', displayName: 'BeatBreaker', instagramHandle: 'breakerbeat', score: 1690, timestamp: new Date() },
-  { id: '10', displayName: 'Synthy', instagramHandle: 'synth_melodies', score: 1450, timestamp: new Date() },
-];
+const MOCK_LEADERBOARD: LeaderboardEntry[] = [];
 
 export const Leaderboard: React.FC = () => {
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
@@ -108,40 +96,48 @@ export const Leaderboard: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {entries.map((entry, index) => {
-                  const rank = index + 1;
-                  let rowClass = 'leaderboard-row';
-                  if (rank === 1) rowClass += ' leaderboard-row-top-1';
-                  if (rank === 2) rowClass += ' leaderboard-row-top-2';
-                  if (rank === 3) rowClass += ' leaderboard-row-top-3';
+                {entries.length === 0 ? (
+                  <tr>
+                    <td colSpan={3} style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
+                      Noch keine Highscores eingetragen. Sei der Erste! 🚀
+                    </td>
+                  </tr>
+                ) : (
+                  entries.map((entry, index) => {
+                    const rank = index + 1;
+                    let rowClass = 'leaderboard-row';
+                    if (rank === 1) rowClass += ' leaderboard-row-top-1';
+                    if (rank === 2) rowClass += ' leaderboard-row-top-2';
+                    if (rank === 3) rowClass += ' leaderboard-row-top-3';
 
-                  return (
-                    <tr key={entry.id || index} className={rowClass}>
-                      <td className="rank-cell">
-                        {rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : rank}
-                      </td>
-                      <td>
-                        <div className="name-cell">
-                          <span>{entry.displayName}</span>
-                          {entry.instagramHandle && (
-                            <a
-                              href={`https://instagram.com/${entry.instagramHandle.replace('@', '')}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="ig-handle"
-                            >
-                              @{entry.instagramHandle.replace('@', '')}
-                            </a>
-                          )}
-                          {rank <= 3 && (
-                            <span className="badge-tag">🏆 Free Entry + Goodie</span>
-                          )}
-                        </div>
-                      </td>
-                      <td className="score-cell">{entry.score} pts</td>
-                    </tr>
-                  );
-                })}
+                    return (
+                      <tr key={entry.id || index} className={rowClass}>
+                        <td className="rank-cell">
+                          {rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : rank}
+                        </td>
+                        <td>
+                          <div className="name-cell">
+                            <span>{entry.displayName}</span>
+                            {entry.instagramHandle && (
+                              <a
+                                href={`https://instagram.com/${entry.instagramHandle.replace('@', '')}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="ig-handle"
+                              >
+                                @{entry.instagramHandle.replace('@', '')}
+                              </a>
+                            )}
+                            {rank <= 3 && (
+                              <span className="badge-tag">🏆 Free Entry + Goodie</span>
+                            )}
+                          </div>
+                        </td>
+                        <td className="score-cell">{entry.score} pts</td>
+                      </tr>
+                    );
+                  })
+                )}
               </tbody>
             </table>
           </div>

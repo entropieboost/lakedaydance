@@ -92,18 +92,7 @@ let isFirebaseConfigured = false;
 
 // Mock database storage arrays for offline development fallback
 const mockSessions = new Map();
-const mockLeaderboard = [
-  { id: '1', displayName: 'TechnoTom', instagramHandle: 'tom.raves', score: 3820, timestamp: new Date() },
-  { id: '2', displayName: 'RaverSarah', instagramHandle: 'sarah_bassline', score: 3510, timestamp: new Date() },
-  { id: '3', displayName: 'DaydanceQueen', instagramHandle: 'lisa.sky', score: 3200, timestamp: new Date() },
-  { id: '4', displayName: 'AcidMax', instagramHandle: 'max_acid', score: 2890, timestamp: new Date() },
-  { id: '5', displayName: 'VinylDJ', instagramHandle: 'dj_vinyl', score: 2450, timestamp: new Date() },
-  { id: '6', displayName: 'HiHatGuy', instagramHandle: 'hihat_frequency', score: 2110, timestamp: new Date() },
-  { id: '7', displayName: 'BassDropper', instagramHandle: 'bassdrop_frst', score: 1950, timestamp: new Date() },
-  { id: '8', displayName: 'SunsetGroover', instagramHandle: 'groove_untere_au', score: 1820, timestamp: new Date() },
-  { id: '9', displayName: 'BeatBreaker', instagramHandle: 'breakerbeat', score: 1690, timestamp: new Date() },
-  { id: '10', displayName: 'Synthy', instagramHandle: 'synth_melodies', score: 1450, timestamp: new Date() },
-];
+const mockLeaderboard = [];
 const mockFlaggedScores = [];
 
 const serviceAccountJson = process.env.FIREBASE_SERVICE_ACCOUNT;

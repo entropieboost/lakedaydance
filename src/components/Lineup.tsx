@@ -12,6 +12,7 @@ interface DJ {
   instagram: string;
   soundcloud: string;
   image: string;
+  objectPosition?: string;
 }
 
 export const Lineup: React.FC = () => {
@@ -46,6 +47,7 @@ export const Lineup: React.FC = () => {
       instagram: 'https://www.instagram.com/medved_music/',
       soundcloud: 'https://soundcloud.com/medved_198',
       image: '/medved.jpg',
+      objectPosition: 'top',
     },
     {
       name: "Play'N'Error",
@@ -72,7 +74,12 @@ export const Lineup: React.FC = () => {
             <span className="dj-origin">{dj.origin}</span>
             
             {/* Profile Image */}
-            <img src={dj.image} alt={dj.name} className="dj-image" />
+            <img 
+              src={dj.image} 
+              alt={dj.name} 
+              className="dj-image" 
+              style={dj.objectPosition ? { objectPosition: dj.objectPosition } : undefined}
+            />
 
             <h3 className="dj-name">{dj.name}</h3>
             <p className="dj-label">

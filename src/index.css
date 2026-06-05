@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800;900&family=Sixtyfour&display=swap');
 
 :root {
   --bg-dark: #080808;
@@ -78,15 +78,12 @@ h1, h2, h3, h4 {
 }
 
 .logo-text {
-  font-family: var(--font-heading);
-  font-weight: 900;
-  font-size: 1.25rem;
+  font-family: 'Sixtyfour', var(--font-heading);
+  font-size: 1.1rem;
   text-transform: uppercase;
-  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-primary);
   letter-spacing: 0.15em;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
 }
 
 /* Hero Section */
@@ -121,18 +118,19 @@ h1, h2, h3, h4 {
 }
 
 .hero-title {
-  font-size: 2.75rem;
-  font-weight: 900;
-  line-height: 1.1;
+  font-family: 'Sixtyfour', var(--font-heading);
+  font-size: 2rem;
+  line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 0.02em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--text-primary);
 }
 
 .hero-title span {
   display: block;
-  background: linear-gradient(135deg, #ffffff 40%, var(--neon-pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--text-primary);
 }
 
 .hero-meta {
@@ -151,7 +149,7 @@ h1, h2, h3, h4 {
 
 @media (min-width: 768px) {
   .hero-title {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   .hero-buttons {
     flex-direction: row;
@@ -212,14 +210,13 @@ h1, h2, h3, h4 {
 }
 
 .section-title {
-  font-size: 2.25rem;
-  font-weight: 800;
+  font-family: 'Sixtyfour', var(--font-heading);
+  font-size: 1.5rem;
   text-transform: uppercase;
   margin-bottom: 2rem;
   text-align: center;
-  background: linear-gradient(90deg, #fff, var(--neon-cyan));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: transparent;
+  -webkit-text-stroke: 1.25px var(--text-primary);
 }
 
 .basics-grid {
@@ -654,11 +651,11 @@ h1, h2, h3, h4 {
 }
 
 .dj-name {
-  font-size: 1.6rem;
-  font-weight: 800;
+  font-family: 'Sixtyfour', var(--font-heading);
+  font-size: 1.15rem;
   margin-bottom: 0.35rem;
-  color: #fff;
-  font-family: var(--font-heading);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-primary);
 }
 
 .dj-label {

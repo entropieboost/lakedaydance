@@ -97,7 +97,7 @@ export const EventBasics: React.FC = () => {
             Der Vorverkauf über Event Frog ist deutlich günstiger als die Abendkassa vor Ort. Kontingent ist limitiert!
           </p>
           <a
-            href="https://eventfrog.ch"
+            href="https://eventfrog.at/de/p/partys/house-techno/daydance-am-see-7468717015454245477.html"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"

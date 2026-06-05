@@ -61,14 +61,14 @@ export const Lineup: React.FC = () => {
 
   return (
     <section className="lineup-section" id="lineup">
-      <h2 className="section-title">Line-Up</h2>
+      <h2 className="section-title reveal">Line-Up</h2>
       <p className="section-subtitle" style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
         Ein internationales Aufgebot der Extraklasse trifft auf regionalen Support.
       </p>
 
       <div className="lineup-grid">
         {djs.map((dj, index) => (
-          <div key={index} className="glass-panel dj-card">
+          <div key={index} className={`glass-panel dj-card reveal reveal-delay-${(index % 4) + 1}`}>
             <span className="dj-origin">{dj.origin}</span>
             
             {/* Profile Image */}
@@ -122,7 +122,7 @@ export const Lineup: React.FC = () => {
       </div>
 
       {/* Cooperation Box */}
-      <div className="glass-panel cooperation-box" style={{ marginTop: '3rem' }}>
+      <div className="glass-panel cooperation-box reveal" style={{ marginTop: '3rem' }}>
         <p className="cooperation-text">
           🤝 Dieses Event wird in enger Freundschaft und Kooperation von den Vereinen{' '}
           <a

@@ -78,9 +78,9 @@ export const Leaderboard: React.FC = () => {
 
   return (
     <section className="section-container" id="leaderboard">
-      <h2 className="section-title">Leaderboard</h2>
+      <h2 className="section-title reveal">Leaderboard</h2>
       
-      <div className="glass-panel leaderboard-container">
+      <div className="glass-panel leaderboard-container reveal">
         {loading ? (
           <p style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
             Lade Highscores...

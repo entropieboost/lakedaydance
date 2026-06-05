@@ -800,6 +800,40 @@
       text-decoration: underline;
       color: var(--neon-cyan);
     }
+
+    /* Scroll Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform, opacity;
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform, opacity;
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform, opacity;
+    }
+
+    .reveal-visible {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* Delay modifiers */
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
   </style>
 </head>
 <body>
@@ -834,10 +868,10 @@
 
     <!-- Event Infos Section -->
     <section class="section-container" id="details">
-      <h2 class="section-title">Event Infos</h2>
+      <h2 class="section-title reveal">Event Infos</h2>
       <div class="basics-grid">
         <!-- Ort -->
-        <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="glass-panel basic-card interactive">
+        <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="glass-panel basic-card interactive reveal reveal-delay-1">
           <span class="card-icon">📍</span>
           <h3 class="card-title">Ort</h3>
           <p class="card-value">Untere Au, Frastanz</p>
@@ -845,7 +879,7 @@
         </a>
 
         <!-- Zeit -->
-        <div class="glass-panel basic-card interactive" onclick="downloadCalendarEvent()">
+        <div class="glass-panel basic-card interactive reveal reveal-delay-2" onclick="downloadCalendarEvent()">
           <span class="card-icon">⏰</span>
           <h3 class="card-title">Zeit</h3>
           <p class="card-value">18:00 - 24:00 Uhr</p>
@@ -853,7 +887,7 @@
         </div>
 
         <!-- Musik -->
-        <div class="glass-panel basic-card interactive" onclick="document.getElementById('lineup').scrollIntoView({ behavior: 'smooth' })">
+        <div class="glass-panel basic-card interactive reveal reveal-delay-3" onclick="document.getElementById('lineup').scrollIntoView({ behavior: 'smooth' })">
           <span class="card-icon">🔊</span>
           <h3 class="card-title">Musik & Lineup</h3>
           <p class="card-value">Techno / Psy-Techno / Dark Prog</p>
@@ -861,7 +895,7 @@
         </div>
 
         <!-- Stimmung -->
-        <div class="glass-panel basic-card">
+        <div class="glass-panel basic-card reveal reveal-delay-4">
           <span class="card-icon">🌅</span>
           <h3 class="card-title">Vibe</h3>
           <p class="card-value">Open Air & Sonnenuntergang</p>
@@ -869,14 +903,14 @@
         </div>
 
         <!-- Wetter -->
-        <div class="glass-panel basic-card interactive" onclick="window.open('https://www.google.com/search?q=wetter+frastanz', '_blank')">
+        <div class="glass-panel basic-card interactive reveal reveal-delay-5" onclick="window.open('https://www.google.com/search?q=wetter+frastanz', '_blank')">
           <span class="card-icon">🌦️</span>
           <h3 class="card-title">Wetter</h3>
           <p class="card-value">Ausweichtermin vorhanden</p>
           <p class="card-desc">Klicke hier für das aktuelle Wetter in Frastanz. Bei Regen gibt es einen Ausweichtermin.</p>
         </div>
 
-        <div class="glass-panel ticket-notice-card">
+        <div class="glass-panel ticket-notice-card reveal">
           <span class="card-icon">🎟️</span>
           <h3 class="card-title">Tickets & Eintritt</h3>
           <p class="card-value" style="margin: 0.25rem 0 0.5rem; font-size: 1.4rem;">
@@ -894,14 +928,14 @@
 
     <!-- Lineup Section -->
     <section class="lineup-section" id="lineup">
-      <h2 class="section-title">Line-Up</h2>
+      <h2 class="section-title reveal">Line-Up</h2>
       <p class="section-subtitle" style="color: var(--text-muted); margin-bottom: 2rem;">
         Ein internationales Aufgebot der Extraklasse trifft auf regionalen Support.
       </p>
 
       <div class="lineup-grid">
         <!-- Falzar -->
-        <div class="glass-panel dj-card">
+        <div class="glass-panel dj-card reveal reveal-delay-1">
           <span class="dj-origin">Frankreich 🇫🇷</span>
           <img src="/falzar.jpg" alt="Falzar" class="dj-image" />
           <h3 class="dj-name">Falzar</h3>
@@ -924,7 +958,7 @@
         </div>
 
         <!-- Rico -->
-        <div class="glass-panel dj-card">
+        <div class="glass-panel dj-card reveal reveal-delay-2">
           <span class="dj-origin">Frankreich 🇫🇷</span>
           <img src="/rico.jpg" alt="Rico" class="dj-image" />
           <h3 class="dj-name">Rico</h3>
@@ -947,7 +981,7 @@
         </div>
 
         <!-- Medved -->
-        <div class="glass-panel dj-card">
+        <div class="glass-panel dj-card reveal reveal-delay-3">
           <span class="dj-origin">Feldkirch 🇦🇹</span>
           <img src="/medved.jpg" alt="Medved" class="dj-image" />
           <h3 class="dj-name">Medved</h3>
@@ -970,7 +1004,7 @@
         </div>
 
         <!-- Play'N'Error -->
-        <div class="glass-panel dj-card">
+        <div class="glass-panel dj-card reveal reveal-delay-4">
           <span class="dj-origin">Lindau (DE) 🇩🇪</span>
           <img src="/playnerror.jpg" alt="Play'N'Error" class="dj-image" />
           <h3 class="dj-name">Play'N'Error</h3>
@@ -994,7 +1028,7 @@
       </div>
 
       <!-- Cooperation Box -->
-      <div class="glass-panel cooperation-box">
+      <div class="glass-panel cooperation-box reveal">
         <p class="cooperation-text">
           🤝 Dieses Event wird in enger Freundschaft und Kooperation von den Vereinen 
           <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Frequency Squad</a> und 
@@ -1006,9 +1040,9 @@
 
     <!-- Game Console Section -->
     <section class="game-section" id="game-section">
-      <h2 class="section-title">Lake Jump Challenge</h2>
+      <h2 class="section-title reveal">Lake Jump Challenge</h2>
       
-      <div class="game-console">
+      <div class="game-console reveal">
         <div class="canvas-wrapper" id="canvas-wrapper">
           <canvas id="game-canvas" class="game-canvas"></canvas>
 
@@ -1027,9 +1061,9 @@
 
     <!-- Highscore Leaderboard Section -->
     <section class="section-container" id="leaderboard">
-      <h2 class="section-title">Leaderboard</h2>
+      <h2 class="section-title reveal">Leaderboard</h2>
       
-      <div class="glass-panel leaderboard-container">
+      <div class="glass-panel leaderboard-container reveal">
         <div id="leaderboard-loading" style="text-align: center; padding: 2rem; color: var(--text-muted);">
           Lade Highscores...
         </div>
@@ -1074,6 +1108,22 @@
        JavaScript Game Engine & API client
        ========================================================================= -->
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-visible');
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+
+      const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      revealElements.forEach((el) => observer.observe(el));
+    });
+
     function downloadCalendarEvent() {
       const icsData = [
         'BEGIN:VCALENDAR',

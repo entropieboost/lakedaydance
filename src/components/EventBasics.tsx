@@ -39,14 +39,14 @@ export const EventBasics: React.FC = () => {
 
   return (
     <section className="section-container" id="details">
-      <h2 className="section-title">Event Infos</h2>
+      <h2 className="section-title reveal">Event Infos</h2>
       <div className="basics-grid">
         {/* Ort */}
         <a
           href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz"
           target="_blank"
           rel="noopener noreferrer"
-          className="glass-panel basic-card interactive"
+          className="glass-panel basic-card interactive reveal reveal-delay-1"
         >
           <span className="card-icon">📍</span>
           <h3 className="card-title">Ort</h3>
@@ -55,7 +55,7 @@ export const EventBasics: React.FC = () => {
         </a>
 
         {/* Zeit */}
-        <div className="glass-panel basic-card interactive" onClick={downloadICS}>
+        <div className="glass-panel basic-card interactive reveal reveal-delay-2" onClick={downloadICS}>
           <span className="card-icon">⏰</span>
           <h3 className="card-title">Zeit</h3>
           <p className="card-value">18:00 - 24:00 Uhr</p>
@@ -63,7 +63,7 @@ export const EventBasics: React.FC = () => {
         </div>
 
         {/* Musik */}
-        <div className="glass-panel basic-card interactive" onClick={scrollToLineup}>
+        <div className="glass-panel basic-card interactive reveal reveal-delay-3" onClick={scrollToLineup}>
           <span className="card-icon">🔊</span>
           <h3 className="card-title">Musik & Lineup</h3>
           <p className="card-value">Techno / Psy-Techno / Dark Prog</p>
@@ -71,7 +71,7 @@ export const EventBasics: React.FC = () => {
         </div>
 
         {/* Stimmung */}
-        <div className="glass-panel basic-card">
+        <div className="glass-panel basic-card reveal reveal-delay-4">
           <span className="card-icon">🌅</span>
           <h3 className="card-title">Vibe</h3>
           <p className="card-value">Open Air & Sonnenuntergang</p>
@@ -79,7 +79,7 @@ export const EventBasics: React.FC = () => {
         </div>
 
         {/* Wetter */}
-        <div className="glass-panel basic-card interactive" onClick={openWeather}>
+        <div className="glass-panel basic-card interactive reveal reveal-delay-5" onClick={openWeather}>
           <span className="card-icon">🌦️</span>
           <h3 className="card-title">Wetter</h3>
           <p className="card-value">Ausweichtermin vorhanden</p>
@@ -87,7 +87,7 @@ export const EventBasics: React.FC = () => {
         </div>
 
         {/* Ticket-Hinweis */}
-        <div className="glass-panel ticket-notice-card">
+        <div className="glass-panel ticket-notice-card reveal">
           <span className="card-icon">🎟️</span>
           <h3 className="card-title">Tickets & Eintritt</h3>
           <p className="card-value" style={{ margin: '0.25rem 0 0.5rem', fontSize: '1.4rem' }}>

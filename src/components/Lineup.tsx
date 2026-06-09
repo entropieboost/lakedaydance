@@ -130,6 +130,24 @@ export const Lineup: React.FC = () => {
 
       {/* Cooperation Box */}
       <div className="glass-panel cooperation-box reveal" style={{ marginTop: '3rem' }}>
+        <div className="cooperation-logos">
+          <a
+            href="https://www.instagram.com/frequencysquad/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cooperation-logo-link"
+          >
+            <img src="/frequency-squad.png" alt="Frequency Squad Logo" className="cooperation-logo-img" />
+          </a>
+          <a
+            href="https://www.instagram.com/kultur.lindau/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cooperation-logo-link"
+          >
+            <img src="/kultur-lindau.png" alt="Kultur Lindau Logo" className="cooperation-logo-img white-bg" />
+          </a>
+        </div>
         <p className="cooperation-text">
           🤝 Dieses Event wird in enger Freundschaft und Kooperation von den Vereinen{' '}
           <a

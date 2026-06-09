@@ -798,6 +798,40 @@
       color: var(--neon-cyan);
     }
 
+    /* Cooperation Partner Logos */
+    .cooperation-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cooperation-logo-link {
+      display: inline-block;
+      transition: var(--transition-smooth);
+    }
+
+    .cooperation-logo-link:hover {
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    .cooperation-logo-img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      padding: 4px;
+      background-color: #000;
+    }
+
+    .cooperation-logo-img.white-bg {
+      background-color: #fff;
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+
     /* Scroll Reveal Animations */
     .reveal {
       opacity: 0;
@@ -1026,6 +1060,14 @@
 
       <!-- Cooperation Box -->
       <div class="glass-panel cooperation-box reveal">
+        <div class="cooperation-logos">
+          <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
+            <img src="/frequency-squad.png" alt="Frequency Squad Logo" class="cooperation-logo-img" />
+          </a>
+          <a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
+            <img src="/kultur-lindau.png" alt="Kultur Lindau Logo" class="cooperation-logo-img white-bg" />
+          </a>
+        </div>
         <p class="cooperation-text">
           🤝 Dieses Event wird in enger Freundschaft und Kooperation von den Vereinen 
           <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Frequency Squad</a> und 

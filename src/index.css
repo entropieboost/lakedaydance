@@ -423,6 +423,157 @@ h1, h2, h3, h4 {
   60% { transform: scale(1.01); }
 }
 
+/* Card Background Animations (General) */
+.card-bg-anim {
+  position: absolute;
+  bottom: -20px;
+  right: -15px;
+  width: 120px;
+  opacity: 0.06;
+  color: var(--text-primary);
+  pointer-events: none;
+  transition: var(--transition-smooth);
+  z-index: 0;
+  transform-origin: bottom right;
+}
+
+.basic-card:hover .card-bg-anim {
+  opacity: 0.22;
+  transform: scale(1.06);
+}
+
+/* Location Card: Train Loop Animation */
+.train-loop {
+  animation: train-drive 10s infinite linear;
+}
+
+@keyframes train-drive {
+  0% {
+    transform: translateX(-60px);
+  }
+  100% {
+    transform: translateX(160px);
+  }
+}
+
+/* Time Card: Clock ticking */
+.clock-bg-hour {
+  transform-origin: 60px 60px;
+  animation: clock-spin 120s infinite linear;
+}
+
+.clock-bg-min {
+  transform-origin: 60px 60px;
+  animation: clock-spin 10s infinite linear;
+}
+
+@keyframes clock-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Vibe Card: Swimmer & Cheers */
+.swimmer-group {
+  animation: swimmer-bob 3s infinite ease-in-out;
+}
+
+@keyframes swimmer-bob {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(5px) rotate(2deg);
+  }
+}
+
+.clink-left {
+  transform-origin: 82px 65px;
+  animation: clink-l 3s infinite ease-in-out;
+}
+
+.clink-right {
+  transform-origin: 112px 65px;
+  animation: clink-r 3s infinite ease-in-out;
+}
+
+.clink-sparks {
+  transform-origin: 97px 42px;
+  animation: sparks-glow 3s infinite ease-in-out;
+}
+
+@keyframes clink-l {
+  0%, 100% {
+    transform: rotate(0deg) translateX(0);
+  }
+  35% {
+    transform: rotate(8deg) translateX(6px);
+  }
+  40% {
+    transform: rotate(10deg) translateX(7px);
+  }
+  45% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+@keyframes clink-r {
+  0%, 100% {
+    transform: rotate(0deg) translateX(0);
+  }
+  35% {
+    transform: rotate(-8deg) translateX(-6px);
+  }
+  40% {
+    transform: rotate(-10deg) translateX(-7px);
+  }
+  45% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+@keyframes sparks-glow {
+  0%, 30%, 50%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  35%, 42% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Weather Card: Sun rise & Ray spin */
+.sun-rise-group {
+  animation: sun-rise 10s infinite ease-in-out;
+}
+
+.sun-rays-rotate {
+  transform-origin: 65px 90px;
+  animation: sun-rays-spin 30s infinite linear;
+}
+
+@keyframes sun-rise {
+  0%, 100% {
+    transform: translateY(18px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes sun-rays-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .card-title {
   color: var(--neon-cyan);
   font-size: 1.1rem;

@@ -436,6 +436,157 @@
       60% { transform: scale(1.01); }
     }
 
+    /* Card Background Animations (General) */
+    .card-bg-anim {
+      position: absolute;
+      bottom: -20px;
+      right: -15px;
+      width: 120px;
+      opacity: 0.06;
+      color: var(--text-primary);
+      pointer-events: none;
+      transition: var(--transition-smooth);
+      z-index: 0;
+      transform-origin: bottom right;
+    }
+
+    .basic-card:hover .card-bg-anim {
+      opacity: 0.22;
+      transform: scale(1.06);
+    }
+
+    /* Location Card: Train Loop Animation */
+    .train-loop {
+      animation: train-drive 10s infinite linear;
+    }
+
+    @keyframes train-drive {
+      0% {
+        transform: translateX(-60px);
+      }
+      100% {
+        transform: translateX(160px);
+      }
+    }
+
+    /* Time Card: Clock ticking */
+    .clock-bg-hour {
+      transform-origin: 60px 60px;
+      animation: clock-spin 120s infinite linear;
+    }
+
+    .clock-bg-min {
+      transform-origin: 60px 60px;
+      animation: clock-spin 10s infinite linear;
+    }
+
+    @keyframes clock-spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Vibe Card: Swimmer & Cheers */
+    .swimmer-group {
+      animation: swimmer-bob 3s infinite ease-in-out;
+    }
+
+    @keyframes swimmer-bob {
+      0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+      }
+      50% {
+        transform: translateY(5px) rotate(2deg);
+      }
+    }
+
+    .clink-left {
+      transform-origin: 82px 65px;
+      animation: clink-l 3s infinite ease-in-out;
+    }
+
+    .clink-right {
+      transform-origin: 112px 65px;
+      animation: clink-r 3s infinite ease-in-out;
+    }
+
+    .clink-sparks {
+      transform-origin: 97px 42px;
+      animation: sparks-glow 3s infinite ease-in-out;
+    }
+
+    @keyframes clink-l {
+      0%, 100% {
+        transform: rotate(0deg) translateX(0);
+      }
+      35% {
+        transform: rotate(8deg) translateX(6px);
+      }
+      40% {
+        transform: rotate(10deg) translateX(7px);
+      }
+      45% {
+        transform: rotate(0deg) translateX(0);
+      }
+    }
+
+    @keyframes clink-r {
+      0%, 100% {
+        transform: rotate(0deg) translateX(0);
+      }
+      35% {
+        transform: rotate(-8deg) translateX(-6px);
+      }
+      40% {
+        transform: rotate(-10deg) translateX(-7px);
+      }
+      45% {
+        transform: rotate(0deg) translateX(0);
+      }
+    }
+
+    @keyframes sparks-glow {
+      0%, 30%, 50%, 100% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      35%, 42% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    /* Weather Card: Sun rise & Ray spin */
+    .sun-rise-group {
+      animation: sun-rise 10s infinite ease-in-out;
+    }
+
+    .sun-rays-rotate {
+      transform-origin: 65px 90px;
+      animation: sun-rays-spin 30s infinite linear;
+    }
+
+    @keyframes sun-rise {
+      0%, 100% {
+        transform: translateY(18px);
+      }
+      50% {
+        transform: translateY(0px);
+      }
+    }
+
+    @keyframes sun-rays-spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
     .card-title {
       color: var(--neon-cyan);
       font-size: 1.1rem;
@@ -1077,29 +1228,68 @@
       <h2 class="section-title reveal">Event Infos</h2>
       <div class="basics-grid">
         <!-- Ort -->
-        <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="glass-panel basic-card interactive reveal reveal-delay-1">
+        <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="glass-panel basic-card interactive reveal reveal-delay-1" style="position: relative; overflow: hidden;">
           <span class="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
           </span>
-          <h3 class="card-title">Ort</h3>
-          <p class="card-value">Untere Au, Frastanz</p>
-          <p class="card-desc">Daydance direkt am malerischen Badesee. Parkplätze vor Ort vorhanden.</p>
+          <h3 class="card-title" style="position: relative; z-index: 1;">Ort</h3>
+          <p class="card-value" style="position: relative; z-index: 1;">Untere Au, Frastanz</p>
+          <p class="card-desc" style="position: relative; z-index: 1;">Daydance direkt am malerischen Badesee. Parkplätze vor Ort vorhanden.</p>
+          
+          {/* Animated Train/Bus Background */}
+          <div class="card-bg-anim location-bg">
+            <svg viewBox="0 0 150 100" fill="none" stroke="currentColor" stroke-width="1.0">
+              <line x1="0" y1="85" x2="150" y2="85" />
+              <circle cx="20" cy="55" r="5" />
+              <line x1="20" y1="60" x2="20" y2="85" />
+              <rect x="25" y="70" width="18" height="15" rx="1" />
+              <circle cx="28" cy="85" r="2" fill="currentColor" />
+              <circle cx="40" cy="85" r="2" fill="currentColor" />
+              <g class="train-loop">
+                <rect x="0" y="55" width="28" height="12" rx="2" fill="rgba(255,255,255,0.02)" />
+                <rect x="30" y="55" width="25" height="12" rx="2" fill="rgba(255,255,255,0.02)" />
+                <rect x="4" y="58" width="5" height="4" stroke="currentColor" stroke-width="0.8" />
+                <rect x="12" y="58" width="5" height="4" stroke="currentColor" stroke-width="0.8" />
+                <rect x="20" y="58" width="5" height="4" stroke="currentColor" stroke-width="0.8" />
+                <rect x="34" y="58" width="5" height="4" stroke="currentColor" stroke-width="0.8" />
+                <rect x="42" y="58" width="5" height="4" stroke="currentColor" stroke-width="0.8" />
+                <circle cx="6" cy="69" r="2" fill="currentColor" />
+                <circle cx="22" cy="69" r="2" fill="currentColor" />
+                <circle cx="36" cy="69" r="2" fill="currentColor" />
+                <circle cx="49" cy="69" r="2" fill="currentColor" />
+              </g>
+            </svg>
+          </div>
         </a>
 
         <!-- Zeit -->
-        <div class="glass-panel basic-card interactive reveal reveal-delay-2" onclick="downloadCalendarEvent()">
+        <div class="glass-panel basic-card interactive reveal reveal-delay-2" onclick="downloadCalendarEvent()" style="position: relative; overflow: hidden;">
           <span class="card-icon">
             <svg class="clock-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" class="clock-hands" />
             </svg>
           </span>
-          <h3 class="card-title">Zeit</h3>
-          <p class="card-value">18:00 - 24:00 Uhr</p>
-          <p class="card-desc">Einlass ab 18:00 Uhr. Klicke hier, um den Termin im Kalender zu speichern.</p>
+          <h3 class="card-title" style="position: relative; z-index: 1;">Zeit</h3>
+          <p class="card-value" style="position: relative; z-index: 1;">18:00 - 24:00 Uhr</p>
+          <p class="card-desc" style="position: relative; z-index: 1;">Einlass ab 18:00 Uhr. Klicke hier, um den Termin im Kalender zu speichern.</p>
+          
+          {/* Animated Big Clock Background */}
+          <div class="card-bg-anim time-bg">
+            <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="0.8">
+              <circle cx="60" cy="60" r="50" stroke-dasharray="2 4" />
+              <text x="56" y="24" fontSize="9" fontFamily="var(--font-heading)" fill="currentColor" stroke="none" fontWeight="bold">12</text>
+              <text x="96" y="63" fontSize="9" fontFamily="var(--font-heading)" fill="currentColor" stroke="none" fontWeight="bold">3</text>
+              <text x="58" y="102" fontSize="9" fontFamily="var(--font-heading)" fill="currentColor" stroke="none" fontWeight="bold">6</text>
+              <text x="18" y="63" fontSize="9" fontFamily="var(--font-heading)" fill="currentColor" stroke="none" fontWeight="bold">9</text>
+              <line class="clock-bg-hour" x1="60" y1="60" x2="60" y2="38" stroke-width="1.6" stroke-linecap="round" />
+              <line class="clock-bg-min" x1="60" y1="60" x2="82" y2="60" stroke-width="1" stroke-linecap="round" />
+              <circle cx="60" cy="60" r="3" fill="currentColor" />
+            </svg>
+          </div>
         </div>
 
         <!-- Musik -->
@@ -1136,7 +1326,7 @@
         </div>
 
         <!-- Stimmung -->
-        <div class="glass-panel basic-card reveal reveal-delay-4">
+        <div class="glass-panel basic-card interactive reveal reveal-delay-4" onclick="document.getElementById('lineup').scrollIntoView({ behavior: 'smooth' })" style="position: relative; overflow: hidden;">
           <span class="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2v2M4.22 4.22l1.42 1.42M1 12h2M21 12h2M18.36 5.64l1.42-1.42" />
@@ -1145,22 +1335,68 @@
               <path d="M2 20c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" opacity="0.6" />
             </svg>
           </span>
-          <h3 class="card-title">Vibe</h3>
-          <p class="card-value">Open Air & Sonnenuntergang</p>
-          <p class="card-desc">Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.</p>
+          <h3 class="card-title" style="position: relative; z-index: 1;">Vibe</h3>
+          <p class="card-value" style="position: relative; z-index: 1;">Open Air & Sonnenuntergang</p>
+          <p class="card-desc" style="position: relative; z-index: 1;">Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.</p>
+          
+          {/* Animated Swimmer & Cheers Background */}
+          <div class="card-bg-anim vibe-bg">
+            <svg viewBox="0 0 140 120" fill="none" stroke="currentColor" stroke-width="1.0">
+              <g class="swimmer-group">
+                <path d="M10 95 C20 92, 25 98, 35 95 C45 92, 50 98, 60 95" stroke-dasharray="1 2" />
+                <circle cx="35" cy="82" r="4" fill="rgba(255,255,255,0.02)" />
+                <path d="M25 87 Q35 75 42 87" stroke-linecap="round" />
+              </g>
+              <g class="clink-left">
+                <rect x="75" y="45" width="14" height="20" rx="2" fill="rgba(255,255,255,0.02)" />
+                <path d="M89 50 H93 V60 H89" />
+                <path d="M62 58 L75 58" stroke-width="1.8" />
+              </g>
+              <g class="clink-right">
+                <rect x="105" y="45" width="14" height="20" rx="2" fill="rgba(255,255,255,0.02)" />
+                <path d="M105 50 H101 V60 H105" />
+                <path d="M132 58 L119 58" stroke-width="1.8" />
+              </g>
+              <g class="clink-sparks">
+                <line x1="97" y1="40" x2="97" y2="34" />
+                <line x1="93" y1="42" x2="88" y2="38" />
+                <line x1="101" y1="42" x2="106" y2="38" />
+              </g>
+            </svg>
+          </div>
         </div>
 
         <!-- Wetter -->
-        <div class="glass-panel basic-card interactive reveal reveal-delay-5" onclick="window.open('https://www.google.com/search?q=wetter+frastanz', '_blank')">
+        <div class="glass-panel basic-card interactive reveal reveal-delay-5" onclick="window.open('https://www.google.com/search?q=wetter+frastanz', '_blank')" style="position: relative; overflow: hidden;">
           <span class="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2v2M4.93 4.93l1.41 1.41M20 12h2M17.66 6.34l1.41-1.41" class="weather-sun-rays" />
               <path d="M16 12a4 4 0 0 0-7.8-1.35H8a4 4 0 0 0 0 8h8a4 4 0 0 0 0-8z" fill="rgba(255,255,255,0.05)" />
             </svg>
           </span>
-          <h3 class="card-title">Wetter</h3>
-          <p class="card-value">Ausweichtermin vorhanden</p>
-          <p class="card-desc">Klicke hier für das aktuelle Wetter in Frastanz. Bei Regen gibt es einen Ausweichtermin.</p>
+          <h3 class="card-title" style="position: relative; z-index: 1;">Wetter</h3>
+          <p class="card-value" style="position: relative; z-index: 1;">Ausweichtermin vorhanden</p>
+          <p class="card-desc" style="position: relative; z-index: 1;">Klicke hier für das aktuelle Wetter in Frastanz. Bei Regen gibt es einen Ausweichtermin.</p>
+          
+          <!-- Animated Rising Sun Background -->
+          <div class="card-bg-anim weather-bg">
+            <svg viewBox="0 0 130 110" fill="none" stroke="currentColor" stroke-width="1.0">
+              <line x1="15" y1="90" x2="115" y2="90" />
+              <g class="sun-rise-group">
+                <circle cx="65" cy="90" r="24" fill="rgba(255,255,255,0.02)" />
+                <g class="sun-rays-rotate">
+                  <line x1="65" y1="58" x2="65" y2="48" />
+                  <line x1="65" y1="122" x2="65" y2="132" />
+                  <line x1="33" y1="90" x2="23" y2="90" />
+                  <line x1="97" y1="90" x2="107" y2="90" />
+                  <line x1="42" y1="67" x2="35" y2="60" />
+                  <line x1="88" y1="113" x2="95" y2="120" />
+                  <line x1="88" y1="67" x2="95" y2="60" />
+                  <line x1="42" y1="113" x2="35" y2="120" />
+                </g>
+              </g>
+            </svg>
+          </div>
         </div>
 
         <div class="glass-panel ticket-notice-card reveal">

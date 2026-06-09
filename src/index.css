@@ -380,11 +380,11 @@ h1, h2, h3, h4 {
 /* Funktion-One Speaker Background */
 .f1-speaker-bg {
   position: absolute;
-  bottom: -20px;
-  right: -15px;
-  width: 120px;
-  height: 180px;
-  opacity: 0.08;
+  bottom: -25px;
+  right: -20px;
+  width: 150px;
+  height: 225px;
+  opacity: 0.15;
   color: var(--text-primary);
   pointer-events: none;
   transition: var(--transition-smooth);
@@ -393,8 +393,8 @@ h1, h2, h3, h4 {
 }
 
 .basic-card:hover .f1-speaker-bg {
-  opacity: 0.22;
-  transform: scale(1.06) rotate(-3deg);
+  opacity: 0.35;
+  transform: scale(1.08) rotate(-3deg);
 }
 
 /* Beats pulsing speaker cones */
@@ -426,10 +426,10 @@ h1, h2, h3, h4 {
 /* Card Background Animations (General) */
 .card-bg-anim {
   position: absolute;
-  bottom: -20px;
-  right: -15px;
-  width: 120px;
-  opacity: 0.06;
+  bottom: -25px;
+  right: -20px;
+  width: 160px;
+  opacity: 0.15;
   color: var(--text-primary);
   pointer-events: none;
   transition: var(--transition-smooth);
@@ -438,8 +438,8 @@ h1, h2, h3, h4 {
 }
 
 .basic-card:hover .card-bg-anim {
-  opacity: 0.22;
-  transform: scale(1.06);
+  opacity: 0.35;
+  transform: scale(1.08);
 }
 
 /* Location Card: Train Loop Animation */

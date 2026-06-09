@@ -393,11 +393,11 @@
     /* Funktion-One Speaker Background */
     .f1-speaker-bg {
       position: absolute;
-      bottom: -20px;
-      right: -15px;
-      width: 120px;
-      height: 180px;
-      opacity: 0.08;
+      bottom: -25px;
+      right: -20px;
+      width: 150px;
+      height: 225px;
+      opacity: 0.15;
       color: var(--text-primary);
       pointer-events: none;
       transition: var(--transition-smooth);
@@ -406,8 +406,8 @@
     }
 
     .basic-card:hover .f1-speaker-bg {
-      opacity: 0.22;
-      transform: scale(1.06) rotate(-3deg);
+      opacity: 0.35;
+      transform: scale(1.08) rotate(-3deg);
     }
 
     /* Beats pulsing speaker cones */
@@ -439,10 +439,10 @@
     /* Card Background Animations (General) */
     .card-bg-anim {
       position: absolute;
-      bottom: -20px;
-      right: -15px;
-      width: 120px;
-      opacity: 0.06;
+      bottom: -25px;
+      right: -20px;
+      width: 160px;
+      opacity: 0.15;
       color: var(--text-primary);
       pointer-events: none;
       transition: var(--transition-smooth);
@@ -451,8 +451,8 @@
     }
 
     .basic-card:hover .card-bg-anim {
-      opacity: 0.22;
-      transform: scale(1.06);
+      opacity: 0.35;
+      transform: scale(1.08);
     }
 
     /* Location Card: Train Loop Animation */
@@ -1239,7 +1239,7 @@
           <p class="card-value" style="position: relative; z-index: 1;">Untere Au, Frastanz</p>
           <p class="card-desc" style="position: relative; z-index: 1;">FLOAT direkt am malerischen Badesee. Parkplätze vor Ort vorhanden.</p>
           
-          {/* Animated Train/Bus Background */}
+          <!-- Animated Train/Bus Background -->
           <div class="card-bg-anim location-bg">
             <svg viewBox="0 0 150 100" fill="none" stroke="currentColor" stroke-width="1.0">
               <line x1="0" y1="85" x2="150" y2="85" />
@@ -1277,7 +1277,7 @@
           <p class="card-value" style="position: relative; z-index: 1;">18:00 - 24:00 Uhr</p>
           <p class="card-desc" style="position: relative; z-index: 1;">Einlass ab 18:00 Uhr. Klicke hier, um den Termin im Kalender zu speichern.</p>
           
-          {/* Animated Big Clock Background */}
+          <!-- Animated Big Clock Background -->
           <div class="card-bg-anim time-bg">
             <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="0.8">
               <circle cx="60" cy="60" r="50" stroke-dasharray="2 4" />
@@ -1339,7 +1339,7 @@
           <p class="card-value" style="position: relative; z-index: 1;">Open Air & Sonnenuntergang</p>
           <p class="card-desc" style="position: relative; z-index: 1;">Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.</p>
           
-          {/* Animated Swimmer & Cheers Background */}
+          <!-- Animated Swimmer & Cheers Background -->
           <div class="card-bg-anim vibe-bg">
             <svg viewBox="0 0 140 120" fill="none" stroke="currentColor" stroke-width="1.0">
               <g class="swimmer-group">

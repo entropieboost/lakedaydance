@@ -30,7 +30,14 @@ export const EventBasics: React.FC = () => {
   };
 
   const scrollToLineup = () => {
-    document.getElementById('lineup')?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById('lineup');
+    if (el) {
+      if ((window as any).lenis) {
+        (window as any).lenis.scrollTo(el);
+      } else {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   const openWeather = () => {

@@ -14,5 +14,34 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script>
+      (function() {
+        const lenis = new Lenis({
+          duration: 1.2,
+          easing: (t) => 1 - Math.pow(1 - t, 3), // easeOutCubic
+          smoothWheel: true,
+          touchMultiplier: 1.5
+        });
+
+        let isLenisPaused = false;
+        function raf(time) {
+          const isGameActive = document.body.classList.contains('game-active');
+          if (isGameActive && !isLenisPaused) {
+            lenis.stop();
+            isLenisPaused = true;
+          } else if (!isGameActive && isLenisPaused) {
+            lenis.start();
+            isLenisPaused = false;
+          }
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+        window.lenis = lenis;
+      })();
+    </script>
   </body>
 </html>

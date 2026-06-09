@@ -163,9 +163,17 @@ export const EventBasics: React.FC = () => {
           <div className="card-bg-anim vibe-bg">
             <svg viewBox="0 0 140 120" fill="none" stroke="currentColor" strokeWidth="1.0">
               <g className="swimmer-group">
-                <path d="M10 95 C20 92, 25 98, 35 95 C45 92, 50 98, 60 95" strokeDasharray="1 2" />
-                <circle cx="35" cy="82" r="4" fill="rgba(255,255,255,0.02)" />
-                <path d="M25 87 Q35 75 42 87" strokeLinecap="round" />
+                <path d="M10 95 C 20 90, 30 100, 40 95 C 50 90, 60 100, 70 95" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.4" />
+                <path d="M5 98 C 18 94, 28 104, 38 98 C 48 94, 58 104, 68 98" stroke="currentColor" strokeWidth="0.8" strokeDasharray="2 3" fill="none" opacity="0.3" />
+                <circle cx="42" cy="82" r="5" stroke="currentColor" strokeWidth="1.2" fill="rgba(255,255,255,0.05)" />
+                <path d="M22 90 L 38 86" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <path className="swimmer-arm-recovery" d="M30 87 C 32 72, 42 70, 46 80" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" fill="none" />
+                <path className="swimmer-arm-pull" d="M30 87 C 22 92, 16 86, 12 88" stroke="currentColor" strokeWidth="1" strokeLinecap="round" fill="none" opacity="0.5" />
+                <g className="swimmer-splashes">
+                  <circle cx="50" cy="85" r="1" fill="currentColor" />
+                  <circle cx="48" cy="81" r="0.8" fill="currentColor" />
+                  <circle cx="52" cy="88" r="0.8" fill="currentColor" />
+                </g>
               </g>
               <g className="clink-left">
                 <rect x="75" y="45" width="14" height="20" rx="2" fill="rgba(255,255,255,0.02)" />

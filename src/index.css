@@ -481,6 +481,28 @@ h1, h2, h3, h4 {
   animation: swimmer-bob 3s infinite ease-in-out;
 }
 
+.swimmer-arm-recovery {
+  transform-origin: 30px 87px;
+  animation: crawl-arm-1 3s infinite ease-in-out;
+}
+
+.swimmer-arm-pull {
+  transform-origin: 30px 87px;
+  animation: crawl-arm-2 3s infinite ease-in-out;
+}
+
+.swimmer-splashes circle {
+  animation: splash-fade 1.5s infinite ease-in-out;
+}
+
+.swimmer-splashes circle:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.swimmer-splashes circle:nth-child(3) {
+  animation-delay: 1s;
+}
+
 @keyframes swimmer-bob {
   0%, 100% {
     transform: translateY(0) rotate(-2deg);
@@ -489,6 +511,22 @@ h1, h2, h3, h4 {
     transform: translateY(5px) rotate(2deg);
   }
 }
+
+@keyframes crawl-arm-1 {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-35deg); }
+}
+
+@keyframes crawl-arm-2 {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(35deg); }
+}
+
+@keyframes splash-fade {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 0.8; transform: scale(1.2); }
+}
+
 
 .clink-left {
   transform-origin: 82px 65px;
@@ -1134,28 +1172,68 @@ h1, h2, h3, h4 {
 /* Scroll Reveal Animations */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform, opacity;
+  transform: translateY(40px) scale(0.96);
+  filter: blur(8px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, filter;
 }
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform, opacity;
+  transform: translateX(-50px) scale(0.97);
+  filter: blur(8px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, filter;
 }
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform, opacity;
+  transform: translateX(50px) scale(0.97);
+  filter: blur(8px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, filter;
 }
 
 .reveal-visible {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: translate(0, 0) scale(1);
+  filter: blur(0);
+}
+
+/* Shimmer sweep effect for glass panels when revealed */
+.glass-panel.reveal-visible {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel.reveal-visible::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  animation: shimmer-sweep-once 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+@keyframes shimmer-sweep-once {
+  to {
+    left: 150%;
+  }
 }
 
 /* Delay modifiers */

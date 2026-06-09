@@ -34,18 +34,10 @@ export default function App() {
 
   return (
     <>
-      {/* Header */}
-      <header className="app-header">
-        <div className="logo-text">FLOAT</div>
-      </header>
-
       <main>
         {/* Hero Section */}
         <section className="hero-section">
           <div className="hero-content">
-            <div className="giveaway-badge reveal">
-              <span>🎁</span> <strong>Gewinnspiel:</strong> Top 3 gewinnen freien Eintritt & Goodies!
-            </div>
             <p className="hero-subtitle reveal reveal-delay-1">lose ur ground</p>
             <h1 className="hero-title reveal reveal-delay-2">
               FLOAT <span>Techno am See</span>

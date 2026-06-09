@@ -428,7 +428,7 @@ export class GameEngine {
 
       // Platform text (index indicator)
       this.ctx.fillStyle = '#6c757d';
-      this.ctx.font = '9px Outfit, sans-serif';
+      this.ctx.font = '9px Cakra, sans-serif';
       this.ctx.textAlign = 'center';
       this.ctx.fillText(`${p.index}`, renderX + p.width / 2, p.y + 18);
 
@@ -564,13 +564,13 @@ export class GameEngine {
 
     // 9. HUD Text Overlay (Score and Speed indicator)
     this.ctx.fillStyle = '#ffffff';
-    this.ctx.font = '800 20px Outfit, sans-serif';
+    this.ctx.font = '800 20px Cakra, sans-serif';
     this.ctx.textAlign = 'left';
     this.ctx.fillText(`${this.score}`, 18, 38);
 
     // Muted HUD text for current speed factor
     this.ctx.fillStyle = '#00f0ff';
-    this.ctx.font = '800 11px Outfit, sans-serif';
+    this.ctx.font = '800 11px Cakra, sans-serif';
     this.ctx.textAlign = 'right';
     const speedFact = (this.speed * 10).toFixed(0);
     this.ctx.fillText(`KMN/H: ${speedFact}`, this.logicalWidth - 18, 34);
@@ -579,7 +579,7 @@ export class GameEngine {
     if (this.speedNotificationTimer > 0) {
       this.ctx.save();
       this.ctx.fillStyle = '#ff007f';
-      this.ctx.font = '900 16px Outfit, sans-serif';
+      this.ctx.font = '900 16px Cakra, sans-serif';
       this.ctx.textAlign = 'center';
       this.ctx.shadowColor = '#ff007f';
       this.ctx.shadowBlur = 8;
@@ -596,12 +596,12 @@ export class GameEngine {
       this.ctx.fillRect(0, 0, this.logicalWidth, this.logicalHeight);
 
       this.ctx.fillStyle = '#ffffff';
-      this.ctx.font = '800 24px Outfit, sans-serif';
+      this.ctx.font = '800 24px Cakra, sans-serif';
       this.ctx.textAlign = 'center';
       this.ctx.fillText('PAUSE', this.logicalWidth / 2, this.logicalHeight / 2 - 10);
       
       this.ctx.fillStyle = '#a9d6e5';
-      this.ctx.font = '12px Inter, sans-serif';
+      this.ctx.font = '12px Cakra, sans-serif';
       this.ctx.fillText('Hier tippen zum Weiterspielen', this.logicalWidth / 2, this.logicalHeight / 2 + 15);
     }
   }

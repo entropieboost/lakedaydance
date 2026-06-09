@@ -10,11 +10,17 @@
   <meta property="og:description" content="Spring über Steine und gewinne Tickets für den Daydance am See! Die Top 5 Scores gewinnen Eintritt & Goodies." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/lake-view.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800;900&family=Sixtyfour&display=swap" rel="stylesheet">
   
   <style>
+    @font-face {
+      font-family: 'Cakra';
+      src: url('/fonts/Cakra-Normal.woff2') format('woff2'),
+           url('/fonts/Cakra-Normal.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --bg-dark: #080808;
       --bg-card: rgba(18, 18, 18, 0.7);
@@ -27,8 +33,8 @@
       --text-primary: #f3f4f6;
       --text-muted: #9ca3af;
       
-      --font-heading: 'Outfit', -apple-system, sans-serif;
-      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-heading: 'Cakra', -apple-system, sans-serif;
+      --font-body: 'Cakra', -apple-system, sans-serif;
       
       --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -92,7 +98,7 @@
     }
 
     .logo-text {
-      font-family: 'Sixtyfour', var(--font-heading);
+      font-family: 'Cakra', var(--font-heading);
       font-size: 1.1rem;
       text-transform: uppercase;
       color: transparent;
@@ -132,7 +138,7 @@
     }
 
     .hero-title {
-      font-family: 'Sixtyfour', var(--font-heading);
+      font-family: 'Cakra', var(--font-heading);
       font-size: 2rem;
       line-height: 1.4;
       text-transform: uppercase;
@@ -224,7 +230,7 @@
     }
 
     .section-title {
-      font-family: 'Sixtyfour', var(--font-heading);
+      font-family: 'Cakra', var(--font-heading);
       font-size: 1.5rem;
       text-transform: uppercase;
       margin-bottom: 2rem;
@@ -672,7 +678,7 @@
     }
 
     .dj-name {
-      font-family: 'Sixtyfour', var(--font-heading);
+      font-family: 'Cakra', var(--font-heading);
       font-size: 1.15rem;
       margin-bottom: 0.35rem;
       color: transparent;
@@ -1729,7 +1735,7 @@
           this.ctx.stroke();
 
           this.ctx.fillStyle = '#6c757d';
-          this.ctx.font = '9px Outfit, sans-serif';
+          this.ctx.font = '9px Cakra, sans-serif';
           this.ctx.textAlign = 'center';
           this.ctx.fillText(`${p.index}`, renderX + p.width / 2, p.y + 18);
           this.ctx.restore();
@@ -1842,12 +1848,12 @@
 
         // 9. ScoreHUD
         this.ctx.fillStyle = '#ffffff';
-        this.ctx.font = '800 20px Outfit, sans-serif';
+        this.ctx.font = '800 20px Cakra, sans-serif';
         this.ctx.textAlign = 'left';
         this.ctx.fillText(`${this.score}`, 18, 38);
 
         this.ctx.fillStyle = '#00f0ff';
-        this.ctx.font = '800 11px Outfit, sans-serif';
+        this.ctx.font = '800 11px Cakra, sans-serif';
         this.ctx.textAlign = 'right';
         const speedFact = (this.speed * 10).toFixed(0);
         this.ctx.fillText(`KMN/H: ${speedFact}`, this.logicalWidth - 18, 34);
@@ -1855,7 +1861,7 @@
         if (this.speedNotificationTimer > 0) {
           this.ctx.save();
           this.ctx.fillStyle = '#ff007f';
-          this.ctx.font = '900 16px Outfit, sans-serif';
+          this.ctx.font = '900 16px Cakra, sans-serif';
           this.ctx.textAlign = 'center';
           this.ctx.shadowColor = '#ff007f';
           this.ctx.shadowBlur = 8;
@@ -1869,11 +1875,11 @@
           this.ctx.fillStyle = 'rgba(6, 13, 19, 0.75)';
           this.ctx.fillRect(0, 0, this.logicalWidth, this.logicalHeight);
           this.ctx.fillStyle = '#ffffff';
-          this.ctx.font = '800 24px Outfit, sans-serif';
+          this.ctx.font = '800 24px Cakra, sans-serif';
           this.ctx.textAlign = 'center';
           this.ctx.fillText('PAUSE', this.logicalWidth / 2, this.logicalHeight / 2 - 10);
           this.ctx.fillStyle = '#a9d6e5';
-          this.ctx.font = '12px Inter, sans-serif';
+          this.ctx.font = '12px Cakra, sans-serif';
           this.ctx.fillText('Hier tippen zum Weiterspielen', this.logicalWidth / 2, this.logicalHeight / 2 + 15);
         }
       }

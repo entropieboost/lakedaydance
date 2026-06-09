@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800;900&family=Sixtyfour&display=swap');
+@font-face {
+  font-family: 'Cakra';
+  src: url('/fonts/Cakra-Normal.woff2') format('woff2'),
+       url('/fonts/Cakra-Normal.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --bg-dark: #080808;
@@ -12,8 +19,8 @@
   --text-primary: #f3f4f6;
   --text-muted: #9ca3af;
   
-  --font-heading: 'Outfit', -apple-system, sans-serif;
-  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-heading: 'Cakra', -apple-system, sans-serif;
+  --font-body: 'Cakra', -apple-system, sans-serif;
   
   --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -78,7 +85,7 @@ h1, h2, h3, h4 {
 }
 
 .logo-text {
-  font-family: 'Sixtyfour', var(--font-heading);
+  font-family: 'Cakra', var(--font-heading);
   font-size: 1.1rem;
   text-transform: uppercase;
   color: transparent;
@@ -118,7 +125,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-title {
-  font-family: 'Sixtyfour', var(--font-heading);
+  font-family: 'Cakra', var(--font-heading);
   font-size: 2rem;
   line-height: 1.4;
   text-transform: uppercase;
@@ -210,7 +217,7 @@ h1, h2, h3, h4 {
 }
 
 .section-title {
-  font-family: 'Sixtyfour', var(--font-heading);
+  font-family: 'Cakra', var(--font-heading);
   font-size: 1.5rem;
   text-transform: uppercase;
   margin-bottom: 2rem;
@@ -651,7 +658,7 @@ h1, h2, h3, h4 {
 }
 
 .dj-name {
-  font-family: 'Sixtyfour', var(--font-heading);
+  font-family: 'Cakra', var(--font-heading);
   font-size: 1.15rem;
   margin-bottom: 0.35rem;
   color: transparent;

@@ -1,8 +1,23 @@
 @font-face {
-  font-family: 'Cakra';
-  src: url('/fonts/Cakra-Normal.woff2') format('woff2'),
-       url('/fonts/Cakra-Normal.woff') format('woff');
+  font-family: 'BDOGrotesk';
+  src: url('/fonts/BDOGrotesk-Regular.woff2') format('woff2');
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BDOGrotesk';
+  src: url('/fonts/BDOGrotesk-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BDOGrotesk';
+  src: url('/fonts/BDOGrotesk-Black.woff2') format('woff2');
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
@@ -19,8 +34,8 @@
   --text-primary: #f3f4f6;
   --text-muted: #9ca3af;
   
-  --font-heading: 'Cakra', -apple-system, sans-serif;
-  --font-body: 'Cakra', -apple-system, sans-serif;
+  --font-heading: 'BDOGrotesk', -apple-system, sans-serif;
+  --font-body: 'BDOGrotesk', -apple-system, sans-serif;
   
   --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -85,7 +100,7 @@ h1, h2, h3, h4 {
 }
 
 .logo-text {
-  font-family: 'Cakra', var(--font-heading);
+  font-family: 'BDOGrotesk', var(--font-heading);
   font-size: 1.1rem;
   text-transform: uppercase;
   color: transparent;
@@ -125,7 +140,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-title {
-  font-family: 'Cakra', var(--font-heading);
+  font-family: 'BDOGrotesk', var(--font-heading);
   font-size: 2rem;
   line-height: 1.4;
   text-transform: uppercase;
@@ -140,11 +155,74 @@ h1, h2, h3, h4 {
   -webkit-text-stroke: 1.5px var(--text-primary);
 }
 
-.hero-meta {
+.hero-meta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--text-muted);
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.meta-item-separator {
+  display: none;
+}
+
+/* Giveaway Badge */
+.giveaway-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.03);
+  animation: pulse-glow 3s infinite ease-in-out;
+  align-self: center;
+}
+
+.giveaway-badge strong {
+  color: var(--text-primary);
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.03);
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-meta-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .meta-item-separator {
+    display: inline;
+    color: rgba(255, 255, 255, 0.2);
+  }
 }
 
 .hero-buttons {
@@ -217,7 +295,7 @@ h1, h2, h3, h4 {
 }
 
 .section-title {
-  font-family: 'Cakra', var(--font-heading);
+  font-family: 'BDOGrotesk', var(--font-heading);
   font-size: 1.5rem;
   text-transform: uppercase;
   margin-bottom: 2rem;
@@ -658,7 +736,7 @@ h1, h2, h3, h4 {
 }
 
 .dj-name {
-  font-family: 'Cakra', var(--font-heading);
+  font-family: 'BDOGrotesk', var(--font-heading);
   font-size: 1.15rem;
   margin-bottom: 0.35rem;
   color: transparent;

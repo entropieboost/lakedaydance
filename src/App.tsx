@@ -43,29 +43,36 @@ export default function App() {
         {/* Hero Section */}
         <section className="hero-section">
           <div className="hero-content">
-            <p className="hero-subtitle">Daydance am See</p>
-            <h1 className="hero-title">
+            <div className="giveaway-badge reveal">
+              <span>🎁</span> <strong>Gewinnspiel:</strong> Top 5 gewinnen freien Eintritt & Goodies!
+            </div>
+            <p className="hero-subtitle reveal reveal-delay-1">Daydance am See</p>
+            <h1 className="hero-title reveal reveal-delay-2">
               Daydance <span>Frastanz</span>
             </h1>
-            <p className="hero-meta">
-              📍 Untere Au, Frastanz &nbsp;·&nbsp; ⏰ 18:00 bis 24:00 &nbsp;·&nbsp; 🌅 Open Air
-            </p>
+            <div className="hero-meta-container reveal reveal-delay-3">
+              <span className="meta-item">📍 Untere Au, Frastanz</span>
+              <span className="meta-item-separator">·</span>
+              <span className="meta-item">⏰ 18:00 bis 24:00 Uhr</span>
+              <span className="meta-item-separator">·</span>
+              <span className="meta-item">🌅 Open Air</span>
+            </div>
             
-            <div className="hero-buttons">
+            <div className="hero-buttons reveal reveal-delay-4">
+              <button
+                onClick={() => scrollToSection('game-section')}
+                className="btn btn-primary"
+              >
+                Spielen & Tickets gewinnen 🎮
+              </button>
               <a
                 href="https://eventfrog.at/de/p/partys/house-techno/daydance-am-see-7468717015454245477.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-primary"
-              >
-                Tickets sichern 🎟️
-              </a>
-              <button
-                onClick={() => scrollToSection('game-section')}
                 className="btn btn-secondary"
               >
-                Lake Challenge spielen 🕹️
-              </button>
+                Tickets kaufen 🎟️
+              </a>
             </div>
           </div>
         </section>

@@ -257,7 +257,7 @@ export const GameContainer: React.FC = () => {
 
   return (
     <section className="game-section" id="game-section">
-      <h2 className="section-title reveal">Lake Jump Challenge</h2>
+      <h2 className="section-title reveal">FLOAT Jump Challenge</h2>
       
       <div className="game-console reveal">
         {/* Aspect Ratio Viewport */}
@@ -271,7 +271,7 @@ export const GameContainer: React.FC = () => {
           {/* START Overlay */}
           {gameState === 'START' && (
             <div className="game-overlay">
-              <h3 className="game-overlay-title">Lake Jump</h3>
+              <h3 className="game-overlay-title">FLOAT Jump</h3>
               <p className="game-overlay-desc">
                 Springe von Stein zu Stein und fall nicht ins Wasser! Die Top 3 gewinnen Free Entry + Goodies.
               </p>

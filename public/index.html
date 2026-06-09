@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Lake Daydance Challenge | Daydance Frastanz, Untere Au</title>
-  <meta name="description" content="Spiele die Lake Jump Challenge beim Daydance in Frastanz (Untere Au)! Die besten 3 gültigen Highscores gewinnen Free Entry & Goodies. Techno, Psy-Techno & am See." />
-  <meta name="keywords" content="Daydance, Frastanz, Untere Au, Techno, Open Air, Minigame, Gewinnspiel, Lake Jump, Elektronische Musik" />
-  <meta property="og:title" content="Lake Daydance Challenge | Daydance Frastanz" />
-  <meta property="og:description" content="Spring über Steine und gewinne Tickets für den Daydance am See! Die Top 3 Scores gewinnen Eintritt & Goodies." />
+  <title>FLOAT Challenge | FLOAT Techno am See, Untere Au</title>
+  <meta name="description" content="Spiele die FLOAT Jump Challenge bei FLOAT Techno am See in Frastanz (Untere Au)! Die besten 3 gültigen Highscores gewinnen Free Entry & Goodies. Techno, Psy-Techno & am See." />
+  <meta name="keywords" content="FLOAT, Daydance, Frastanz, Untere Au, Techno, Open Air, Minigame, Gewinnspiel, Lake Jump, Elektronische Musik" />
+  <meta property="og:title" content="FLOAT Challenge | FLOAT Techno am See" />
+  <meta property="og:description" content="Spring über Steine und gewinne Tickets für FLOAT Techno am See! Die Top 3 Scores gewinnen Eintritt & Goodies." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/lake-view.jpg" />
   
@@ -1190,7 +1190,7 @@
 
   <!-- Header -->
   <header className="app-header" style="position: absolute; top: 0; left: 0; width: 100%; padding: 1.5rem; display: flex; justify-content: center; z-index: 10;">
-    <div class="logo-text">Lake Daydance</div>
+    <div class="logo-text">FLOAT</div>
   </header>
 
   <main>
@@ -1200,9 +1200,9 @@
         <div class="giveaway-badge reveal">
           <span>🎁</span> <strong>Gewinnspiel:</strong> Top 3 gewinnen freien Eintritt & Goodies!
         </div>
-        <p class="hero-subtitle reveal reveal-delay-1">Daydance am See</p>
+        <p class="hero-subtitle reveal reveal-delay-1">lose ur ground</p>
         <h1 class="hero-title reveal reveal-delay-2">
-          Daydance <span>Frastanz</span>
+          FLOAT <span>Techno am See</span>
         </h1>
         <div class="hero-meta-container reveal reveal-delay-3">
           <span class="meta-item">📍 Untere Au, Frastanz</span>
@@ -1237,7 +1237,7 @@
           </span>
           <h3 class="card-title" style="position: relative; z-index: 1;">Ort</h3>
           <p class="card-value" style="position: relative; z-index: 1;">Untere Au, Frastanz</p>
-          <p class="card-desc" style="position: relative; z-index: 1;">Daydance direkt am malerischen Badesee. Parkplätze vor Ort vorhanden.</p>
+          <p class="card-desc" style="position: relative; z-index: 1;">FLOAT direkt am malerischen Badesee. Parkplätze vor Ort vorhanden.</p>
           
           {/* Animated Train/Bus Background */}
           <div class="card-bg-anim location-bg">
@@ -1542,7 +1542,7 @@
 
     <!-- Game Console Section -->
     <section class="game-section" id="game-section">
-      <h2 class="section-title reveal">Lake Jump Challenge</h2>
+      <h2 class="section-title reveal">FLOAT Jump Challenge</h2>
       
       <div class="game-console reveal">
         <div class="canvas-wrapper" id="canvas-wrapper">
@@ -1602,8 +1602,8 @@
 
   <!-- Footer -->
   <footer class="app-footer">
-    <p>© 2026 Lake Daydance Challenge Frastanz. Alle Rechte vorbehalten.</p>
-    <p>Daydance Untere Au - Musik, See & Gemeinschaft.</p>
+    <p>© 2026 FLOAT Techno am See. Alle Rechte vorbehalten.</p>
+    <p>FLOAT Techno am See Untere Au - Musik, See & Gemeinschaft.</p>
   </footer>
 
   <!-- =========================================================================
@@ -1630,14 +1630,14 @@
       const icsData = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
-        'PRODID:-//Lake Daydance//DE',
+        'PRODID:-//FLOAT Techno am See//DE',
         'BEGIN:VEVENT',
-        'UID:daydance-frastanz-2026',
+        'UID:float-techno-am-see-2026',
         'DTSTAMP:20260604T180000Z',
         'DTSTART:20260815T160000Z',
         'DTEND:20260815T220000Z',
-        'SUMMARY:Lake Daydance Frastanz',
-        'DESCRIPTION:Daydance direkt am malerischen Badesee Untere Au. Techno\\, Psy-Techno\\, Dark Prog.',
+        'SUMMARY:FLOAT Techno am See',
+        'DESCRIPTION:FLOAT Techno am See direkt am malerischen Badesee Untere Au. Techno\\, Psy-Techno\\, Dark Prog.',
         'LOCATION:Badesee Untere Au\\, Frastanz',
         'END:VEVENT',
         'END:VCALENDAR'
@@ -1647,7 +1647,7 @@
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', 'daydance.ics');
+      link.setAttribute('download', 'float.ics');
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -2362,7 +2362,7 @@
 
       if (state === 'START') {
         container.innerHTML = `
-          <h3 class="game-overlay-title">Lake Jump</h3>
+          <h3 class="game-overlay-title">FLOAT Jump</h3>
           <p class="game-overlay-desc">Springe von Stein zu Stein und fall nicht ins Wasser! Die Top 3 gewinnen Free Entry + Goodies.</p>
           <button class="btn btn-primary" onclick="triggerStartGame()">Spiel Starten</button>
           <div class="game-controls-hint">Desktop: Leertaste / Klick<br>Mobile: Tippen auf Display</div>

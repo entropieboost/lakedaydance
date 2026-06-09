@@ -36,7 +36,7 @@ export default function App() {
     <>
       {/* Header */}
       <header className="app-header">
-        <div className="logo-text">Lake Daydance</div>
+        <div className="logo-text">FLOAT</div>
       </header>
 
       <main>
@@ -46,9 +46,9 @@ export default function App() {
             <div className="giveaway-badge reveal">
               <span>🎁</span> <strong>Gewinnspiel:</strong> Top 3 gewinnen freien Eintritt & Goodies!
             </div>
-            <p className="hero-subtitle reveal reveal-delay-1">Daydance am See</p>
+            <p className="hero-subtitle reveal reveal-delay-1">lose ur ground</p>
             <h1 className="hero-title reveal reveal-delay-2">
-              Daydance <span>Frastanz</span>
+              FLOAT <span>Techno am See</span>
             </h1>
             <div className="hero-meta-container reveal reveal-delay-3">
               <span className="meta-item">📍 Untere Au, Frastanz</span>
@@ -92,9 +92,9 @@ export default function App() {
 
       {/* Footer */}
       <footer className="app-footer">
-        <p>© 2026 Lake Daydance Challenge Frastanz. Alle Rechte vorbehalten.</p>
+        <p>© 2026 FLOAT Techno am See. Alle Rechte vorbehalten.</p>
         <p>
-          Daydance Untere Au - Musik, See & Gemeinschaft.
+          FLOAT Techno am See Untere Au - Musik, See & Gemeinschaft.
         </p>
       </footer>
     </>

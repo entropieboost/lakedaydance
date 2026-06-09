@@ -6,14 +6,14 @@ export const EventBasics: React.FC = () => {
     const icsData = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//Lake Daydance//DE',
+      'PRODID:-//FLOAT Techno am See//DE',
       'BEGIN:VEVENT',
-      'UID:daydance-frastanz-2026',
+      'UID:float-techno-am-see-2026',
       'DTSTAMP:20260604T180000Z',
       'DTSTART:20260815T160000Z', // Saturday, August 15, 2026 from 18:00 (16:00 UTC)
       'DTEND:20260815T220000Z',   // to 24:00 (22:00 UTC)
-      'SUMMARY:Lake Daydance Frastanz',
-      'DESCRIPTION:Daydance direkt am malerischen Badesee Untere Au. Techno\\, Psy-Techno\\, Dark Prog.',
+      'SUMMARY:FLOAT Techno am See',
+      'DESCRIPTION:FLOAT Techno am See direkt am malerischen Badesee Untere Au. Techno\\, Psy-Techno\\, Dark Prog.',
       'LOCATION:Badesee Untere Au\\, Frastanz',
       'END:VEVENT',
       'END:VCALENDAR'
@@ -23,7 +23,7 @@ export const EventBasics: React.FC = () => {
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.setAttribute('download', 'daydance.ics');
+    link.setAttribute('download', 'float.ics');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -57,7 +57,7 @@ export const EventBasics: React.FC = () => {
           </span>
           <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Ort</h3>
           <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Untere Au, Frastanz</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Daydance direkt am malerischen Badesee. Parkplätze vor Ort vorhanden.</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>FLOAT direkt am malerischen Badesee. Parkplätze vor Ort vorhanden.</p>
           
           {/* Animated Train/Bus Background */}
           <div className="card-bg-anim location-bg">

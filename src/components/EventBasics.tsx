@@ -46,7 +46,7 @@ export const EventBasics: React.FC = () => {
 
   return (
     <section className="section-container" id="details">
-      <h2 className="section-title reveal">Event Infos</h2>
+      <h2 className="section-title reveal" data-char-swap="true">Event Infos</h2>
       <div className="basics-grid">
         {/* Ort */}
         <a

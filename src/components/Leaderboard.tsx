@@ -78,7 +78,7 @@ export const Leaderboard: React.FC = () => {
 
   return (
     <section className="section-container" id="leaderboard">
-      <h2 className="section-title reveal">Leaderboard</h2>
+      <h2 className="section-title reveal" data-char-swap="true">Leaderboard</h2>
       
       <div className="glass-panel leaderboard-container reveal">
         {loading ? (

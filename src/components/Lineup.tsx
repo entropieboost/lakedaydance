@@ -63,7 +63,7 @@ export const Lineup: React.FC = () => {
 
   return (
     <section className="lineup-section" id="lineup">
-      <h2 className="section-title reveal">Line-Up</h2>
+      <h2 className="section-title reveal" data-char-swap="true">Line-Up</h2>
       <p className="section-subtitle" style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
         Ein internationales Aufgebot der Extraklasse trifft auf regionalen Support.
       </p>

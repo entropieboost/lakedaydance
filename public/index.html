@@ -1243,16 +1243,252 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
     .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* =========================================================================
+       Premium Animations (eszterbial.com style)
+       ========================================================================= */
+
+    /* 1. Hide default cursor on desktop */
+    @media (min-width: 769px) {
+      body, html, a, button, select, input, textarea, [role="button"], .interactive, .btn, .game-canvas {
+        cursor: none !important;
+      }
+    }
+
+    /* 2. Custom Inertia Cursor */
+    .custom-cursor {
+      display: none;
+    }
+
+    @media (min-width: 769px) {
+      .custom-cursor {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 32px;
+        height: 32px;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+        transform: translate(-50%, -50%);
+        will-change: transform, width, height, background-color, border-color;
+        transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                    height 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                    background-color 0.3s ease,
+                    border-color 0.3s ease;
+        mix-blend-mode: difference;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+
+      .custom-cursor-dot {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        background-color: #fff;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10001;
+        transform: translate(-50%, -50%);
+        will-change: transform;
+        mix-blend-mode: difference;
+      }
+
+      /* Hover Expansion */
+      .custom-cursor.hovering {
+        width: 52px;
+        height: 52px;
+        background-color: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.95);
+      }
+
+      /* Morphing Play Mode for Minigame Canvas */
+      .custom-cursor.play-mode {
+        width: 80px;
+        height: 32px;
+        border-radius: 4px;
+        border-color: #ffffff;
+        background-color: #000000;
+        mix-blend-mode: normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+      }
+
+      .custom-cursor.play-mode::after {
+        content: 'PLAY 🎮';
+        font-family: var(--font-heading);
+        font-size: 0.72rem;
+        font-weight: 900;
+        color: #ffffff;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      /* Morphing Info Mode for basics cards */
+      .custom-cursor.info-mode {
+        width: 80px;
+        height: 32px;
+        border-radius: 4px;
+        border-color: #ffffff;
+        background-color: #000000;
+        mix-blend-mode: normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+      }
+
+      .custom-cursor.info-mode::after {
+        content: 'INFO ℹ️';
+        font-family: var(--font-heading);
+        font-size: 0.72rem;
+        font-weight: 900;
+        color: #ffffff;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+    }
+
+    /* 3. Background Grid Lines */
+    .grid-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+      z-index: 1;
+      padding: 0 5vw;
+    }
+
+    .grid-background .line {
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 50%, rgba(255, 255, 255, 0.02) 100%);
+    }
+
+    /* 4. Rotating Text Badge around Buttons */
+    .cta-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rotating-badge-container {
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 0;
+      opacity: 0.75;
+      transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+    }
+
+    .cta-wrapper:hover .rotating-badge-container {
+      transform: scale(1.08);
+      opacity: 1;
+    }
+
+    .rotating-badge-svg {
+      width: 100%;
+      height: 100%;
+      animation: rotate-clockwise 20s infinite linear;
+    }
+
+    .rotating-badge-svg text {
+      font-family: var(--font-heading);
+      font-size: 8px;
+      font-weight: 800;
+      fill: rgba(255, 255, 255, 0.35);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .cta-wrapper:hover .rotating-badge-svg text {
+      fill: rgba(255, 255, 255, 0.65);
+    }
+
+    @keyframes rotate-clockwise {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Adjust primary button margins inside cta-wrapper so rotating badge fits well */
+    .cta-wrapper .btn-primary {
+      z-index: 2;
+    }
+
+    /* 5. Interactive Wave Canvas Background */
+    .wave-canvas-container {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background-color: var(--bg-dark);
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .wave-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .wave-canvas-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 2;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Background Grid Lines -->
+  <div class="grid-background">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <!-- Custom Inertia Cursor -->
+  <div class="custom-cursor" id="custom-cursor"></div>
+  <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
 
   <main>
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="hero-content">
-        <p class="hero-subtitle reveal reveal-delay-1">lose ur ground</p>
-        <h1 class="hero-title reveal reveal-delay-2">
+        <p class="hero-subtitle reveal reveal-delay-1" data-char-swap="true">lose ur ground</p>
+        <h1 class="hero-title reveal reveal-delay-2" data-char-swap="true">
           FLOAT <span>Techno am See</span>
         </h1>
         <div class="hero-meta-container reveal reveal-delay-3">
@@ -1264,9 +1500,22 @@
         </div>
         
         <div class="hero-buttons reveal reveal-delay-4">
-          <button onclick="scrollToGame()" class="btn class-btn btn-primary">
-            Spielen & Tickets gewinnen 🎮
-          </button>
+          <div class="cta-wrapper">
+            <button onclick="scrollToGame()" class="btn class-btn btn-primary">
+              Spielen & Tickets gewinnen 🎮
+            </button>
+            <!-- Rotating Badge SVG -->
+            <div class="rotating-badge-container">
+              <svg class="rotating-badge-svg" viewBox="0 0 100 100">
+                <defs>
+                  <path id="heroBadgePath" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
+                </defs>
+                <text>
+                  <textPath href="#heroBadgePath">SPIELEN & GEWINNEN • FLOAT JUMP CHALLENGE •</textPath>
+                </text>
+              </svg>
+            </div>
+          </div>
           <a href="https://eventfrog.at/de/p/partys/house-techno/daydance-am-see-7468717015454245477.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
             Tickets kaufen 🎟️
           </a>
@@ -1276,7 +1525,7 @@
 
     <!-- Event Infos Section -->
     <section class="section-container" id="details">
-      <h2 class="section-title reveal">Event Infos</h2>
+      <h2 class="section-title reveal" data-char-swap="true">Event Infos</h2>
       <div class="basics-grid">
         <!-- Ort -->
         <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="glass-panel basic-card interactive reveal reveal-delay-1" style="position: relative; overflow: hidden;">
@@ -1481,7 +1730,7 @@
 
     <!-- Lineup Section -->
     <section class="lineup-section" id="lineup">
-      <h2 class="section-title reveal">Line-Up</h2>
+      <h2 class="section-title reveal" data-char-swap="true">Line-Up</h2>
       <p class="section-subtitle" style="color: var(--text-muted); margin-bottom: 2rem;">
         Ein internationales Aufgebot der Extraklasse trifft auf regionalen Support.
       </p>
@@ -1601,7 +1850,7 @@
 
     <!-- Game Console Section -->
     <section class="game-section" id="game-section">
-      <h2 class="section-title reveal">FLOAT Jump Challenge</h2>
+      <h2 class="section-title reveal" data-char-swap="true">FLOAT Jump Challenge</h2>
       
       <div class="game-console reveal">
         <div class="canvas-wrapper" id="canvas-wrapper">
@@ -1622,7 +1871,7 @@
 
     <!-- Highscore Leaderboard Section -->
     <section class="section-container" id="leaderboard">
-      <h2 class="section-title reveal">Leaderboard</h2>
+      <h2 class="section-title reveal" data-char-swap="true">Leaderboard</h2>
       
       <div class="glass-panel leaderboard-container reveal">
         <div id="leaderboard-loading" style="text-align: center; padding: 2rem; color: var(--text-muted);">
@@ -1655,9 +1904,12 @@
             Der Rechtsweg ist ausgeschlossen.
           </p>
         </div>
-      </div>
-    </section>
-  </main>
+        {/* Wave Canvas Background */}
+        <div class="wave-canvas-container">
+          <canvas id="waveCanvas" class="wave-canvas"></canvas>
+          <div class="wave-canvas-overlay"></div>
+        </div>
+      </main>
 
   <!-- Footer -->
   <footer class="app-footer">
@@ -1668,13 +1920,62 @@
   <!-- =========================================================================
        JavaScript Game Engine & API client
        ========================================================================= -->
-  <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // 1. Scramble Text Function (matrix/cyber decode feel)
+      const scrambleText = (el) => {
+        const original = el.getAttribute('data-original') || el.innerText;
+        if (!el.getAttribute('data-original')) {
+          el.setAttribute('data-original', original);
+        }
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/@#$+-*%';
+        let frame = 0;
+        const queue = original.split('').map((to, i) => {
+          const start = Math.floor(Math.random() * 12);
+          const end = start + Math.floor(Math.random() * 12);
+          return { to, start, end, char: '' };
+        });
+
+        let rAF;
+        const tick = () => {
+          let output = '';
+          let done = 0;
+          for (let i = 0; i < queue.length; i++) {
+            const q = queue[i];
+            if (original[i] === ' ' || original[i] === '\n') {
+              output += original[i];
+              done++;
+            } else if (frame >= q.end) {
+              output += q.to;
+              done++;
+            } else if (frame >= q.start) {
+              if (!q.char || Math.random() < 0.38) {
+                q.char = chars[Math.floor(Math.random() * chars.length)];
+              }
+              output += q.char;
+            } else {
+              output += original[i];
+            }
+          }
+          el.innerText = output;
+          if (done === queue.length) {
+            cancelAnimationFrame(rAF);
+          } else {
+            frame++;
+            rAF = requestAnimationFrame(tick);
+          }
+        };
+        tick();
+      };
+
+      // 2. Scroll Reveal & Scramble Observer
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('reveal-visible');
+              if (entry.target.hasAttribute('data-char-swap')) {
+                scrambleText(entry.target);
+              }
             }
           });
         },
@@ -1683,6 +1984,161 @@
 
       const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
       revealElements.forEach((el) => observer.observe(el));
+
+      // Scramble on hover
+      const scrambleElements = document.querySelectorAll('[data-char-swap]');
+      scrambleElements.forEach((el) => {
+        el.addEventListener('mouseenter', () => scrambleText(el));
+      });
+
+      // 3. Custom Inertia Cursor Trailing Loop
+      let targetX = -100;
+      let targetY = -100;
+      let cursorX = -100;
+      let cursorY = -100;
+      let hasMoved = false;
+
+      window.addEventListener('mousemove', (e) => {
+        targetX = e.clientX;
+        targetY = e.clientY;
+        if (!hasMoved) {
+          cursorX = targetX;
+          cursorY = targetY;
+          hasMoved = true;
+        }
+      });
+
+      const cursor = document.getElementById('custom-cursor');
+      const dot = document.getElementById('custom-cursor-dot');
+
+      const updateCursor = () => {
+        if (hasMoved) {
+          cursorX += (targetX - cursorX) * 0.15;
+          cursorY += (targetY - cursorY) * 0.15;
+
+          if (cursor) {
+            cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+          }
+          if (dot) {
+            dot.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) translate(-50%, -50%)`;
+          }
+        }
+        requestAnimationFrame(updateCursor);
+      };
+      updateCursor();
+
+      // Hover states for cursor
+      const hoverElements = document.querySelectorAll('a, button, [role="button"], .interactive, .btn');
+      hoverElements.forEach((el) => {
+        el.addEventListener('mouseenter', () => cursor?.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => cursor?.classList.remove('hovering'));
+      });
+
+      // Minigame morph state
+      const gameWrapper = document.querySelector('.game-canvas');
+      if (gameWrapper) {
+        gameWrapper.addEventListener('mouseenter', () => cursor?.classList.add('play-mode'));
+        gameWrapper.addEventListener('mouseleave', () => cursor?.classList.remove('play-mode'));
+      }
+
+      // Info cards morph state
+      const infoCards = document.querySelectorAll('.basic-card.interactive');
+      infoCards.forEach((card) => {
+        card.addEventListener('mouseenter', () => cursor?.classList.add('info-mode'));
+        card.addEventListener('mouseleave', () => cursor?.classList.remove('info-mode'));
+      });
+
+      // 4. Interactive Liquid Wave Canvas Background
+      const canvas = document.getElementById('waveCanvas');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        const parent = canvas.parentElement;
+
+        if (ctx && parent) {
+          let canvasMouseX = -1000;
+          let canvasMouseY = -1000;
+          let canvasTargetMouseX = -1000;
+          let canvasTargetMouseY = -1000;
+
+          parent.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            canvasTargetMouseX = e.clientX - rect.left;
+            canvasTargetMouseY = e.clientY - rect.top;
+          });
+
+          parent.addEventListener('mouseleave', () => {
+            canvasTargetMouseX = -1000;
+            canvasTargetMouseY = -1000;
+          });
+
+          const resize = () => {
+            canvas.width = parent.clientWidth;
+            canvas.height = parent.clientHeight;
+          };
+          window.addEventListener('resize', resize);
+          resize();
+
+          const lineCount = 12;
+          const pointsPerLine = 40;
+          const lines = [];
+
+          const spacing = canvas.height / (lineCount + 1);
+          for (let i = 0; i < lineCount; i++) {
+            const baseY = spacing * (i + 1);
+            const pts = [];
+            for (let j = 0; j <= pointsPerLine; j++) {
+              const x = (j / pointsPerLine) * canvas.width;
+              pts.push({ x, baseY, y: baseY, vy: 0 });
+            }
+            lines.push(pts);
+          }
+
+          const loop = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            canvasMouseX += (canvasTargetMouseX - canvasMouseX) * 0.1;
+            canvasMouseY += (canvasTargetMouseY - canvasMouseY) * 0.1;
+
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+            ctx.lineWidth = 1;
+
+            for (let i = 0; i < lines.length; i++) {
+              const pts = lines[i];
+              ctx.beginPath();
+              ctx.moveTo(pts[0].x, pts[0].y);
+
+              for (let j = 0; j < pts.length; j++) {
+                const p = pts[j];
+                const dx = canvasMouseX - p.x;
+                const dy = canvasMouseY - p.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const radius = 120;
+
+                if (dist < radius) {
+                  const force = (1 - dist / radius) * 10;
+                  p.vy += force * (canvasMouseY > p.baseY ? 0.25 : -0.25);
+                }
+
+                const diff = p.baseY - p.y;
+                p.vy += diff * 0.03;
+                p.vy *= 0.86;
+                p.y += p.vy;
+              }
+
+              for (let j = 1; j < pts.length - 1; j++) {
+                const xc = (pts[j].x + pts[j + 1].x) / 2;
+                const yc = (pts[j].y + pts[j + 1].y) / 2;
+                ctx.quadraticCurveTo(pts[j].x, pts[j].y, xc, yc);
+              }
+              ctx.lineTo(pts[pts.length - 1].x, pts[pts.length - 1].y);
+              ctx.stroke();
+            }
+
+            requestAnimationFrame(loop);
+          };
+          loop();
+        }
+      }
     });
 
     function downloadCalendarEvent() {

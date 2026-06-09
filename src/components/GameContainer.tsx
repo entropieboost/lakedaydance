@@ -257,7 +257,7 @@ export const GameContainer: React.FC = () => {
 
   return (
     <section className="game-section" id="game-section">
-      <h2 className="section-title reveal">FLOAT Jump Challenge</h2>
+      <h2 className="section-title reveal" data-char-swap="true">FLOAT Jump Challenge</h2>
       
       <div className="game-console reveal">
         {/* Aspect Ratio Viewport */}

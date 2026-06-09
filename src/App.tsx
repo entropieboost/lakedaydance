@@ -44,7 +44,7 @@ export default function App() {
         <section className="hero-section">
           <div className="hero-content">
             <div className="giveaway-badge reveal">
-              <span>🎁</span> <strong>Gewinnspiel:</strong> Top 5 gewinnen freien Eintritt & Goodies!
+              <span>🎁</span> <strong>Gewinnspiel:</strong> Top 3 gewinnen freien Eintritt & Goodies!
             </div>
             <p className="hero-subtitle reveal reveal-delay-1">Daydance am See</p>
             <h1 className="hero-title reveal reveal-delay-2">

@@ -335,8 +335,92 @@ h1, h2, h3, h4 {
 }
 
 .card-icon {
-  font-size: 2rem;
-  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  opacity: 0.85;
+  transition: var(--transition-smooth);
+}
+
+.card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.basic-card:hover .card-icon {
+  transform: scale(1.1) translateY(-2px);
+  color: #fff;
+  opacity: 1;
+}
+
+/* Clock hands hover ticking */
+.basic-card:hover .clock-hands {
+  transform-origin: 12px 12px;
+  animation: clock-tick 4s infinite linear;
+}
+
+@keyframes clock-tick {
+  to { transform: rotate(360deg); }
+}
+
+/* Sun rays hover spin */
+.basic-card:hover .weather-sun-rays {
+  transform-origin: 12px 12px;
+  animation: sun-spin 12s infinite linear;
+}
+
+@keyframes sun-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Funktion-One Speaker Background */
+.f1-speaker-bg {
+  position: absolute;
+  bottom: -20px;
+  right: -15px;
+  width: 120px;
+  height: 180px;
+  opacity: 0.08;
+  color: var(--text-primary);
+  pointer-events: none;
+  transition: var(--transition-smooth);
+  z-index: 0;
+  transform-origin: bottom right;
+}
+
+.basic-card:hover .f1-speaker-bg {
+  opacity: 0.22;
+  transform: scale(1.06) rotate(-3deg);
+}
+
+/* Beats pulsing speaker cones */
+.f1-cone-bass {
+  transform-origin: center;
+  animation: f1-beat-bass 0.8s infinite cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.f1-cone-mid {
+  transform-origin: 12px 12px; /* fallback */
+  transform-origin: center;
+  animation: f1-beat-mid 0.8s infinite cubic-bezier(0.25, 0.8, 0.25, 1) 0.05s;
+}
+
+@keyframes f1-beat-bass {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.1); }
+  40% { transform: scale(0.95); }
+  60% { transform: scale(1.02); }
+}
+
+@keyframes f1-beat-mid {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.06); }
+  40% { transform: scale(0.97); }
+  60% { transform: scale(1.01); }
 }
 
 .card-title {

@@ -38,8 +38,8 @@ export class GameEngine {
   // Physics constants
   private readonly GRAVITY = 0.55;
   private readonly JUMP_FORCE = -11.0;
-  private readonly START_SPEED = 3.0;
-  private readonly MAX_SPEED = 7.0;
+  private readonly START_SPEED = 2.6;
+  private readonly MAX_SPEED = 5.2;
   private readonly PLAYER_WIDTH = 26;
   private readonly PLAYER_HEIGHT = 46;
 
@@ -50,7 +50,7 @@ export class GameEngine {
   private grounded = false;
   private standingPlatformIdx = 0;
   
-  private speed = 3.0;
+  private speed = 2.6;
   private score = 0;
   private isRunning = false;
   private isPaused = false;
@@ -230,7 +230,7 @@ export class GameEngine {
   private update(dt: number) {
     // 1. Horizontal movement & speed formula
     // Speed increases slowly with distance traveled
-    this.speed = this.START_SPEED + Math.min(this.playerX / 2500, this.MAX_SPEED - this.START_SPEED);
+    this.speed = this.START_SPEED + Math.min(this.playerX / 3500, this.MAX_SPEED - this.START_SPEED);
     const oldScore = this.score;
     this.playerX += this.speed * dt;
     this.score = Math.floor(this.playerX / 15);
@@ -368,7 +368,7 @@ export class GameEngine {
 
     // 4. Draw stylized Central Tree-Island (from second photo) in background
     // Island coordinate is fixed relative to world camera scroll, repeat or place periodically
-    const cameraX = this.playerX - 100;
+    const cameraX = this.playerX - 60;
     const islandX = 300 - (cameraX * 0.15) % 450; // Parallax background movement
     
     this.ctx.fillStyle = '#0f2214'; // Dark forest green

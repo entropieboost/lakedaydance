@@ -91,82 +91,7 @@ export default function App() {
       scrambleListeners.set(el, listener);
     });
 
-    // 2. Custom Inertia Cursor Trailing Loop
-    let targetX = -100;
-    let targetY = -100;
-    let cursorX = -100;
-    let cursorY = -100;
-    let hasMoved = false;
 
-    const onMouseMove = (e: MouseEvent) => {
-      targetX = e.clientX;
-      targetY = e.clientY;
-      if (!hasMoved) {
-        cursorX = targetX;
-        cursorY = targetY;
-        hasMoved = true;
-      }
-    };
-
-    window.addEventListener('mousemove', onMouseMove);
-
-    const cursor = document.getElementById('custom-cursor');
-    const dot = document.getElementById('custom-cursor-dot');
-    let cursorRAF: number;
-
-    const updateCursor = () => {
-      if (hasMoved) {
-        cursorX += (targetX - cursorX) * 0.15;
-        cursorY += (targetY - cursorY) * 0.15;
-
-        if (cursor) {
-          cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
-        }
-        if (dot) {
-          dot.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) translate(-50%, -50%)`;
-        }
-      }
-      cursorRAF = requestAnimationFrame(updateCursor);
-    };
-    updateCursor();
-
-    // Hover states for cursor
-    const hoverElements = document.querySelectorAll('a, button, [role="button"], .interactive, .btn');
-    const hoverListenersEnter = new Map<Element, () => void>();
-    const hoverListenersLeave = new Map<Element, () => void>();
-
-    hoverElements.forEach((el) => {
-      const enter = () => cursor?.classList.add('hovering');
-      const leave = () => cursor?.classList.remove('hovering');
-      el.addEventListener('mouseenter', enter);
-      el.addEventListener('mouseleave', leave);
-      hoverListenersEnter.set(el, enter);
-      hoverListenersLeave.set(el, leave);
-    });
-
-    // Minigame morph state
-    const gameWrapper = document.querySelector('.game-canvas');
-    let gameEnter: (() => void) | undefined;
-    let gameLeave: (() => void) | undefined;
-    if (gameWrapper) {
-      gameEnter = () => cursor?.classList.add('play-mode');
-      gameLeave = () => cursor?.classList.remove('play-mode');
-      gameWrapper.addEventListener('mouseenter', gameEnter);
-      gameWrapper.addEventListener('mouseleave', gameLeave);
-    }
-
-    // Info cards morph state
-    const infoCards = document.querySelectorAll('.basic-card.interactive');
-    const infoListenersEnter = new Map<Element, () => void>();
-    const infoListenersLeave = new Map<Element, () => void>();
-    infoCards.forEach((card) => {
-      const enter = () => cursor?.classList.add('info-mode');
-      const leave = () => cursor?.classList.remove('info-mode');
-      card.addEventListener('mouseenter', enter);
-      card.addEventListener('mouseleave', leave);
-      infoListenersEnter.set(card, enter);
-      infoListenersLeave.set(card, leave);
-    });
 
     // 3. Interactive Liquid Wave Canvas Background
     const canvas = document.getElementById('waveCanvas') as HTMLCanvasElement;
@@ -278,17 +203,7 @@ export default function App() {
       scrambleListeners.forEach((listener, el) => {
         el.removeEventListener('mouseenter', listener);
       });
-      window.removeEventListener('mousemove', onMouseMove);
-      cancelAnimationFrame(cursorRAF);
 
-      hoverListenersEnter.forEach((enter, el) => el.removeEventListener('mouseenter', enter));
-      hoverListenersLeave.forEach((leave, el) => el.removeEventListener('mouseleave', leave));
-      if (gameWrapper) {
-        if (gameEnter) gameWrapper.removeEventListener('mouseenter', gameEnter);
-        if (gameLeave) gameWrapper.removeEventListener('mouseleave', gameLeave);
-      }
-      infoListenersEnter.forEach((enter, el) => el.removeEventListener('mouseenter', enter));
-      infoListenersLeave.forEach((leave, el) => el.removeEventListener('mouseleave', leave));
 
       cleanupWaves();
     };
@@ -309,18 +224,21 @@ export default function App() {
         <div className="line"></div>
       </div>
 
-      {/* Custom Inertia Cursor */}
-      <div className="custom-cursor" id="custom-cursor"></div>
-      <div className="custom-cursor-dot" id="custom-cursor-dot"></div>
+
 
       <main>
         {/* Hero Section */}
         <section className="hero-section">
           <div className="hero-content">
-            <p className="hero-subtitle reveal reveal-delay-1" data-char-swap="true">lose ur ground</p>
-            <h1 className="hero-title reveal reveal-delay-2" data-char-swap="true">
-              FLOAT <span>Techno am See</span>
+            <h1 className="hero-title reveal reveal-delay-1" data-char-swap="true">
+              FLOAT
             </h1>
+            <p className="hero-slogan reveal reveal-delay-2" data-char-swap="true">
+              Lose Your Ground
+            </p>
+            <p className="hero-subtitle reveal reveal-delay-3">
+              Techno am See
+            </p>
             <div className="hero-meta-container reveal reveal-delay-3">
               <span className="meta-item">📍 Untere Au, Frastanz</span>
               <span className="meta-item-separator">·</span>

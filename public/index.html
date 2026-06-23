@@ -162,27 +162,32 @@
       gap: 1.5rem;
     }
 
-    .hero-subtitle {
+    .hero-slogan {
       font-family: var(--font-heading);
       font-weight: 700;
       color: var(--neon-cyan);
       text-transform: uppercase;
       letter-spacing: 0.2em;
       font-size: 0.9rem;
+      margin: 0.5rem 0;
+    }
+
+    .hero-subtitle {
+      font-family: 'BDOGrotesk', var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
     }
 
     .hero-title {
       font-family: 'BDOGrotesk', var(--font-heading);
-      font-size: 2rem;
-      line-height: 1.4;
+      font-size: 2.5rem;
+      line-height: 1.2;
       text-transform: uppercase;
       letter-spacing: 0.02em;
-      color: transparent;
-      -webkit-text-stroke: 1.5px var(--text-primary);
-    }
-
-    .hero-title span {
-      display: block;
       color: transparent;
       -webkit-text-stroke: 1.5px var(--text-primary);
     }
@@ -266,7 +271,10 @@
 
     @media (min-width: 768px) {
       .hero-title {
-        font-size: 3rem;
+        font-size: 4.5rem;
+      }
+      .hero-subtitle {
+        font-size: 1.75rem;
       }
       .hero-buttons {
         flex-direction: row;
@@ -1248,112 +1256,7 @@
        Premium Animations (eszterbial.com style)
        ========================================================================= */
 
-    /* 1. Hide default cursor on desktop */
-    @media (min-width: 769px) {
-      body, html, a, button, select, input, textarea, [role="button"], .interactive, .btn, .game-canvas {
-        cursor: none !important;
-      }
-    }
-
-    /* 2. Custom Inertia Cursor */
-    .custom-cursor {
-      display: none;
-    }
-
-    @media (min-width: 769px) {
-      .custom-cursor {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 32px;
-        height: 32px;
-        border: 1px solid rgba(255, 255, 255, 0.45);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 10000;
-        transform: translate(-50%, -50%);
-        will-change: transform, width, height, background-color, border-color;
-        transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-                    height 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-                    background-color 0.3s ease,
-                    border-color 0.3s ease;
-        mix-blend-mode: difference;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-      }
-
-      .custom-cursor-dot {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 5px;
-        height: 5px;
-        background-color: #fff;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 10001;
-        transform: translate(-50%, -50%);
-        will-change: transform;
-        mix-blend-mode: difference;
-      }
-
-      /* Hover Expansion */
-      .custom-cursor.hovering {
-        width: 52px;
-        height: 52px;
-        background-color: rgba(255, 255, 255, 0.15);
-        border-color: rgba(255, 255, 255, 0.95);
-      }
-
-      /* Morphing Play Mode for Minigame Canvas */
-      .custom-cursor.play-mode {
-        width: 80px;
-        height: 32px;
-        border-radius: 4px;
-        border-color: #ffffff;
-        background-color: #000000;
-        mix-blend-mode: normal;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
-      }
-
-      .custom-cursor.play-mode::after {
-        content: 'PLAY 🎮';
-        font-family: var(--font-heading);
-        font-size: 0.72rem;
-        font-weight: 900;
-        color: #ffffff;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      /* Morphing Info Mode for basics cards */
-      .custom-cursor.info-mode {
-        width: 80px;
-        height: 32px;
-        border-radius: 4px;
-        border-color: #ffffff;
-        background-color: #000000;
-        mix-blend-mode: normal;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
-      }
-
-      .custom-cursor.info-mode::after {
-        content: 'INFO ℹ️';
-        font-family: var(--font-heading);
-        font-size: 0.72rem;
-        font-weight: 900;
-        color: #ffffff;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-    }
+    /* Custom cursor removed */
 
     /* 3. Background Grid Lines */
     .grid-background {
@@ -1479,18 +1382,21 @@
     <div class="line"></div>
   </div>
 
-  <!-- Custom Inertia Cursor -->
-  <div class="custom-cursor" id="custom-cursor"></div>
-  <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
+  <!-- Custom cursor removed -->
 
   <main>
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="hero-content">
-        <p class="hero-subtitle reveal reveal-delay-1" data-char-swap="true">lose ur ground</p>
-        <h1 class="hero-title reveal reveal-delay-2" data-char-swap="true">
-          FLOAT <span>Techno am See</span>
+        <h1 class="hero-title reveal reveal-delay-1" data-char-swap="true">
+          FLOAT
         </h1>
+        <p class="hero-slogan reveal reveal-delay-2" data-char-swap="true">
+          Lose Your Ground
+        </p>
+        <p class="hero-subtitle reveal reveal-delay-3">
+          Techno am See
+        </p>
         <div class="hero-meta-container reveal reveal-delay-3">
           <span class="meta-item">📍 Untere Au, Frastanz</span>
           <span class="meta-item-separator">·</span>
@@ -1732,7 +1638,7 @@
     <section class="lineup-section" id="lineup">
       <h2 class="section-title reveal" data-char-swap="true">Line-Up</h2>
       <p class="section-subtitle" style="color: var(--text-muted); margin-bottom: 2rem;">
-        Ein internationales Aufgebot der Extraklasse trifft auf regionalen Support.
+        Internationales Lineup & regionaler Support.
       </p>
 
       <div class="lineup-grid">
@@ -1992,62 +1898,7 @@
         el.addEventListener('mouseenter', () => scrambleText(el));
       });
 
-      // 3. Custom Inertia Cursor Trailing Loop
-      let targetX = -100;
-      let targetY = -100;
-      let cursorX = -100;
-      let cursorY = -100;
-      let hasMoved = false;
-
-      window.addEventListener('mousemove', (e) => {
-        targetX = e.clientX;
-        targetY = e.clientY;
-        if (!hasMoved) {
-          cursorX = targetX;
-          cursorY = targetY;
-          hasMoved = true;
-        }
-      });
-
-      const cursor = document.getElementById('custom-cursor');
-      const dot = document.getElementById('custom-cursor-dot');
-
-      const updateCursor = () => {
-        if (hasMoved) {
-          cursorX += (targetX - cursorX) * 0.15;
-          cursorY += (targetY - cursorY) * 0.15;
-
-          if (cursor) {
-            cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
-          }
-          if (dot) {
-            dot.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) translate(-50%, -50%)`;
-          }
-        }
-        requestAnimationFrame(updateCursor);
-      };
-      updateCursor();
-
-      // Hover states for cursor
-      const hoverElements = document.querySelectorAll('a, button, [role="button"], .interactive, .btn');
-      hoverElements.forEach((el) => {
-        el.addEventListener('mouseenter', () => cursor?.classList.add('hovering'));
-        el.addEventListener('mouseleave', () => cursor?.classList.remove('hovering'));
-      });
-
-      // Minigame morph state
-      const gameWrapper = document.querySelector('.game-canvas');
-      if (gameWrapper) {
-        gameWrapper.addEventListener('mouseenter', () => cursor?.classList.add('play-mode'));
-        gameWrapper.addEventListener('mouseleave', () => cursor?.classList.remove('play-mode'));
-      }
-
-      // Info cards morph state
-      const infoCards = document.querySelectorAll('.basic-card.interactive');
-      infoCards.forEach((card) => {
-        card.addEventListener('mouseenter', () => cursor?.classList.add('info-mode'));
-        card.addEventListener('mouseleave', () => cursor?.classList.remove('info-mode'));
-      });
+      // Custom cursor tracking script removed
 
       // 4. Interactive Liquid Wave Canvas Background
       const canvas = document.getElementById('waveCanvas');
@@ -2238,12 +2089,12 @@
           const i = this.generatedPlatforms.length;
           const difficulty = Math.min(i / 60, 1.0);
 
-          const minGap = 80 + difficulty * 20;
-          const maxGap = 130 + difficulty * 60;
+          const minGap = 75 + difficulty * 15;
+          const maxGap = 120 + difficulty * 40;
           const gap = this.prng.nextRange(minGap, maxGap);
 
-          const minWidth = Math.max(55, 90 - difficulty * 25);
-          const maxWidth = Math.max(75, 130 - difficulty * 45);
+          const minWidth = Math.max(65, 100 - difficulty * 20);
+          const maxWidth = Math.max(90, 140 - difficulty * 35);
           const width = this.prng.nextRange(minWidth, maxWidth);
 
           const yOffset = this.prng.nextRange(-25, 20);
@@ -2404,8 +2255,8 @@
 
         this.GRAVITY = 0.55;
         this.JUMP_FORCE = -11.0;
-        this.START_SPEED = 3.0;
-        this.MAX_SPEED = 7.0;
+        this.START_SPEED = 2.6;
+        this.MAX_SPEED = 5.2;
         this.PLAYER_WIDTH = 26;
         this.PLAYER_HEIGHT = 46;
 
@@ -2415,7 +2266,7 @@
         this.grounded = false;
         this.standingPlatformIdx = 0;
 
-        this.speed = 3.0;
+        this.speed = 2.6;
         this.score = 0;
         this.isRunning = false;
         this.isPaused = false;
@@ -2545,7 +2396,7 @@
       }
 
       update(dt) {
-        this.speed = this.START_SPEED + Math.min(this.playerX / 2500, this.MAX_SPEED - this.START_SPEED);
+        this.speed = this.START_SPEED + Math.min(this.playerX / 3500, this.MAX_SPEED - this.START_SPEED);
         const oldScore = this.score;
         this.playerX += this.speed * dt;
         this.score = Math.floor(this.playerX / 15);
@@ -2658,7 +2509,7 @@
         this.ctx.fill();
 
         // 4. Central Tree Island
-        const cameraX = this.playerX - 100;
+        const cameraX = this.playerX - 60;
         const islandX = 300 - (cameraX * 0.15) % 450;
         this.ctx.fillStyle = '#0f2214';
         this.ctx.beginPath();

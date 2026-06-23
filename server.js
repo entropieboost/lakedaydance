@@ -58,12 +58,12 @@ class ServerPlatformManager {
       const i = this.generatedPlatforms.length;
       const difficulty = Math.min(i / 60, 1.0);
 
-      const minGap = 80 + difficulty * 20;
-      const maxGap = 130 + difficulty * 60;
+      const minGap = 75 + difficulty * 15;
+      const maxGap = 120 + difficulty * 40;
       const gap = this.prng.nextRange(minGap, maxGap);
 
-      const minWidth = Math.max(55, 90 - difficulty * 25);
-      const maxWidth = Math.max(75, 130 - difficulty * 45);
+      const minWidth = Math.max(65, 100 - difficulty * 20);
+      const maxWidth = Math.max(90, 140 - difficulty * 35);
       const width = this.prng.nextRange(minWidth, maxWidth);
 
       const yOffset = this.prng.nextRange(-25, 20);

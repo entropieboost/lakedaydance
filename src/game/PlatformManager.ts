@@ -41,13 +41,13 @@ export class PlatformManager {
       const difficulty = Math.min(i / 60, 1.0);
 
       // Gaps between stones increase with difficulty
-      const minGap = 80 + difficulty * 20;  // 80 -> 100 px
-      const maxGap = 130 + difficulty * 60; // 130 -> 190 px
+      const minGap = 75 + difficulty * 15;  // 75 -> 90 px
+      const maxGap = 120 + difficulty * 40; // 120 -> 160 px
       const gap = this.prng.nextRange(minGap, maxGap);
 
       // Width of stones decreases with difficulty (making them smaller targets)
-      const minWidth = Math.max(55, 90 - difficulty * 25);  // 90 -> 65 px
-      const maxWidth = Math.max(75, 130 - difficulty * 45); // 130 -> 85 px
+      const minWidth = Math.max(65, 100 - difficulty * 20);  // 100 -> 80 px
+      const maxWidth = Math.max(90, 140 - difficulty * 35); // 140 -> 105 px
       const width = this.prng.nextRange(minWidth, maxWidth);
 
       // Vertical height of the stones varies slightly to create ups/downs

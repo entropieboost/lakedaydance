@@ -176,7 +176,7 @@ export const Lineup: React.FC = () => {
           </a>{' '}
           und{' '}
           <a
-            href="https://www.instagram.com/rigomultilar/"
+            href="https://www.instagram.com/rigomutilar/"
             target="_blank"
             rel="noopener noreferrer"
             className="cooperation-link"

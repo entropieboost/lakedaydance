@@ -1437,10 +1437,10 @@ h1, h2, h3, h4 {
 /* Visual Mapping Card Animation Styles */
 .visual-mapping-bg {
   position: absolute;
-  bottom: 12px;
-  right: -5px;
-  width: 155px;
-  height: 130px;
+  bottom: -25px;
+  right: -10px;
+  width: 140px;
+  height: 120px;
   opacity: 0.18;
   transition: opacity 0.5s ease, transform 0.5s ease;
   pointer-events: none;
@@ -1449,11 +1449,11 @@ h1, h2, h3, h4 {
 
 .basic-card:hover .visual-mapping-bg {
   opacity: 0.38;
-  transform: scale(1.05) translateY(-5px);
+  transform: scale(1.05) translateY(-3px);
 }
 
 .light-cone {
-  transform-origin: 48px 54px;
+  transform-origin: 48px 84px;
   animation: coneSweep 6s ease-in-out infinite alternate;
 }
 
@@ -1470,7 +1470,7 @@ h1, h2, h3, h4 {
 }
 
 .mapped-cube {
-  transform-origin: 112px 51px;
+  transform-origin: 112px 36px;
   animation: cubeRotate 12s linear infinite;
   stroke: var(--neon-cyan, #00f0ff);
   stroke-width: 0.8;

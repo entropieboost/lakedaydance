@@ -250,31 +250,31 @@ export const EventBasics: React.FC = () => {
           <div className="visual-mapping-bg">
             <svg viewBox="0 0 140 120" fill="none" stroke="currentColor" strokeWidth="1.0">
               <g className="projector-unit">
-                <rect x="15" y="45" width="28" height="18" rx="2" fill="rgba(255,255,255,0.02)" />
-                <circle cx="36" cy="54" r="5" fill="rgba(255,255,255,0.05)" />
-                <path d="M43 51l10-6v18l-10-6z" fill="rgba(255,255,255,0.08)" />
-                <line x1="20" y1="50" x2="20" y2="58" strokeWidth="1.5" strokeDasharray="1 2" />
-                <line x1="24" y1="50" x2="24" y2="58" strokeWidth="1.5" strokeDasharray="1 2" />
+                <rect x="15" y="75" width="28" height="18" rx="2" fill="rgba(255,255,255,0.02)" />
+                <circle cx="36" cy="84" r="5" fill="rgba(255,255,255,0.05)" />
+                <path d="M43 81l10-6v18l-10-6z" fill="rgba(255,255,255,0.08)" />
+                <line x1="20" y1="80" x2="20" y2="88" strokeWidth="1.5" strokeDasharray="1 2" />
+                <line x1="24" y1="80" x2="24" y2="88" strokeWidth="1.5" strokeDasharray="1 2" />
               </g>
-              <polygon className="light-cone" points="48,54 125,15 125,95" fill="rgba(0, 240, 255, 0.03)" stroke="rgba(0, 240, 255, 0.15)" strokeWidth="0.8" strokeDasharray="2 3" />
+              <polygon className="light-cone" points="48,84 125,10 125,85" fill="rgba(0, 240, 255, 0.03)" stroke="rgba(0, 240, 255, 0.15)" strokeWidth="0.8" strokeDasharray="2 3" />
               <g className="laser-beams">
-                <line className="laser-beam laser-1" x1="48" y1="54" x2="115" y2="25" stroke="#00f0ff" strokeWidth="1.2" opacity="0.6" />
-                <line className="laser-beam laser-2" x1="48" y1="54" x2="130" y2="48" stroke="#ff007f" strokeWidth="1.2" opacity="0.6" />
-                <line className="laser-beam laser-3" x1="48" y1="54" x2="120" y2="78" stroke="#00f0ff" strokeWidth="1.2" opacity="0.6" />
+                <line className="laser-beam laser-1" x1="48" y1="84" x2="115" y2="15" stroke="#00f0ff" strokeWidth="1.2" opacity="0.6" />
+                <line className="laser-beam laser-2" x1="48" y1="84" x2="130" y2="35" stroke="#ff007f" strokeWidth="1.2" opacity="0.6" />
+                <line className="laser-beam laser-3" x1="48" y1="84" x2="120" y2="55" stroke="#00f0ff" strokeWidth="1.2" opacity="0.6" />
               </g>
               <g className="mapped-cube">
-                <line x1="100" y1="35" x2="125" y2="35" />
-                <line x1="125" y1="35" x2="125" y2="60" />
-                <line x1="125" y1="60" x2="100" y2="60" />
-                <line x1="100" y1="60" x2="100" y2="35" />
-                <line x1="108" y1="43" x2="133" y2="43" opacity="0.5" />
-                <line x1="133" y1="43" x2="133" y2="68" opacity="0.5" />
-                <line x1="133" y1="68" x2="108" y2="68" opacity="0.5" />
-                <line x1="108" y1="68" x2="108" y2="43" opacity="0.5" />
-                <line x1="100" y1="35" x2="108" y2="43" />
-                <line x1="125" y1="35" x2="133" y2="43" />
-                <line x1="125" y1="60" x2="133" y2="68" />
-                <line x1="100" y1="60" x2="108" y2="68" />
+                <line x1="100" y1="20" x2="125" y2="20" />
+                <line x1="125" y1="20" x2="125" y2="45" />
+                <line x1="125" y1="45" x2="100" y2="45" />
+                <line x1="100" y1="45" x2="100" y2="20" />
+                <line x1="108" y1="28" x2="133" y2="28" opacity="0.5" />
+                <line x1="133" y1="28" x2="133" y2="53" opacity="0.5" />
+                <line x1="133" y1="53" x2="108" y2="53" opacity="0.5" />
+                <line x1="108" y1="53" x2="108" y2="28" opacity="0.5" />
+                <line x1="100" y1="20" x2="108" y2="28" />
+                <line x1="125" y1="20" x2="133" y2="28" />
+                <line x1="125" y1="45" x2="133" y2="53" />
+                <line x1="100" y1="45" x2="108" y2="53" />
               </g>
             </svg>
           </div>

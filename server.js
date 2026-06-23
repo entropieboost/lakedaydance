@@ -525,6 +525,46 @@ app.get('/api/leaderboard', async (req, res) => {
   }
 });
 
+// Endpoint: Reset Leaderboard (temporary for admin)
+app.post('/api/admin/reset', async (req, res) => {
+  const { secret } = req.body;
+  if (secret !== 'float-reset-secret-2026') {
+    return res.status(401).json({ error: 'Nicht autorisiert.' });
+  }
+
+  try {
+    if (isFirebaseConfigured) {
+      // Clear leaderboard
+      const leaderboard = db.collection('leaderboard');
+      const snapshot = await leaderboard.get();
+      const batch = db.batch();
+      snapshot.forEach(doc => {
+        batch.delete(doc.ref);
+      });
+      await batch.commit();
+
+      // Clear flagged scores
+      const flagged = db.collection('flaggedScores');
+      const flaggedSnapshot = await flagged.get();
+      const flaggedBatch = db.batch();
+      flaggedSnapshot.forEach(doc => {
+        flaggedBatch.delete(doc.ref);
+      });
+      await flaggedBatch.commit();
+      
+      console.log('🧹 Firestore Leaderboard and Flagged Scores cleared successfully via admin API.');
+    }
+
+    mockLeaderboard.length = 0;
+    mockFlaggedScores.length = 0;
+
+    return res.json({ success: true, message: 'Datenbank erfolgreich zurückgesetzt.' });
+  } catch (error) {
+    console.error('Error resetting database:', error);
+    return res.status(500).json({ error: 'Serverfehler beim Zurücksetzen der Datenbank.' });
+  }
+});
+
 // Helper for flagged scores
 async function recordFlagged(displayName, email, instagram, score, durationMs, reason, fullPayload, res) {
   const loggedFlag = {

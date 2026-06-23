@@ -172,7 +172,7 @@ export const Lineup: React.FC = () => {
             rel="noopener noreferrer"
             className="cooperation-link"
           >
-            Techn0_Larry
+            Techno Larry
           </a>{' '}
           und{' '}
           <a

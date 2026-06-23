@@ -201,8 +201,57 @@ export const EventBasics: React.FC = () => {
           </div>
         </div>
 
+        {/* Visual Mapping */}
+        <div className="glass-panel basic-card interactive reveal reveal-delay-5" onClick={scrollToLineup} style={{ position: 'relative', overflow: 'hidden' }}>
+          <span className="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="8" width="12" height="8" rx="2" />
+              <circle cx="11" cy="12" r="2" />
+              <path d="M15 10l6-4v12l-6-4" />
+              <line x1="22" y1="4" x2="24" y2="3" />
+              <line x1="22" y1="20" x2="24" y2="21" />
+            </svg>
+          </span>
+          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Visual Mapping</h3>
+          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>René Fischer</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>René Fischer illuminiert die Location mit eindrucksvollem 3D Visual Mapping und Laser-Effekten.</p>
+          
+          {/* Animated Projector & Laser Background */}
+          <div className="visual-mapping-bg">
+            <svg viewBox="0 0 140 120" fill="none" stroke="currentColor" strokeWidth="1.0">
+              <g className="projector-unit">
+                <rect x="15" y="45" width="28" height="18" rx="2" fill="rgba(255,255,255,0.02)" />
+                <circle cx="36" cy="54" r="5" fill="rgba(255,255,255,0.05)" />
+                <path d="M43 51l10-6v18l-10-6z" fill="rgba(255,255,255,0.08)" />
+                <line x1="20" y1="50" x2="20" y2="58" strokeWidth="1.5" strokeDasharray="1 2" />
+                <line x1="24" y1="50" x2="24" y2="58" strokeWidth="1.5" strokeDasharray="1 2" />
+              </g>
+              <polygon className="light-cone" points="48,54 125,15 125,95" fill="rgba(0, 240, 255, 0.03)" stroke="rgba(0, 240, 255, 0.15)" strokeWidth="0.8" strokeDasharray="2 3" />
+              <g className="laser-beams">
+                <line className="laser-beam laser-1" x1="48" y1="54" x2="115" y2="25" stroke="#00f0ff" strokeWidth="1.2" opacity="0.6" />
+                <line className="laser-beam laser-2" x1="48" y1="54" x2="130" y2="48" stroke="#ff007f" strokeWidth="1.2" opacity="0.6" />
+                <line className="laser-beam laser-3" x1="48" y1="54" x2="120" y2="78" stroke="#00f0ff" strokeWidth="1.2" opacity="0.6" />
+              </g>
+              <g className="mapped-cube">
+                <line x1="100" y1="35" x2="125" y2="35" />
+                <line x1="125" y1="35" x2="125" y2="60" />
+                <line x1="125" y1="60" x2="100" y2="60" />
+                <line x1="100" y1="60" x2="100" y2="35" />
+                <line x1="108" y1="43" x2="133" y2="43" opacity="0.5" />
+                <line x1="133" y1="43" x2="133" y2="68" opacity="0.5" />
+                <line x1="133" y1="68" x2="108" y2="68" opacity="0.5" />
+                <line x1="108" y1="68" x2="108" y2="43" opacity="0.5" />
+                <line x1="100" y1="35" x2="108" y2="43" />
+                <line x1="125" y1="35" x2="133" y2="43" />
+                <line x1="125" y1="60" x2="133" y2="68" />
+                <line x1="100" y1="60" x2="108" y2="68" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
         {/* Wetter */}
-        <div className="glass-panel basic-card interactive reveal reveal-delay-5" onClick={openWeather} style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="glass-panel basic-card interactive reveal reveal-delay-6" onClick={openWeather} style={{ position: 'relative', overflow: 'hidden' }}>
           <span className="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 2v2M4.93 4.93l1.41 1.41M20 12h2M17.66 6.34l1.41-1.41" className="weather-sun-rays" />

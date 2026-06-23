@@ -1411,4 +1411,77 @@ h1, h2, h3, h4 {
   border-color: rgba(255, 255, 255, 0.35);
 }
 
+/* Visual Mapping Card Animation Styles */
+.visual-mapping-bg {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 140px;
+  height: 120px;
+  opacity: 0.15;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.basic-card:hover .visual-mapping-bg {
+  opacity: 0.35;
+  transform: scale(1.05);
+}
+
+.light-cone {
+  transform-origin: 48px 54px;
+  animation: coneSweep 6s ease-in-out infinite alternate;
+}
+
+.laser-1 {
+  animation: laserPulse1 2.5s ease-in-out infinite alternate;
+}
+
+.laser-2 {
+  animation: laserPulse2 3s ease-in-out infinite alternate;
+}
+
+.laser-3 {
+  animation: laserPulse3 2.2s ease-in-out infinite alternate;
+}
+
+.mapped-cube {
+  transform-origin: 112px 51px;
+  animation: cubeRotate 12s linear infinite;
+  stroke: var(--neon-cyan, #00f0ff);
+  stroke-width: 0.8;
+}
+
+@keyframes coneSweep {
+  0% { transform: rotate(-3deg) scaleY(0.95); opacity: 0.7; }
+  50% { transform: rotate(2deg) scaleY(1.05); opacity: 0.9; }
+  100% { transform: rotate(-1deg) scaleY(1.0); opacity: 0.8; }
+}
+
+@keyframes laserPulse1 {
+  0% { opacity: 0.2; stroke-width: 0.8; }
+  50% { opacity: 0.9; stroke-width: 1.6; }
+  100% { opacity: 0.4; stroke-width: 1.0; }
+}
+
+@keyframes laserPulse2 {
+  0% { opacity: 0.8; stroke-width: 1.4; transform: translateY(-2px); }
+  50% { opacity: 0.3; stroke-width: 0.8; transform: translateY(1px); }
+  100% { opacity: 0.9; stroke-width: 1.8; transform: translateY(-1px); }
+}
+
+@keyframes laserPulse3 {
+  0% { opacity: 0.3; stroke-width: 0.8; }
+  35% { opacity: 0.8; stroke-width: 1.5; }
+  70% { opacity: 0.1; stroke-width: 0.5; }
+  100% { opacity: 0.6; stroke-width: 1.2; }
+}
+
+@keyframes cubeRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 

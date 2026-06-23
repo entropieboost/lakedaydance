@@ -1392,6 +1392,78 @@
       transform: scale(1.1);
       border-color: rgba(255, 255, 255, 0.35);
     }
+
+    /* Visual Mapping Card Animation Styles */
+    .visual-mapping-bg {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 140px;
+      height: 120px;
+      opacity: 0.15;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .basic-card:hover .visual-mapping-bg {
+      opacity: 0.35;
+      transform: scale(1.05);
+    }
+
+    .light-cone {
+      transform-origin: 48px 54px;
+      animation: coneSweep 6s ease-in-out infinite alternate;
+    }
+
+    .laser-1 {
+      animation: laserPulse1 2.5s ease-in-out infinite alternate;
+    }
+
+    .laser-2 {
+      animation: laserPulse2 3s ease-in-out infinite alternate;
+    }
+
+    .laser-3 {
+      animation: laserPulse3 2.2s ease-in-out infinite alternate;
+    }
+
+    .mapped-cube {
+      transform-origin: 112px 51px;
+      animation: cubeRotate 12s linear infinite;
+      stroke: var(--neon-cyan, #00f0ff);
+      stroke-width: 0.8;
+    }
+
+    @keyframes coneSweep {
+      0% { transform: rotate(-3deg) scaleY(0.95); opacity: 0.7; }
+      50% { transform: rotate(2deg) scaleY(1.05); opacity: 0.9; }
+      100% { transform: rotate(-1deg) scaleY(1.0); opacity: 0.8; }
+    }
+
+    @keyframes laserPulse1 {
+      0% { opacity: 0.2; stroke-width: 0.8; }
+      50% { opacity: 0.9; stroke-width: 1.6; }
+      100% { opacity: 0.4; stroke-width: 1.0; }
+    }
+
+    @keyframes laserPulse2 {
+      0% { opacity: 0.8; stroke-width: 1.4; transform: translateY(-2px); }
+      50% { opacity: 0.3; stroke-width: 0.8; transform: translateY(1px); }
+      100% { opacity: 0.9; stroke-width: 1.8; transform: translateY(-1px); }
+    }
+
+    @keyframes laserPulse3 {
+      0% { opacity: 0.3; stroke-width: 0.8; }
+      35% { opacity: 0.8; stroke-width: 1.5; }
+      70% { opacity: 0.1; stroke-width: 0.5; }
+      100% { opacity: 0.6; stroke-width: 1.2; }
+    }
+
+    @keyframes cubeRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -1612,8 +1684,57 @@
           </div>
         </div>
 
+        <!-- Visual Mapping -->
+        <div class="glass-panel basic-card interactive reveal reveal-delay-5" onclick="document.getElementById('lineup').scrollIntoView({ behavior: 'smooth' })" style="position: relative; overflow: hidden;">
+          <span class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="8" width="12" height="8" rx="2" />
+              <circle cx="11" cy="12" r="2" />
+              <path d="M15 10l6-4v12l-6-4" />
+              <line x1="22" y1="4" x2="24" y2="3" />
+              <line x1="22" y1="20" x2="24" y2="21" />
+            </svg>
+          </span>
+          <h3 class="card-title" style="position: relative; z-index: 1;">Visual Mapping</h3>
+          <p class="card-value" style="position: relative; z-index: 1;">René Fischer</p>
+          <p class="card-desc" style="position: relative; z-index: 1;">René Fischer illuminiert die Location mit eindrucksvollem 3D Visual Mapping und Laser-Effekten.</p>
+          
+          <!-- Animated Projector & Laser Background -->
+          <div class="visual-mapping-bg">
+            <svg viewBox="0 0 140 120" fill="none" stroke="currentColor" stroke-width="1.0">
+              <g class="projector-unit">
+                <rect x="15" y="45" width="28" height="18" rx="2" fill="rgba(255,255,255,0.02)" />
+                <circle cx="36" cy="54" r="5" fill="rgba(255,255,255,0.05)" />
+                <path d="M43 51l10-6v18l-10-6z" fill="rgba(255,255,255,0.08)" />
+                <line x1="20" y1="50" x2="20" y2="58" stroke-width="1.5" stroke-dasharray="1 2" />
+                <line x1="24" y1="50" x2="24" y2="58" stroke-width="1.5" stroke-dasharray="1 2" />
+              </g>
+              <polygon class="light-cone" points="48,54 125,15 125,95" fill="rgba(0, 240, 255, 0.03)" stroke="rgba(0, 240, 255, 0.15)" stroke-width="0.8" stroke-dasharray="2 3" />
+              <g class="laser-beams">
+                <line class="laser-beam laser-1" x1="48" y1="54" x2="115" y2="25" stroke="#00f0ff" stroke-width="1.2" opacity="0.6" />
+                <line class="laser-beam laser-2" x1="48" y1="54" x2="130" y2="48" stroke="#ff007f" stroke-width="1.2" opacity="0.6" />
+                <line class="laser-beam laser-3" x1="48" y1="54" x2="120" y2="78" stroke="#00f0ff" stroke-width="1.2" opacity="0.6" />
+              </g>
+              <g class="mapped-cube">
+                <line x1="100" y1="35" x2="125" y2="35" />
+                <line x1="125" y1="35" x2="125" y2="60" />
+                <line x1="125" y1="60" x2="100" y2="60" />
+                <line x1="100" y1="60" x2="100" y2="35" />
+                <line x1="108" y1="43" x2="133" y2="43" opacity="0.5" />
+                <line x1="133" y1="43" x2="133" y2="68" opacity="0.5" />
+                <line x1="133" y1="68" x2="108" y2="68" opacity="0.5" />
+                <line x1="108" y1="68" x2="108" y2="43" opacity="0.5" />
+                <line x1="100" y1="35" x2="108" y2="43" />
+                <line x1="125" y1="35" x2="133" y2="43" />
+                <line x1="125" y1="60" x2="133" y2="68" />
+                <line x1="100" y1="60" x2="108" y2="68" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
         <!-- Wetter -->
-        <div class="glass-panel basic-card interactive reveal reveal-delay-5" onclick="window.open('https://www.google.com/search?q=wetter+frastanz', '_blank')" style="position: relative; overflow: hidden;">
+        <div class="glass-panel basic-card interactive reveal reveal-delay-6" onclick="window.open('https://www.google.com/search?q=wetter+frastanz', '_blank')" style="position: relative; overflow: hidden;">
           <span class="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2v2M4.93 4.93l1.41 1.41M20 12h2M17.66 6.34l1.41-1.41" class="weather-sun-rays" />

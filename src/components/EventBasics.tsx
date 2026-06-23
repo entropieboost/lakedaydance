@@ -155,6 +155,7 @@ export const EventBasics: React.FC = () => {
 
         {/* Stimmung */}
         <div className="glass-panel basic-card interactive reveal reveal-delay-4" onClick={scrollToLineup} style={{ position: 'relative', overflow: 'hidden' }}>
+          <img src="/braincandy-logo.jpg" alt="Braincandy Soundsystem" className="soundsystem-logo-badge" />
           <span className="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 2v2M4.22 4.22l1.42 1.42M1 12h2M21 12h2M18.36 5.64l1.42-1.42" />
@@ -165,7 +166,7 @@ export const EventBasics: React.FC = () => {
           </span>
           <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Vibe</h3>
           <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Open Air & Sonnenuntergang</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Sommerliche Deko, kühle Drinks, Seezugang und erstklassiges Soundsystem von Braincandy.</p>
           
           {/* Animated Swimmer & Cheers Background */}
           <div className="card-bg-anim vibe-bg">

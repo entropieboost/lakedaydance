@@ -1372,6 +1372,26 @@
       transform: scale(1.1);
       border-color: rgba(255, 255, 255, 0.35);
     }
+
+    /* Soundsystem Logo Badge inside Vibe/Sound Card */
+    .soundsystem-logo-badge {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      height: 40px;
+      width: auto;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background-color: rgba(0, 0, 0, 0.85);
+      z-index: 2;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    }
+
+    .basic-card:hover .soundsystem-logo-badge {
+      transform: scale(1.1);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
   </style>
 </head>
 <body>
@@ -1546,6 +1566,7 @@
 
         <!-- Stimmung -->
         <div class="glass-panel basic-card interactive reveal reveal-delay-4" onclick="document.getElementById('lineup').scrollIntoView({ behavior: 'smooth' })" style="position: relative; overflow: hidden;">
+          <img src="/braincandy-logo.jpg" alt="Braincandy Soundsystem" class="soundsystem-logo-badge" />
           <span class="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2v2M4.22 4.22l1.42 1.42M1 12h2M21 12h2M18.36 5.64l1.42-1.42" />
@@ -1556,7 +1577,7 @@
           </span>
           <h3 class="card-title" style="position: relative; z-index: 1;">Vibe</h3>
           <p class="card-value" style="position: relative; z-index: 1;">Open Air & Sonnenuntergang</p>
-          <p class="card-desc" style="position: relative; z-index: 1;">Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.</p>
+          <p class="card-desc" style="position: relative; z-index: 1;">Sommerliche Deko, kühle Drinks, Seezugang und erstklassiges Soundsystem von Braincandy.</p>
           
           <!-- Animated Swimmer & Cheers Background -->
           <div class="card-bg-anim vibe-bg">
@@ -1757,14 +1778,18 @@
           <a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
             <img src="/kultur-lindau.png" alt="Kultur Lindau Logo" class="cooperation-logo-img white-bg" />
           </a>
+          <a href="https://www.instagram.com/braincandysoundsystem/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
+            <img src="/braincandy-logo.jpg" alt="Braincandy Soundsystem Logo" class="cooperation-logo-img" />
+          </a>
           <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
             <img src="/untere-au-logo.png" alt="Wirtschaft Untere Au Logo" class="cooperation-logo-img" />
           </a>
         </div>
         <p class="cooperation-text">
           🤝 Dieses Event wird in enger Freundschaft und Kooperation von den Vereinen 
-          <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Frequency Squad</a> und 
-          <a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Kultur Lindau e.V.</a> veranstaltet und 
+          <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Frequency Squad</a>, 
+          <a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Kultur Lindau e.V.</a> und 
+          <a href="https://www.instagram.com/braincandysoundsystem/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Braincandy Soundsystem</a> veranstaltet und 
           von der <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="cooperation-link">Wirtschaft Untere Au</a> gehostet, 
           um die elektronische Musikkultur in der Region Bodensee-Vorarlberg zu stärken.
         </p>

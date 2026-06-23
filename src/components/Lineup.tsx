@@ -148,6 +148,14 @@ export const Lineup: React.FC = () => {
             <img src="/kultur-lindau.png" alt="Kultur Lindau Logo" className="cooperation-logo-img white-bg" />
           </a>
           <a
+            href="https://www.instagram.com/braincandysoundsystem/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cooperation-logo-link"
+          >
+            <img src="/braincandy-logo.jpg" alt="Braincandy Soundsystem Logo" className="cooperation-logo-img" />
+          </a>
+          <a
             href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz"
             target="_blank"
             rel="noopener noreferrer"
@@ -165,8 +173,7 @@ export const Lineup: React.FC = () => {
             className="cooperation-link"
           >
             Frequency Squad
-          </a>{' '}
-          und{' '}
+          </a>{', '}
           <a
             href="https://www.instagram.com/kultur.lindau/"
             target="_blank"
@@ -174,6 +181,15 @@ export const Lineup: React.FC = () => {
             className="cooperation-link"
           >
             Kultur Lindau e.V.
+          </a>{' '}
+          und{' '}
+          <a
+            href="https://www.instagram.com/braincandysoundsystem/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cooperation-link"
+          >
+            Braincandy Soundsystem
           </a>{' '}
           veranstaltet und von der{' '}
           <a

@@ -118,8 +118,7 @@ export default function App() {
           canvasTargetMouseY = -1000;
         };
 
-        parent.addEventListener('mousemove', onCanvasMouseMove);
-        parent.addEventListener('mouseleave', onCanvasMouseLeave);
+        window.addEventListener('mousemove', onCanvasMouseMove);
 
         const resize = () => {
           canvas.width = parent.clientWidth;
@@ -191,8 +190,7 @@ export default function App() {
 
         cleanupWaves = () => {
           cancelAnimationFrame(waveRAF);
-          parent.removeEventListener('mousemove', onCanvasMouseMove);
-          parent.removeEventListener('mouseleave', onCanvasMouseLeave);
+          window.removeEventListener('mousemove', onCanvasMouseMove);
           window.removeEventListener('resize', resize);
         };
       }
@@ -224,7 +222,10 @@ export default function App() {
         <div className="line"></div>
       </div>
 
-
+      {/* Interactive Wave Canvas Background */}
+      <div className="wave-canvas-container">
+        <canvas id="waveCanvas" className="wave-canvas"></canvas>
+      </div>
 
       <main>
         {/* Hero Section */}
@@ -291,11 +292,7 @@ export default function App() {
         {/* Highscore Leaderboard Section */}
         <Leaderboard />
 
-        {/* Interactive Wave Canvas Background */}
-        <div className="wave-canvas-container">
-          <canvas id="waveCanvas" className="wave-canvas"></canvas>
-          <div className="wave-canvas-overlay"></div>
-        </div>
+
       </main>
 
       {/* Footer */}

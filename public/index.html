@@ -1335,35 +1335,42 @@
 
     /* 5. Interactive Wave Canvas Background */
     .wave-canvas-container {
-      position: relative;
-      width: 100%;
-      height: 180px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       overflow: hidden;
-      background-color: var(--bg-dark);
-      margin-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.25;
     }
 
     .wave-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
+      display: block;
       width: 100%;
       height: 100%;
-      display: block;
+      background: transparent;
     }
 
-    .wave-canvas-overlay {
+    /* Location Logo Badge inside Ort Card */
+    .location-logo-badge {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background-color: rgba(255, 255, 255, 0.05);
       z-index: 2;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    }
+
+    .basic-card:hover .location-logo-badge {
+      transform: scale(1.1);
+      border-color: rgba(255, 255, 255, 0.35);
     }
   </style>
 </head>
@@ -1380,6 +1387,11 @@
     <div class="line"></div>
     <div class="line"></div>
     <div class="line"></div>
+  </div>
+
+  <!-- Interactive Wave Canvas Background -->
+  <div class="wave-canvas-container">
+    <canvas id="waveCanvas" class="wave-canvas"></canvas>
   </div>
 
   <!-- Custom cursor removed -->
@@ -1435,6 +1447,7 @@
       <div class="basics-grid">
         <!-- Ort -->
         <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="glass-panel basic-card interactive reveal reveal-delay-1" style="position: relative; overflow: hidden;">
+          <img src="/untere-au-logo.png" alt="Wirtschaft Untere Au" class="location-logo-badge" />
           <span class="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -1744,11 +1757,15 @@
           <a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
             <img src="/kultur-lindau.png" alt="Kultur Lindau Logo" class="cooperation-logo-img white-bg" />
           </a>
+          <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
+            <img src="/untere-au-logo.png" alt="Wirtschaft Untere Au Logo" class="cooperation-logo-img" />
+          </a>
         </div>
         <p class="cooperation-text">
           🤝 Dieses Event wird in enger Freundschaft und Kooperation von den Vereinen 
           <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Frequency Squad</a> und 
-          <a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Kultur Lindau e.V.</a> veranstaltet, 
+          <a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Kultur Lindau e.V.</a> veranstaltet und 
+          von der <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="cooperation-link">Wirtschaft Untere Au</a> gehostet, 
           um die elektronische Musikkultur in der Region Bodensee-Vorarlberg zu stärken.
         </p>
       </div>
@@ -1810,11 +1827,7 @@
             Der Rechtsweg ist ausgeschlossen.
           </p>
         </div>
-        {/* Wave Canvas Background */}
-        <div class="wave-canvas-container">
-          <canvas id="waveCanvas" class="wave-canvas"></canvas>
-          <div class="wave-canvas-overlay"></div>
-        </div>
+
       </main>
 
   <!-- Footer -->
@@ -1912,15 +1925,10 @@
           let canvasTargetMouseX = -1000;
           let canvasTargetMouseY = -1000;
 
-          parent.addEventListener('mousemove', (e) => {
+          window.addEventListener('mousemove', (e) => {
             const rect = canvas.getBoundingClientRect();
             canvasTargetMouseX = e.clientX - rect.left;
             canvasTargetMouseY = e.clientY - rect.top;
-          });
-
-          parent.addEventListener('mouseleave', () => {
-            canvasTargetMouseX = -1000;
-            canvasTargetMouseY = -1000;
           });
 
           const resize = () => {

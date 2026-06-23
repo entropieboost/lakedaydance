@@ -147,6 +147,14 @@ export const Lineup: React.FC = () => {
           >
             <img src="/kultur-lindau.png" alt="Kultur Lindau Logo" className="cooperation-logo-img white-bg" />
           </a>
+          <a
+            href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cooperation-logo-link"
+          >
+            <img src="/untere-au-logo.png" alt="Wirtschaft Untere Au Logo" className="cooperation-logo-img" />
+          </a>
         </div>
         <p className="cooperation-text">
           🤝 Dieses Event wird in enger Freundschaft und Kooperation von den Vereinen{' '}
@@ -167,7 +175,16 @@ export const Lineup: React.FC = () => {
           >
             Kultur Lindau e.V.
           </a>{' '}
-          veranstaltet, um die elektronische Musikkultur in der Region Bodensee-Vorarlberg zu stärken.
+          veranstaltet und von der{' '}
+          <a
+            href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cooperation-link"
+          >
+            Wirtschaft Untere Au
+          </a>{' '}
+          gehostet, um die elektronische Musikkultur in der Region Bodensee-Vorarlberg zu stärken.
         </p>
       </div>
     </section>

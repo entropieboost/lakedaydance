@@ -1144,18 +1144,32 @@
       color: var(--neon-cyan);
     }
 
-    /* Cooperation Partner Logos */
-    .cooperation-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.5rem;
+    /* Cooperation Partner Logos Scroller */
+    .cooperation-logos-container {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
       margin-bottom: 1.5rem;
+      mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    }
+
+    .cooperation-logos-track {
+      display: flex;
+      width: max-content;
+      gap: 2.5rem;
+      padding: 0.5rem 0;
+      animation: scrollMarquee 20s linear infinite;
+    }
+
+    .cooperation-logos-track:hover {
+      animation-play-state: paused;
     }
 
     .cooperation-logo-link {
       display: inline-block;
       transition: var(--transition-smooth);
+      flex-shrink: 0;
     }
 
     .cooperation-logo-link:hover {
@@ -1163,8 +1177,8 @@
     }
 
     .cooperation-logo-img {
-      width: 90px;
-      height: 90px;
+      width: 80px;
+      height: 80px;
       object-fit: contain;
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1176,6 +1190,15 @@
     .cooperation-logo-img.white-bg {
       background-color: #fff;
       border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    @keyframes scrollMarquee {
+      0% {
+        transform: translateX(-50%);
+      }
+      100% {
+        transform: translateX(0);
+      }
     }
 
     /* Scroll Reveal Animations */
@@ -1890,19 +1913,36 @@
 
       <!-- Cooperation Box -->
       <div class="glass-panel cooperation-box reveal">
-        <div class="cooperation-logos">
-          <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
-            <img src="/frequency-squad.png" alt="Frequency Squad Logo" class="cooperation-logo-img" />
-          </a>
-          <a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
-            <img src="/kultur-lindau.png" alt="Kultur Lindau Logo" class="cooperation-logo-img white-bg" />
-          </a>
-          <a href="https://www.instagram.com/braincandysoundsystem/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
-            <img src="/braincandy-logo.jpg" alt="Braincandy Soundsystem Logo" class="cooperation-logo-img" />
-          </a>
-          <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
-            <img src="/untere-au-logo.png" alt="Wirtschaft Untere Au Logo" class="cooperation-logo-img" />
-          </a>
+        <div class="cooperation-logos-container">
+          <div class="cooperation-logos-track">
+            <!-- Set 1 -->
+            <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
+              <img src="/frequency-squad.png" alt="Frequency Squad Logo" class="cooperation-logo-img" />
+            </a>
+            <a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
+              <img src="/kultur-lindau.png" alt="Kultur Lindau Logo" class="cooperation-logo-img white-bg" />
+            </a>
+            <a href="https://www.instagram.com/braincandysoundsystem/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
+              <img src="/braincandy-logo.jpg" alt="Braincandy Soundsystem Logo" class="cooperation-logo-img" />
+            </a>
+            <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
+              <img src="/untere-au-logo.png" alt="Wirtschaft Untere Au Logo" class="cooperation-logo-img" />
+            </a>
+
+            <!-- Set 2 (Duplicated for seamless looping) -->
+            <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
+              <img src="/frequency-squad.png" alt="Frequency Squad Logo" class="cooperation-logo-img" />
+            </a>
+            <a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
+              <img src="/kultur-lindau.png" alt="Kultur Lindau Logo" class="cooperation-logo-img white-bg" />
+            </a>
+            <a href="https://www.instagram.com/braincandysoundsystem/" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
+              <img src="/braincandy-logo.jpg" alt="Braincandy Soundsystem Logo" class="cooperation-logo-img" />
+            </a>
+            <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="cooperation-logo-link">
+              <img src="/untere-au-logo.png" alt="Wirtschaft Untere Au Logo" class="cooperation-logo-img" />
+            </a>
+          </div>
         </div>
         <p class="cooperation-text">
           🤝 Dieses Event wird von 

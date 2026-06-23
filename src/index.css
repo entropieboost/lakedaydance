@@ -1162,18 +1162,32 @@ h1, h2, h3, h4 {
   color: var(--neon-cyan);
 }
 
-/* Cooperation Partner Logos */
-.cooperation-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
+/* Cooperation Partner Logos Scroller */
+.cooperation-logos-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
   margin-bottom: 1.5rem;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.cooperation-logos-track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  padding: 0.5rem 0;
+  animation: scrollMarquee 20s linear infinite;
+}
+
+.cooperation-logos-track:hover {
+  animation-play-state: paused;
 }
 
 .cooperation-logo-link {
   display: inline-block;
   transition: var(--transition-smooth);
+  flex-shrink: 0;
 }
 
 .cooperation-logo-link:hover {
@@ -1181,8 +1195,8 @@ h1, h2, h3, h4 {
 }
 
 .cooperation-logo-img {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1194,6 +1208,15 @@ h1, h2, h3, h4 {
 .cooperation-logo-img.white-bg {
   background-color: #fff;
   border-color: rgba(0, 0, 0, 0.08);
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* Scroll Reveal Animations */

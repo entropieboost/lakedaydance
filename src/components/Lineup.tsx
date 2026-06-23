@@ -130,39 +130,76 @@ export const Lineup: React.FC = () => {
 
       {/* Cooperation Box */}
       <div className="glass-panel cooperation-box reveal" style={{ marginTop: '3rem' }}>
-        <div className="cooperation-logos">
-          <a
-            href="https://www.instagram.com/frequencysquad/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cooperation-logo-link"
-          >
-            <img src="/frequency-squad.png" alt="Frequency Squad Logo" className="cooperation-logo-img" />
-          </a>
-          <a
-            href="https://www.instagram.com/kultur.lindau/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cooperation-logo-link"
-          >
-            <img src="/kultur-lindau.png" alt="Kultur Lindau Logo" className="cooperation-logo-img white-bg" />
-          </a>
-          <a
-            href="https://www.instagram.com/braincandysoundsystem/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cooperation-logo-link"
-          >
-            <img src="/braincandy-logo.jpg" alt="Braincandy Soundsystem Logo" className="cooperation-logo-img" />
-          </a>
-          <a
-            href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cooperation-logo-link"
-          >
-            <img src="/untere-au-logo.png" alt="Wirtschaft Untere Au Logo" className="cooperation-logo-img" />
-          </a>
+        <div className="cooperation-logos-container">
+          <div className="cooperation-logos-track">
+            {/* Set 1 */}
+            <a
+              href="https://www.instagram.com/frequencysquad/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cooperation-logo-link"
+            >
+              <img src="/frequency-squad.png" alt="Frequency Squad Logo" className="cooperation-logo-img" />
+            </a>
+            <a
+              href="https://www.instagram.com/kultur.lindau/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cooperation-logo-link"
+            >
+              <img src="/kultur-lindau.png" alt="Kultur Lindau Logo" className="cooperation-logo-img white-bg" />
+            </a>
+            <a
+              href="https://www.instagram.com/braincandysoundsystem/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cooperation-logo-link"
+            >
+              <img src="/braincandy-logo.jpg" alt="Braincandy Soundsystem Logo" className="cooperation-logo-img" />
+            </a>
+            <a
+              href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cooperation-logo-link"
+            >
+              <img src="/untere-au-logo.png" alt="Wirtschaft Untere Au Logo" className="cooperation-logo-img" />
+            </a>
+
+            {/* Set 2 (Duplicated for seamless looping) */}
+            <a
+              href="https://www.instagram.com/frequencysquad/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cooperation-logo-link"
+            >
+              <img src="/frequency-squad.png" alt="Frequency Squad Logo" className="cooperation-logo-img" />
+            </a>
+            <a
+              href="https://www.instagram.com/kultur.lindau/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cooperation-logo-link"
+            >
+              <img src="/kultur-lindau.png" alt="Kultur Lindau Logo" className="cooperation-logo-img white-bg" />
+            </a>
+            <a
+              href="https://www.instagram.com/braincandysoundsystem/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cooperation-logo-link"
+            >
+              <img src="/braincandy-logo.jpg" alt="Braincandy Soundsystem Logo" className="cooperation-logo-img" />
+            </a>
+            <a
+              href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cooperation-logo-link"
+            >
+              <img src="/untere-au-logo.png" alt="Wirtschaft Untere Au Logo" className="cooperation-logo-img" />
+            </a>
+          </div>
         </div>
         <p className="cooperation-text">
           🤝 Dieses Event wird von{' '}

@@ -165,7 +165,25 @@ export const Lineup: React.FC = () => {
           </a>
         </div>
         <p className="cooperation-text">
-          🤝 Dieses Event wird von Philipp Gartler und Stefan Schöch veranstaltet. Unterstützt wird das Projekt in enger Kooperation mit den befreundeten Vereinen{' '}
+          🤝 Dieses Event wird von{' '}
+          <a
+            href="https://www.instagram.com/techn0_larry/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cooperation-link"
+          >
+            Techn0_Larry
+          </a>{' '}
+          und{' '}
+          <a
+            href="https://www.instagram.com/rico_utr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cooperation-link"
+          >
+            DJ Rico
+          </a>{' '}
+          veranstaltet. Unterstützt wird das Projekt in enger Kooperation mit den befreundeten Vereinen{' '}
           <a
             href="https://www.instagram.com/frequencysquad/"
             target="_blank"

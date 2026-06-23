@@ -176,12 +176,12 @@ export const Lineup: React.FC = () => {
           </a>{' '}
           und{' '}
           <a
-            href="https://www.instagram.com/rico_utr/"
+            href="https://www.instagram.com/rigomultilar/"
             target="_blank"
             rel="noopener noreferrer"
             className="cooperation-link"
           >
-            DJ Rico
+            DJ Rigo
           </a>{' '}
           veranstaltet. Unterstützt wird das Projekt in enger Kooperation mit den befreundeten Vereinen{' '}
           <a

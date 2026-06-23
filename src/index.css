@@ -1437,19 +1437,19 @@ h1, h2, h3, h4 {
 /* Visual Mapping Card Animation Styles */
 .visual-mapping-bg {
   position: absolute;
-  bottom: -10px;
-  right: -10px;
-  width: 140px;
-  height: 120px;
-  opacity: 0.15;
+  bottom: 12px;
+  right: -5px;
+  width: 155px;
+  height: 130px;
+  opacity: 0.18;
   transition: opacity 0.5s ease, transform 0.5s ease;
   pointer-events: none;
   z-index: 0;
 }
 
 .basic-card:hover .visual-mapping-bg {
-  opacity: 0.35;
-  transform: scale(1.05);
+  opacity: 0.38;
+  transform: scale(1.05) translateY(-5px);
 }
 
 .light-cone {

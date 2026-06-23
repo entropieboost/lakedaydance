@@ -134,21 +134,50 @@ export const EventBasics: React.FC = () => {
           <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Techno / Psy-Techno / Dark Prog</p>
           <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Treibende elektronische Bässe von regionalen & nationalen Acts. Klicke hier zum Lineup.</p>
           
-          {/* Animated Funktion-One Background Speaker Stack */}
-          <div className="f1-speaker-bg">
-            <svg viewBox="0 0 100 150" fill="none" stroke="currentColor" strokeWidth="1.2">
-              <rect x="25" y="10" width="50" height="38" rx="2" fill="rgba(255,255,255,0.02)"/>
-              <path className="f1-axehead" d="M50 14 L32 28 L44 32 L44 42 L56 42 L56 32 L68 28 Z" fill="rgba(255,255,255,0.08)" strokeWidth="1"/>
+          {/* Animated DJ Booth Background */}
+          <div className="dj-booth-bg">
+            <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="1.2">
+              {/* Floating Music Notes */}
+              <path className="floating-note note-1" d="M 85 45 Q 90 40 95 45 L 95 30 L 105 28 L 105 38 L 95 40 M 85 45 L 85 32 L 95 30" fill="none" />
+              <path className="floating-note note-2" d="M 25 35 A 4 4 0 1 1 21 31 L 21 15 L 29 18 L 29 23 L 21 21" fill="none" />
+              <path className="floating-note note-3" d="M 98 70 Q 102 65 106 70 L 106 58 L 114 56 L 114 65 M 98 70 L 98 60 L 106 58" fill="none" />
+              <path className="floating-note note-4" d="M 15 65 A 3.5 3.5 0 1 1 11.5 61.5 L 11.5 48 L 15 48 M 11.5 61.5 L 11.5 50" fill="none" />
+
+              {/* DJ Head & Headphones (Bobbing) */}
+              <g className="dj-head">
+                <path d="M 42 32 C 42 22, 62 22, 62 32 Z" fill="rgba(255,255,255,0.05)" />
+                <circle cx="52" cy="35" r="9" fill="rgba(0,0,0,0.8)" />
+                <path d="M 41 33 A 12 12 0 0 1 63 33" strokeWidth="2.2" />
+                <rect x="39" y="30" width="4" height="8" rx="2" fill="currentColor" />
+                <rect x="61" y="30" width="4" height="8" rx="2" fill="currentColor" />
+              </g>
+
+              {/* DJ Torso */}
+              <path d="M 32 75 L 42 48 L 62 48 L 72 75 Z" fill="rgba(255,255,255,0.02)" />
+
+              {/* Left Arm (Scratching) */}
+              <path className="dj-arm-left" d="M 42 48 L 30 62 L 28 73" strokeWidth="1.8" strokeLinecap="round" />
               
-              <rect x="20" y="52" width="60" height="42" rx="2" fill="rgba(255,255,255,0.02)"/>
-              <circle className="f1-cone-mid" cx="50" cy="73" r="16" fill="rgba(255,255,255,0.03)"/>
-              <circle cx="50" cy="73" r="5" fill="currentColor"/>
-              
-              <rect x="14" y="98" width="72" height="46" rx="2" fill="rgba(255,255,255,0.02)"/>
-              <circle className="f1-cone-bass" cx="34" cy="121" r="14" fill="rgba(255,255,255,0.03)"/>
-              <circle className="f1-cone-bass" cx="66" cy="121" r="14" fill="rgba(255,255,255,0.03)"/>
-              <circle cx="34" cy="121" r="4" fill="currentColor"/>
-              <circle cx="66" cy="121" r="4" fill="currentColor"/>
+              {/* Right Arm (Scratching) */}
+              <path className="dj-arm-right" d="M 62 48 L 74 62 L 76 73" strokeWidth="1.8" strokeLinecap="round" />
+
+              {/* DJ Booth / Table */}
+              <g className="dj-table">
+                <rect x="10" y="72" width="84" height="38" rx="4" fill="rgba(255,255,255,0.03)" />
+                <ellipse cx="28" cy="80" rx="12" ry="4" fill="rgba(0,0,0,0.9)" />
+                <circle cx="28" cy="80" r="2" fill="currentColor" />
+                <ellipse cx="28" cy="80" rx="8" ry="2.5" strokeDasharray="3 2" />
+                
+                <ellipse cx="76" cy="80" rx="12" ry="4" fill="rgba(0,0,0,0.9)" />
+                <circle cx="76" cy="80" r="2" fill="currentColor" />
+                <ellipse cx="76" cy="80" rx="8" ry="2.5" strokeDasharray="3 2" />
+
+                <rect x="44" y="74" width="16" height="14" rx="1" fill="rgba(255,255,255,0.05)" />
+                <line x1="48" y1="78" x2="48" y2="84" strokeWidth="0.8" />
+                <line x1="56" y1="78" x2="56" y2="84" strokeWidth="0.8" />
+                <circle cx="48" cy="81" r="1" fill="currentColor" />
+                <circle cx="56" cy="83" r="1" fill="currentColor" />
+              </g>
             </svg>
           </div>
         </div>

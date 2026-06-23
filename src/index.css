@@ -1506,5 +1506,100 @@ h1, h2, h3, h4 {
   100% { transform: rotate(360deg); }
 }
 
+/* DJ Booth Background Animation */
+.dj-booth-bg {
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  width: 140px;
+  height: 120px;
+  opacity: 0.15;
+  color: var(--text-primary);
+  pointer-events: none;
+  transition: var(--transition-smooth);
+  z-index: 0;
+  transform-origin: bottom right;
+}
+
+.basic-card:hover .dj-booth-bg {
+  opacity: 0.35;
+  transform: scale(1.06) translateY(-3px);
+}
+
+/* Animations for floating notes */
+.floating-note {
+  transform-origin: center;
+  animation: floatNote 3s ease-in-out infinite;
+}
+
+.note-1 {
+  animation-delay: 0s;
+  animation-duration: 3.5s;
+}
+
+.note-2 {
+  animation-delay: 0.8s;
+  animation-duration: 4.2s;
+}
+
+.note-3 {
+  animation-delay: 1.5s;
+  animation-duration: 3s;
+}
+
+.note-4 {
+  animation-delay: 2.2s;
+  animation-duration: 4.8s;
+}
+
+/* DJ arms scratching animation */
+.dj-arm-left {
+  transform-origin: 30px 48px;
+  animation: djScratchLeft 1.2s ease-in-out infinite alternate;
+}
+
+.dj-arm-right {
+  transform-origin: 75px 48px;
+  animation: djScratchRight 1.5s ease-in-out infinite alternate;
+}
+
+.dj-head {
+  transform-origin: 52px 35px;
+  animation: djBobHead 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes floatNote {
+  0% {
+    transform: translate(0, 0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(-30px, -60px) scale(1.2) rotate(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes djScratchLeft {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(15deg); }
+}
+
+@keyframes djScratchRight {
+  0% { transform: rotate(10deg); }
+  100% { transform: rotate(-10deg); }
+}
+
+@keyframes djBobHead {
+  0% { transform: translateY(0) rotate(-2deg); }
+  100% { transform: translateY(3px) rotate(3deg); }
+}
+
+
 
 

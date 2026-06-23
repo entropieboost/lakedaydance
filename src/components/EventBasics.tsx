@@ -182,54 +182,42 @@ export const EventBasics: React.FC = () => {
           </div>
         </div>
 
-        {/* Stimmung */}
-        <div className="glass-panel basic-card interactive reveal reveal-delay-4" onClick={scrollToLineup} style={{ position: 'relative', overflow: 'hidden' }}>
+        {/* Soundsystem */}
+        <a
+          href="https://www.instagram.com/braincandysoundsystem/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="glass-panel basic-card interactive reveal reveal-delay-4"
+          style={{ position: 'relative', overflow: 'hidden' }}
+        >
           <span className="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2v2M4.22 4.22l1.42 1.42M1 12h2M21 12h2M18.36 5.64l1.42-1.42" />
-              <path d="M17 12a5 5 0 0 0-10 0" fill="rgba(255,255,255,0.05)" />
-              <path d="M2 16c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" />
-              <path d="M2 20c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" opacity="0.6" />
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
             </svg>
           </span>
-          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Vibe</h3>
-          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Open Air & Sonnenuntergang</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.</p>
+          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Soundsystem</h3>
+          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Braincandy Soundsystem</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Das Event wird mit einem erstklassigen, druckvollen Soundsystem von Braincandy beschallt. Pack die Tanzschuhe ein!</p>
           
-          {/* Animated Swimmer & Cheers Background */}
-          <div className="card-bg-anim vibe-bg">
-            <svg viewBox="0 0 140 120" fill="none" stroke="currentColor" strokeWidth="1.0">
-              <g className="swimmer-group">
-                <path d="M10 95 C 20 90, 30 100, 40 95 C 50 90, 60 100, 70 95" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.4" />
-                <path d="M5 98 C 18 94, 28 104, 38 98 C 48 94, 58 104, 68 98" stroke="currentColor" strokeWidth="0.8" strokeDasharray="2 3" fill="none" opacity="0.3" />
-                <circle cx="42" cy="82" r="5" stroke="currentColor" strokeWidth="1.2" fill="rgba(255,255,255,0.05)" />
-                <path d="M22 90 L 38 86" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <path className="swimmer-arm-recovery" d="M30 87 C 32 72, 42 70, 46 80" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" fill="none" />
-                <path className="swimmer-arm-pull" d="M30 87 C 22 92, 16 86, 12 88" stroke="currentColor" strokeWidth="1" strokeLinecap="round" fill="none" opacity="0.5" />
-                <g className="swimmer-splashes">
-                  <circle cx="50" cy="85" r="1" fill="currentColor" />
-                  <circle cx="48" cy="81" r="0.8" fill="currentColor" />
-                  <circle cx="52" cy="88" r="0.8" fill="currentColor" />
-                </g>
-              </g>
-              <g className="clink-left">
-                <rect x="75" y="45" width="14" height="20" rx="2" fill="rgba(255,255,255,0.02)" />
-                <path d="M89 50 H93 V60 H89" />
-                <path d="M62 58 L75 58" strokeWidth="1.8" />
-              </g>
-              <g className="clink-right">
-                <rect x="105" y="45" width="14" height="20" rx="2" fill="rgba(255,255,255,0.02)" />
-                <path d="M105 50 H101 V60 H105" />
-                <path d="M132 58 L119 58" strokeWidth="1.8" />
-              </g>
-              <g className="clink-sparks">
-                <line x1="97" y1="40" x2="97" y2="34" />
-                <line x1="93" y1="42" x2="88" y2="38" />
-                <line x1="101" y1="42" x2="106" y2="38" />
-              </g>
+          {/* Animated Funktion-One Background Speaker Stack */}
+          <div className="f1-speaker-bg">
+            <svg viewBox="0 0 100 150" fill="none" stroke="currentColor" strokeWidth="1.2">
+              <rect x="25" y="10" width="50" height="38" rx="2" fill="rgba(255,255,255,0.02)"/>
+              <path className="f1-axehead" d="M50 14 L32 28 L44 32 L44 42 L56 42 L56 32 L68 28 Z" fill="rgba(255,255,255,0.08)" strokeWidth="1"/>
+              
+              <rect x="20" y="52" width="60" height="42" rx="2" fill="rgba(255,255,255,0.02)"/>
+              <circle className="f1-cone-mid" cx="50" cy="73" r="16" fill="rgba(255,255,255,0.03)"/>
+              <circle cx="50" cy="73" r="5" fill="currentColor"/>
+              
+              <rect x="14" y="98" width="72" height="46" rx="2" fill="rgba(255,255,255,0.02)"/>
+              <circle className="f1-cone-bass" cx="34" cy="121" r="14" fill="rgba(255,255,255,0.03)"/>
+              <circle className="f1-cone-bass" cx="66" cy="121" r="14" fill="rgba(255,255,255,0.03)"/>
+              <circle cx="34" cy="121" r="4" fill="currentColor"/>
+              <circle cx="66" cy="121" r="4" fill="currentColor"/>
             </svg>
           </div>
-        </div>
+        </a>
 
         {/* Visual Mapping */}
         <div className="glass-panel basic-card interactive reveal reveal-delay-5" onClick={scrollToLineup} style={{ position: 'relative', overflow: 'hidden' }}>
@@ -280,8 +268,57 @@ export const EventBasics: React.FC = () => {
           </div>
         </div>
 
+        {/* Stimmung */}
+        <div className="glass-panel basic-card interactive reveal reveal-delay-6" onClick={scrollToLineup} style={{ position: 'relative', overflow: 'hidden' }}>
+          <span className="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2v2M4.22 4.22l1.42 1.42M1 12h2M21 12h2M18.36 5.64l1.42-1.42" />
+              <path d="M17 12a5 5 0 0 0-10 0" fill="rgba(255,255,255,0.05)" />
+              <path d="M2 16c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" />
+              <path d="M2 20c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" opacity="0.6" />
+            </svg>
+          </span>
+          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Vibe</h3>
+          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Open Air & Sonnenuntergang</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.</p>
+          
+          {/* Animated Swimmer & Cheers Background */}
+          <div className="card-bg-anim vibe-bg">
+            <svg viewBox="0 0 140 120" fill="none" stroke="currentColor" strokeWidth="1.0">
+              <g className="swimmer-group">
+                <path d="M10 95 C 20 90, 30 100, 40 95 C 50 90, 60 100, 70 95" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.4" />
+                <path d="M5 98 C 18 94, 28 104, 38 98 C 48 94, 58 104, 68 98" stroke="currentColor" strokeWidth="0.8" strokeDasharray="2 3" fill="none" opacity="0.3" />
+                <circle cx="42" cy="82" r="5" stroke="currentColor" strokeWidth="1.2" fill="rgba(255,255,255,0.05)" />
+                <path d="M22 90 L 38 86" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <path className="swimmer-arm-recovery" d="M30 87 C 32 72, 42 70, 46 80" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" fill="none" />
+                <path className="swimmer-arm-pull" d="M30 87 C 22 92, 16 86, 12 88" stroke="currentColor" strokeWidth="1" strokeLinecap="round" fill="none" opacity="0.5" />
+                <g className="swimmer-splashes">
+                  <circle cx="50" cy="85" r="1" fill="currentColor" />
+                  <circle cx="48" cy="81" r="0.8" fill="currentColor" />
+                  <circle cx="52" cy="88" r="0.8" fill="currentColor" />
+                </g>
+              </g>
+              <g className="clink-left">
+                <rect x="75" y="45" width="14" height="20" rx="2" fill="rgba(255,255,255,0.02)" />
+                <path d="M89 50 H93 V60 H89" />
+                <path d="M62 58 L75 58" strokeWidth="1.8" />
+              </g>
+              <g className="clink-right">
+                <rect x="105" y="45" width="14" height="20" rx="2" fill="rgba(255,255,255,0.02)" />
+                <path d="M105 50 H101 V60 H105" />
+                <path d="M132 58 L119 58" strokeWidth="1.8" />
+              </g>
+              <g className="clink-sparks">
+                <line x1="97" y1="40" x2="97" y2="34" />
+                <line x1="93" y1="42" x2="88" y2="38" />
+                <line x1="101" y1="42" x2="106" y2="38" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
         {/* Wetter */}
-        <div className="glass-panel basic-card interactive reveal reveal-delay-6" onClick={openWeather} style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="glass-panel basic-card interactive reveal reveal-delay-7" onClick={openWeather} style={{ position: 'relative', overflow: 'hidden' }}>
           <span className="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 2v2M4.93 4.93l1.41 1.41M20 12h2M17.66 6.34l1.41-1.41" className="weather-sun-rays" />
@@ -312,43 +349,6 @@ export const EventBasics: React.FC = () => {
             </svg>
           </div>
         </div>
-
-        {/* Soundsystem */}
-        <a
-          href="https://www.instagram.com/braincandysoundsystem/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="glass-panel basic-card interactive reveal reveal-delay-7"
-          style={{ position: 'relative', overflow: 'hidden' }}
-        >
-          <span className="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
-            </svg>
-          </span>
-          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Soundsystem</h3>
-          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Braincandy Soundsystem</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Das Event wird mit einem erstklassigen, druckvollen Soundsystem von Braincandy beschallt. Pack die Tanzschuhe ein!</p>
-          
-          {/* Animated Funktion-One Background Speaker Stack */}
-          <div className="f1-speaker-bg">
-            <svg viewBox="0 0 100 150" fill="none" stroke="currentColor" strokeWidth="1.2">
-              <rect x="25" y="10" width="50" height="38" rx="2" fill="rgba(255,255,255,0.02)"/>
-              <path className="f1-axehead" d="M50 14 L32 28 L44 32 L44 42 L56 42 L56 32 L68 28 Z" fill="rgba(255,255,255,0.08)" strokeWidth="1"/>
-              
-              <rect x="20" y="52" width="60" height="42" rx="2" fill="rgba(255,255,255,0.02)"/>
-              <circle className="f1-cone-mid" cx="50" cy="73" r="16" fill="rgba(255,255,255,0.03)"/>
-              <circle cx="50" cy="73" r="5" fill="currentColor"/>
-              
-              <rect x="14" y="98" width="72" height="46" rx="2" fill="rgba(255,255,255,0.02)"/>
-              <circle className="f1-cone-bass" cx="34" cy="121" r="14" fill="rgba(255,255,255,0.03)"/>
-              <circle className="f1-cone-bass" cx="66" cy="121" r="14" fill="rgba(255,255,255,0.03)"/>
-              <circle cx="34" cy="121" r="4" fill="currentColor"/>
-              <circle cx="66" cy="121" r="4" fill="currentColor"/>
-            </svg>
-          </div>
-        </a>
 
         {/* Ticket-Hinweis */}
         <div className="glass-panel ticket-notice-card reveal">

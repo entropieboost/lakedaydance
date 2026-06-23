@@ -65,7 +65,7 @@ export const EventBasics: React.FC = () => {
           </span>
           <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Ort</h3>
           <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Untere Au, Frastanz</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>FLOAT direkt am malerischen Badesee. Parkplätze vor Ort vorhanden.</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Direkt am malerischen Badesee mit Seezugang, Deko und kühlen Drinks. Parkplätze vorhanden.</p>
           
           {/* Animated Train/Bus Background */}
           <div className="card-bg-anim location-bg">
@@ -153,20 +153,18 @@ export const EventBasics: React.FC = () => {
           </div>
         </div>
 
-        {/* Stimmung */}
+        {/* Soundsystem */}
         <div className="glass-panel basic-card interactive reveal reveal-delay-4" onClick={scrollToLineup} style={{ position: 'relative', overflow: 'hidden' }}>
           <img src="/braincandy-logo.jpg" alt="Braincandy Soundsystem" className="soundsystem-logo-badge" />
           <span className="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2v2M4.22 4.22l1.42 1.42M1 12h2M21 12h2M18.36 5.64l1.42-1.42" />
-              <path d="M17 12a5 5 0 0 0-10 0" fill="rgba(255,255,255,0.05)" />
-              <path d="M2 16c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" />
-              <path d="M2 20c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" opacity="0.6" />
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
             </svg>
           </span>
-          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Vibe</h3>
-          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Open Air & Sonnenuntergang</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Sommerliche Deko, kühle Drinks, Seezugang und erstklassiges Soundsystem (bereitgestellt von Braincandy Soundsystem).</p>
+          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Soundsystem</h3>
+          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Braincandy Soundsystem</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Das Event wird mit einem erstklassigen, druckvollen Soundsystem von Braincandy beschallt. Pack die Tanzschuhe ein!</p>
           
           {/* Animated Swimmer & Cheers Background */}
           <div className="card-bg-anim vibe-bg">

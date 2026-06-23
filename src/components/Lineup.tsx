@@ -165,7 +165,7 @@ export const Lineup: React.FC = () => {
           </a>
         </div>
         <p className="cooperation-text">
-          🤝 Dieses Event wird in enger Freundschaft und Kooperation von den Vereinen{' '}
+          🤝 Dieses Event wird von Philipp Gartler und Stefan Schöch veranstaltet. Unterstützt wird das Projekt in enger Kooperation mit den befreundeten Vereinen{' '}
           <a
             href="https://www.instagram.com/frequencysquad/"
             target="_blank"
@@ -173,7 +173,8 @@ export const Lineup: React.FC = () => {
             className="cooperation-link"
           >
             Frequency Squad
-          </a>{', '}
+          </a>{' '}
+          und{' '}
           <a
             href="https://www.instagram.com/kultur.lindau/"
             target="_blank"
@@ -181,8 +182,8 @@ export const Lineup: React.FC = () => {
             className="cooperation-link"
           >
             Kultur Lindau e.V.
-          </a>{' '}
-          und{' '}
+          </a>
+          . Das erstklassige Soundsystem wird bereitgestellt von{' '}
           <a
             href="https://www.instagram.com/braincandysoundsystem/"
             target="_blank"
@@ -190,8 +191,8 @@ export const Lineup: React.FC = () => {
             className="cooperation-link"
           >
             Braincandy Soundsystem
-          </a>{' '}
-          veranstaltet und von der{' '}
+          </a>
+          , und die{' '}
           <a
             href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz"
             target="_blank"
@@ -200,7 +201,7 @@ export const Lineup: React.FC = () => {
           >
             Wirtschaft Untere Au
           </a>{' '}
-          gehostet, um die elektronische Musikkultur in der Region Bodensee-Vorarlberg zu stärken.
+          hostet das Event als Location, um gemeinsam die elektronische Musikkultur in der Region Bodensee-Vorarlberg zu stärken.
         </p>
       </div>
     </section>

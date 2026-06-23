@@ -166,7 +166,7 @@ export const EventBasics: React.FC = () => {
           </span>
           <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Vibe</h3>
           <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Open Air & Sonnenuntergang</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Sommerliche Deko, kühle Drinks, Seezugang und erstklassiges Soundsystem von Braincandy.</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Sommerliche Deko, kühle Drinks, Seezugang und erstklassiges Soundsystem (bereitgestellt von Braincandy Soundsystem).</p>
           
           {/* Animated Swimmer & Cheers Background */}
           <div className="card-bg-anim vibe-bg">

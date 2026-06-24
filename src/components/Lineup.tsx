@@ -209,24 +209,6 @@ export const Lineup: React.FC<LineupProps> = ({ lang }) => {
         <p className="cooperation-text">
           🤝 {translate(lang, 'cooperation_text_1')}{' '}
           <a
-            href="https://www.instagram.com/techn0_larry/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cooperation-link"
-          >
-            Techno Larry
-          </a>{' '}
-          {translate(lang, 'cooperation_text_2')}{' '}
-          <a
-            href="https://www.instagram.com/rigomutilar/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cooperation-link"
-          >
-            DJ Rigo
-          </a>{' '}
-          {translate(lang, 'cooperation_text_3')}{' '}
-          <a
             href="https://www.instagram.com/frequencysquad/"
             target="_blank"
             rel="noopener noreferrer"
@@ -234,7 +216,7 @@ export const Lineup: React.FC<LineupProps> = ({ lang }) => {
           >
             Frequency Squad
           </a>{' '}
-          {translate(lang, 'cooperation_text_4')}{' '}
+          {translate(lang, 'cooperation_text_2')}{' '}
           <a
             href="https://www.instagram.com/kultur.lindau/"
             target="_blank"
@@ -242,8 +224,8 @@ export const Lineup: React.FC<LineupProps> = ({ lang }) => {
             className="cooperation-link"
           >
             Kultur Lindau e.V.
-          </a>
-          {translate(lang, 'cooperation_text_5')}{' '}
+          </a>{' '}
+          {translate(lang, 'cooperation_text_3')}{' '}
           <a
             href="https://www.instagram.com/braincandysoundsystem/"
             target="_blank"
@@ -252,7 +234,7 @@ export const Lineup: React.FC<LineupProps> = ({ lang }) => {
           >
             Braincandy Soundsystem
           </a>
-          {translate(lang, 'cooperation_text_6')}{' '}
+          {translate(lang, 'cooperation_text_4')}{' '}
           <a
             href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz"
             target="_blank"
@@ -261,7 +243,7 @@ export const Lineup: React.FC<LineupProps> = ({ lang }) => {
           >
             Wirtschaft Untere Au
           </a>{' '}
-          {translate(lang, 'cooperation_text_7')}
+          {translate(lang, 'cooperation_text_5')}
         </p>
       </div>
     </section>

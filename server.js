@@ -58,8 +58,10 @@ class ServerPlatformManager {
       const i = this.generatedPlatforms.length;
       const difficulty = Math.min(i / 60, 1.0);
 
-      const minGap = 75 + difficulty * 15;
-      const maxGap = 120 + difficulty * 40;
+      // Gap scaling based on player speed (reaches max size around platform index 20)
+      const speedScale = Math.min(i / 20, 1.0);
+      const minGap = 45 + speedScale * 45;
+      const maxGap = 75 + speedScale * 85;
       const gap = this.prng.nextRange(minGap, maxGap);
 
       const minWidth = Math.max(65, 100 - difficulty * 20);

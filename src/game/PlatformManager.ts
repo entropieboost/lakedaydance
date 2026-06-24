@@ -40,9 +40,10 @@ export class PlatformManager {
       // Difficulty factor: ranges from 0 to 1, capping at platform index 60
       const difficulty = Math.min(i / 60, 1.0);
 
-      // Gaps between stones increase with difficulty
-      const minGap = 75 + difficulty * 15;  // 75 -> 90 px
-      const maxGap = 120 + difficulty * 40; // 120 -> 160 px
+      // Gap scaling based on player speed (reaches max size around platform index 20)
+      const speedScale = Math.min(i / 20, 1.0);
+      const minGap = 45 + speedScale * 45;  // 45 -> 90 px
+      const maxGap = 75 + speedScale * 85;  // 75 -> 160 px
       const gap = this.prng.nextRange(minGap, maxGap);
 
       // Width of stones decreases with difficulty (making them smaller targets)

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Language, translate } from '../lib/translations';
 
 interface LabelLink {
   text: string;
@@ -15,11 +16,15 @@ interface DJ {
   objectPosition?: string;
 }
 
-export const Lineup: React.FC = () => {
+interface LineupProps {
+  lang: Language;
+}
+
+export const Lineup: React.FC<LineupProps> = ({ lang }) => {
   const djs: DJ[] = [
     {
       name: 'Falzar',
-      origin: 'Frankreich 🇫🇷',
+      origin: translate(lang, 'origin_france'),
       labels: [
         { text: 'Zenon Records', url: 'https://www.instagram.com/zenonrecords/' }
       ],
@@ -29,7 +34,7 @@ export const Lineup: React.FC = () => {
     },
     {
       name: 'Rico',
-      origin: 'Frankreich 🇫🇷',
+      origin: translate(lang, 'origin_france'),
       labels: [
         { text: 'AlpaKa MuziK', url: 'https://www.instagram.com/alpaka.muzik/' },
         { text: 'Frequency Squad Rec.', url: 'https://www.instagram.com/frequencysquad/' }
@@ -40,7 +45,7 @@ export const Lineup: React.FC = () => {
     },
     {
       name: 'Medved',
-      origin: 'Feldkirch 🇦🇹',
+      origin: translate(lang, 'origin_feldkirch'),
       labels: [
         { text: 'Sektor Kollektiv', url: 'https://www.instagram.com/sektorkollektiv/' }
       ],
@@ -51,7 +56,7 @@ export const Lineup: React.FC = () => {
     },
     {
       name: "Play'N'Error",
-      origin: 'Lindau (DE) 🇩🇪',
+      origin: translate(lang, 'origin_lindau'),
       labels: [
         { text: 'Kultur Lindau e.V.', url: 'https://www.instagram.com/kultur.lindau/' }
       ],
@@ -63,9 +68,9 @@ export const Lineup: React.FC = () => {
 
   return (
     <section className="lineup-section" id="lineup">
-      <h2 className="section-title reveal" data-char-swap="true">Line-Up</h2>
+      <h2 className="section-title reveal" data-char-swap="true">{translate(lang, 'lineup_title')}</h2>
       <p className="section-subtitle" style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
-        Internationales Lineup & regionaler Support.
+        {translate(lang, 'lineup_subtitle')}
       </p>
 
       <div className="lineup-grid">
@@ -202,7 +207,7 @@ export const Lineup: React.FC = () => {
           </div>
         </div>
         <p className="cooperation-text">
-          🤝 Dieses Event wird von{' '}
+          🤝 {translate(lang, 'cooperation_text_1')}{' '}
           <a
             href="https://www.instagram.com/techn0_larry/"
             target="_blank"
@@ -211,7 +216,7 @@ export const Lineup: React.FC = () => {
           >
             Techno Larry
           </a>{' '}
-          und{' '}
+          {translate(lang, 'cooperation_text_2')}{' '}
           <a
             href="https://www.instagram.com/rigomutilar/"
             target="_blank"
@@ -220,7 +225,7 @@ export const Lineup: React.FC = () => {
           >
             DJ Rigo
           </a>{' '}
-          veranstaltet. Unterstützt wird das Projekt in enger Kooperation mit den befreundeten Vereinen{' '}
+          {translate(lang, 'cooperation_text_3')}{' '}
           <a
             href="https://www.instagram.com/frequencysquad/"
             target="_blank"
@@ -229,7 +234,7 @@ export const Lineup: React.FC = () => {
           >
             Frequency Squad
           </a>{' '}
-          und{' '}
+          {translate(lang, 'cooperation_text_4')}{' '}
           <a
             href="https://www.instagram.com/kultur.lindau/"
             target="_blank"
@@ -238,7 +243,7 @@ export const Lineup: React.FC = () => {
           >
             Kultur Lindau e.V.
           </a>
-          . Das erstklassige Soundsystem wird bereitgestellt von{' '}
+          {translate(lang, 'cooperation_text_5')}{' '}
           <a
             href="https://www.instagram.com/braincandysoundsystem/"
             target="_blank"
@@ -247,7 +252,7 @@ export const Lineup: React.FC = () => {
           >
             Braincandy Soundsystem
           </a>
-          , und die{' '}
+          {translate(lang, 'cooperation_text_6')}{' '}
           <a
             href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz"
             target="_blank"
@@ -256,7 +261,7 @@ export const Lineup: React.FC = () => {
           >
             Wirtschaft Untere Au
           </a>{' '}
-          hostet das Event als Location, um gemeinsam die elektronische Musikkultur in der Region Bodensee-Vorarlberg zu stärken.
+          {translate(lang, 'cooperation_text_7')}
         </p>
       </div>
     </section>

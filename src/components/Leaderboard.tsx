@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../lib/firebase';
 import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
+import { Language, translate } from '../lib/translations';
 
 export interface LeaderboardEntry {
   id: string;
@@ -12,7 +13,11 @@ export interface LeaderboardEntry {
 
 const MOCK_LEADERBOARD: LeaderboardEntry[] = [];
 
-export const Leaderboard: React.FC = () => {
+interface LeaderboardProps {
+  lang: Language;
+}
+
+export const Leaderboard: React.FC<LeaderboardProps> = ({ lang }) => {
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [usingMock, setUsingMock] = useState(false);
@@ -78,28 +83,28 @@ export const Leaderboard: React.FC = () => {
 
   return (
     <section className="section-container" id="leaderboard">
-      <h2 className="section-title reveal" data-char-swap="true">Leaderboard</h2>
+      <h2 className="section-title reveal" data-char-swap="true">{translate(lang, 'leaderboard_title')}</h2>
       
       <div className="glass-panel leaderboard-container reveal">
         {loading ? (
           <p style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
-            Lade Highscores...
+            {translate(lang, 'leaderboard_loading')}
           </p>
         ) : (
           <div style={{ overflowX: 'auto' }}>
             <table className="leaderboard-table">
               <thead>
                 <tr>
-                  <th className="rank-cell">Rang</th>
-                  <th>Raver</th>
-                  <th style={{ textAlign: 'right' }}>Score</th>
+                  <th className="rank-cell">{translate(lang, 'leaderboard_th_rank')}</th>
+                  <th>{translate(lang, 'leaderboard_th_raver')}</th>
+                  <th style={{ textAlign: 'right' }}>{translate(lang, 'leaderboard_th_score')}</th>
                 </tr>
               </thead>
               <tbody>
                 {entries.length === 0 ? (
                   <tr>
                     <td colSpan={3} style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
-                      Noch keine Highscores eingetragen. Sei der Erste! 🚀
+                      {translate(lang, 'leaderboard_empty')}
                     </td>
                   </tr>
                 ) : (
@@ -155,20 +160,18 @@ export const Leaderboard: React.FC = () => {
               color: 'var(--text-primary)',
             }}
           >
-            ℹ️ <strong>Entwicklungsmodus:</strong> Aktuell werden Demo-Highscores angezeigt, da Firebase noch nicht fertig verbunden ist.
+            ℹ️ <strong>{lang === 'de' ? 'Entwicklungsmodus:' : 'Development Mode:'}</strong> {translate(lang, 'leaderboard_dev_warning')}
           </div>
         )}
 
         <div className="leaderboard-disclaimer">
-          🔒 <strong>Fairplay & Info:</strong> Verdächtige oder manipulierte Scores werden automatisch gefiltert und gelöscht. Pro Person zählt nur der beste gültige Score. Wer bei Auslosung 24h vor Eventstart ganz oben steht, gewinnt!
+          🔒 <strong>{lang === 'de' ? 'Fairplay & Info:' : 'Fair Play & Info:'}</strong> {translate(lang, 'leaderboard_disclaimer')}
         </div>
 
         <div className="glass-panel rules-box">
-          <h3 className="rules-title">Gewinnspiel-Regeln</h3>
+          <h3 className="rules-title">{translate(lang, 'rules_title')}</h3>
           <p className="rules-text">
-            Die Top 3 gültigen Scores gewinnen je 1 Free-Entry-Ticket + Goodie. Pro Person zählt nur der beste gültige Score.
-            Mehrfach-Accounts, Fake-Daten oder manipulierte Scores können entfernt werden. Die Gewinner werden über Instagram oder E-Mail kontaktiert.
-            Der Rechtsweg ist ausgeschlossen.
+            {translate(lang, 'rules_text')}
           </p>
         </div>
       </div>

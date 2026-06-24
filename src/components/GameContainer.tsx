@@ -1,10 +1,15 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { GameEngine, JumpEvent } from '../game/GameEngine';
 import { AudioSynth } from '../game/AudioSynth';
+import { Language, translate } from '../lib/translations';
 
 type GameState = 'START' | 'PLAYING' | 'GAMEOVER' | 'SUBMITTING' | 'SUBMITTED' | 'ERROR';
 
-export const GameContainer: React.FC = () => {
+interface GameContainerProps {
+  lang: Language;
+}
+
+export const GameContainer: React.FC<GameContainerProps> = ({ lang }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const engineRef = useRef<GameEngine | null>(null);
   const audioRef = useRef<AudioSynth>(new AudioSynth());
@@ -167,7 +172,7 @@ export const GameContainer: React.FC = () => {
     e.preventDefault();
     if (!runData) return;
     if (!consentDisplay || !consentRules) {
-      alert('Bitte stimme den Bedingungen und Regeln zu.');
+      alert(translate(lang, 'game_alert_consent'));
       return;
     }
 
@@ -199,7 +204,7 @@ export const GameContainer: React.FC = () => {
         }
         setSubmitResult({
           success: true,
-          message: 'Offline-Modus: Dein Score von ' + runData.score + ' Punkten wurde lokal simuliert eingetragen!',
+          message: translate(lang, 'game_offline_success').replace('{score}', String(runData.score)),
           isNewBest: true
         });
         setGameState('SUBMITTED');
@@ -224,14 +229,14 @@ export const GameContainer: React.FC = () => {
         }
         setSubmitResult({
           success: true,
-          message: resData.message || 'Score erfolgreich eingetragen!',
+          message: resData.message || (lang === 'de' ? 'Score erfolgreich eingetragen!' : 'Score submitted successfully!'),
           isNewBest: resData.isNewBest
         });
         setGameState('SUBMITTED');
       } else {
         setSubmitResult({
           success: false,
-          message: resData.error || 'Fehler beim Eintragen des Scores.',
+          message: resData.error || translate(lang, 'game_submit_error'),
         });
         setGameState('SUBMITTED');
       }
@@ -239,7 +244,7 @@ export const GameContainer: React.FC = () => {
       console.error('Submit API error:', err);
       setSubmitResult({
         success: false,
-        message: 'Netzwerkfehler beim Eintragen deines Scores.',
+        message: translate(lang, 'game_network_error'),
       });
       setGameState('SUBMITTED');
     }
@@ -255,9 +260,12 @@ export const GameContainer: React.FC = () => {
     };
   }, []);
 
+  // Define local GameState type (moved from file scope to compile properly)
+  // type GameState = 'START' | 'PLAYING' | 'GAMEOVER' | 'SUBMITTING' | 'SUBMITTED' | 'ERROR';
+
   return (
     <section className="game-section" id="game-section">
-      <h2 className="section-title reveal" data-char-swap="true">FLOAT Jump Challenge</h2>
+      <h2 className="section-title reveal" data-char-swap="true">{translate(lang, 'game_title')}</h2>
       
       <div className="game-console reveal">
         {/* Aspect Ratio Viewport */}
@@ -271,16 +279,19 @@ export const GameContainer: React.FC = () => {
           {/* START Overlay */}
           {gameState === 'START' && (
             <div className="game-overlay">
-              <h3 className="game-overlay-title">FLOAT Jump</h3>
+              <h3 className="game-overlay-title">{translate(lang, 'game_overlay_start_title')}</h3>
               <p className="game-overlay-desc">
-                Springe von Stein zu Stein und fall nicht ins Wasser! Die Top 3 gewinnen Free Entry + Goodies.
+                {translate(lang, 'game_overlay_start_desc')}
               </p>
               <button className="btn btn-primary" onClick={startGame}>
-                Spiel Starten
+                {translate(lang, 'game_overlay_start_btn')}
               </button>
               <div className="game-controls-hint">
-                Desktop: Leertaste / Klick<br/>
-                Mobile: Tippen auf Display
+                {lang === 'de' ? (
+                  <>Desktop: Leertaste / Klick<br/>Mobile: Tippen auf Display</>
+                ) : (
+                  <>Desktop: Spacebar / Click<br/>Mobile: Tap on screen</>
+                )}
               </div>
             </div>
           )}
@@ -288,45 +299,45 @@ export const GameContainer: React.FC = () => {
           {/* GAME OVER Screen */}
           {gameState === 'GAMEOVER' && runData && (
             <div className="game-overlay" style={{ overflowY: 'auto', justifyContent: 'flex-start', padding: '1.5rem 1rem' }}>
-              <h3 className="game-overlay-title" style={{ color: 'var(--neon-pink)', marginTop: '0.5rem' }}>Game Over</h3>
+              <h3 className="game-overlay-title" style={{ color: 'var(--neon-pink)', marginTop: '0.5rem' }}>{translate(lang, 'game_overlay_gameover_title')}</h3>
               <p style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff', margin: '0.25rem 0' }}>
-                {runData.score} Punkte
+                {runData.score} {translate(lang, 'game_overlay_gameover_pts')}
               </p>
               <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
-                Distanz: {runData.finalDistance}m · Zeit: {(runData.durationMs / 1000).toFixed(1)}s
+                {translate(lang, 'game_overlay_gameover_meta_dist')}: {runData.finalDistance}m · {translate(lang, 'game_overlay_gameover_meta_time')}: {(runData.durationMs / 1000).toFixed(1)}s
               </p>
 
               {/* Submit Form */}
               <form className="submit-form" onSubmit={handleSubmitScore}>
                 <div className="form-group">
-                  <label className="form-label">Anzeigename</label>
+                  <label className="form-label">{translate(lang, 'game_form_name')}</label>
                   <input
                     type="text"
                     required
                     maxLength={16}
-                    placeholder="z.B. TechnoRaver"
+                    placeholder={translate(lang, 'game_form_name_placeholder')}
                     className="form-input"
                     value={displayName}
                     onChange={(e) => setDisplayName(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
-                  <label className="form-label">E-Mail (Privat für Gewinnbenachrichtigung)</label>
+                  <label className="form-label">{translate(lang, 'game_form_email')}</label>
                   <input
                     type="email"
                     required
-                    placeholder="name@domain.com"
+                    placeholder={translate(lang, 'game_form_email_placeholder')}
                     className="form-input"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
-                  <label className="form-label">Instagram Handle (Für Verifizierung)</label>
+                  <label className="form-label">{translate(lang, 'game_form_instagram')}</label>
                   <input
                     type="text"
                     required
-                    placeholder="z.B. @dein.name"
+                    placeholder={translate(lang, 'game_form_instagram_placeholder')}
                     className="form-input"
                     value={instagram}
                     onChange={(e) => setInstagram(e.target.value)}
@@ -341,7 +352,7 @@ export const GameContainer: React.FC = () => {
                       checked={consentDisplay}
                       onChange={(e) => setConsentDisplay(e.target.checked)}
                     />
-                    <span>Ich bin einverstanden, dass mein Name & Instagram-Handle im Leaderboard angezeigt werden.</span>
+                    <span>{translate(lang, 'game_form_consent_display')}</span>
                   </label>
                   <label className="form-checkbox-label">
                     <input
@@ -350,12 +361,12 @@ export const GameContainer: React.FC = () => {
                       checked={consentRules}
                       onChange={(e) => setConsentRules(e.target.checked)}
                     />
-                    <span>Ich akzeptiere die Gewinnspielregeln.</span>
+                    <span>{translate(lang, 'game_form_consent_rules')}</span>
                   </label>
                 </div>
 
                 <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '0.7rem' }}>
-                  Score Eintragen
+                  {translate(lang, 'game_form_submit')}
                 </button>
               </form>
 
@@ -364,11 +375,11 @@ export const GameContainer: React.FC = () => {
                 onClick={startGame} 
                 style={{ width: '100%', padding: '0.6rem', marginTop: '0.5rem', fontSize: '0.85rem' }}
               >
-                Direkt noch einmal spielen
+                {translate(lang, 'game_form_replay')}
               </button>
 
               <p className="privacy-disclaimer" style={{ marginTop: '0.75rem' }}>
-                Deine E-Mail Adresse wird niemals öffentlich angezeigt. Wir kontaktieren dich ausschließlich im Falle eines Gewinns.
+                {translate(lang, 'game_form_privacy')}
               </p>
             </div>
           )}
@@ -376,8 +387,8 @@ export const GameContainer: React.FC = () => {
           {/* SUBMITTING STATE */}
           {gameState === 'SUBMITTING' && (
             <div className="game-overlay">
-              <h3 className="game-overlay-title">Verifiziere Score...</h3>
-              <p className="game-overlay-desc">Anti-Cheat Analyse läuft...</p>
+              <h3 className="game-overlay-title">{translate(lang, 'game_overlay_verifying_title')}</h3>
+              <p className="game-overlay-desc">{translate(lang, 'game_overlay_verifying_desc')}</p>
               <div style={{
                 width: '40px',
                 height: '40px',
@@ -393,7 +404,7 @@ export const GameContainer: React.FC = () => {
           {gameState === 'SUBMITTED' && submitResult && (
             <div className="game-overlay">
               <h3 className="game-overlay-title" style={{ color: submitResult.success ? 'var(--neon-cyan)' : 'var(--neon-pink)' }}>
-                {submitResult.success ? 'Erfolgreich!' : 'Upps!'}
+                {submitResult.success ? translate(lang, 'game_overlay_submitted_success') : translate(lang, 'game_overlay_submitted_error')}
               </h3>
               <p className="game-overlay-desc" style={{ color: '#fff', marginBottom: '1.5rem' }}>
                 {submitResult.message}
@@ -407,14 +418,14 @@ export const GameContainer: React.FC = () => {
                   if (lb) lb.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Leaderboard ansehen
+                {translate(lang, 'game_overlay_submitted_btn_leaderboard')}
               </button>
               <button 
                 className="btn btn-secondary" 
                 onClick={startGame}
                 style={{ marginTop: '0.5rem', fontSize: '0.85rem', padding: '0.6rem 1.5rem' }}
               >
-                Nochmal spielen
+                {translate(lang, 'game_overlay_submitted_btn_replay')}
               </button>
             </div>
           )}
@@ -423,12 +434,12 @@ export const GameContainer: React.FC = () => {
         {/* Audio / Pause Panel underneath canvas wrapper */}
         <div className="console-hud">
           <button className="hud-button" onClick={handleToggleMute}>
-            {isMuted ? '🔇 Mute: An' : '🔊 Sound: An'}
+            {isMuted ? translate(lang, 'game_hud_mute_on') : translate(lang, 'game_hud_mute_off')}
           </button>
           
           {gameState === 'PLAYING' && (
             <button className="hud-button" onClick={() => engineRef.current?.pause()}>
-              ⏸️ Pause
+              {translate(lang, 'game_hud_pause')}
             </button>
           )}
 

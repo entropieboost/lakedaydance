@@ -1,19 +1,24 @@
 import React from 'react';
+import { Language, translate } from '../lib/translations';
 
-export const EventBasics: React.FC = () => {
+interface EventBasicsProps {
+  lang: Language;
+}
+
+export const EventBasics: React.FC<EventBasicsProps> = ({ lang }) => {
   const downloadICS = (e: React.MouseEvent) => {
     e.preventDefault();
     const icsData = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//FLOAT Techno am See//DE',
+      `PRODID:-//FLOAT ${lang === 'de' ? 'Techno am See' : 'Techno by the Lake'}//${lang.toUpperCase()}`,
       'BEGIN:VEVENT',
       'UID:float-techno-am-see-2026',
       'DTSTAMP:20260604T180000Z',
       'DTSTART:20260815T160000Z', // Saturday, August 15, 2026 from 18:00 (16:00 UTC)
       'DTEND:20260815T220000Z',   // to 24:00 (22:00 UTC)
-      'SUMMARY:FLOAT Techno am See',
-      'DESCRIPTION:FLOAT Techno am See direkt am malerischen Badesee Untere Au. Techno\\, Psy-Techno\\, Dark Prog.',
+      `SUMMARY:FLOAT ${lang === 'de' ? 'Techno am See' : 'Techno by the Lake'}`,
+      `DESCRIPTION:FLOAT ${lang === 'de' ? 'Techno am See direkt am malerischen Badesee Untere Au. Techno\\, Psy-Techno\\, Dark Prog.' : 'Techno by the Lake right next to the picturesque Badesee Untere Au. Techno\\, Psy-Techno\\, Dark Prog.'}`,
       'LOCATION:Badesee Untere Au\\, Frastanz',
       'END:VEVENT',
       'END:VCALENDAR'
@@ -46,7 +51,7 @@ export const EventBasics: React.FC = () => {
 
   return (
     <section className="section-container" id="details">
-      <h2 className="section-title reveal" data-char-swap="true">Event Infos</h2>
+      <h2 className="section-title reveal" data-char-swap="true">{translate(lang, 'basics_title')}</h2>
       <div className="basics-grid">
         {/* Ort */}
         <a
@@ -63,9 +68,9 @@ export const EventBasics: React.FC = () => {
               <circle cx="12" cy="10" r="3" />
             </svg>
           </span>
-          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Ort</h3>
-          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Untere Au, Frastanz</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>FLOAT direkt am malerischen Badesee. Parkplätze vor Ort vorhanden.</p>
+          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_location_title')}</h3>
+          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_location_value')}</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_location_desc')}</p>
           
           {/* Animated Train/Bus Background */}
           <div className="card-bg-anim location-bg">
@@ -101,9 +106,9 @@ export const EventBasics: React.FC = () => {
               <polyline points="12 6 12 12 16 14" className="clock-hands" />
             </svg>
           </span>
-          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Zeit</h3>
-          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>18:00 - 24:00 Uhr</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Einlass ab 18:00 Uhr. Klicke hier, um den Termin im Kalender zu speichern.</p>
+          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_time_title')}</h3>
+          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_time_value')}</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_time_desc')}</p>
           
           {/* Animated Big Clock Background */}
           <div className="card-bg-anim time-bg">
@@ -130,9 +135,9 @@ export const EventBasics: React.FC = () => {
               <circle cx="12" cy="6" r="2.5" />
             </svg>
           </span>
-          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Musik & Lineup</h3>
-          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Techno / Psy-Techno / Dark Prog</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Treibende elektronische Bässe von regionalen & nationalen Acts. Klicke hier zum Lineup.</p>
+          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_music_title')}</h3>
+          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_music_value')}</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_music_desc')}</p>
           
           {/* Animated DJ Booth Background */}
           <div className="dj-booth-bg">
@@ -196,9 +201,9 @@ export const EventBasics: React.FC = () => {
               <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
             </svg>
           </span>
-          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Soundsystem</h3>
-          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Braincandy Soundsystem</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Das Event wird mit einem erstklassigen, druckvollen Soundsystem von Braincandy beschallt. Pack die Tanzschuhe ein!</p>
+          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_sound_title')}</h3>
+          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_sound_value')}</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_sound_desc')}</p>
           
           {/* Animated Funktion-One Background Speaker Stack */}
           <div className="f1-speaker-bg">
@@ -230,9 +235,9 @@ export const EventBasics: React.FC = () => {
               <line x1="22" y1="20" x2="24" y2="21" />
             </svg>
           </span>
-          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Visual Mapping</h3>
-          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>René Fischer</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>René Fischer illuminiert die Location mit eindrucksvollem 3D Visual Mapping und Laser-Effekten.</p>
+          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_mapping_title')}</h3>
+          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_mapping_value')}</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_mapping_desc')}</p>
           
           {/* Animated Projector & Laser Background */}
           <div className="visual-mapping-bg">
@@ -274,13 +279,13 @@ export const EventBasics: React.FC = () => {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 2v2M4.22 4.22l1.42 1.42M1 12h2M21 12h2M18.36 5.64l1.42-1.42" />
               <path d="M17 12a5 5 0 0 0-10 0" fill="rgba(255,255,255,0.05)" />
-              <path d="M2 16c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" />
+              <path d="M2 16c2 0 3-1 5-1s3 1 5 1 3-1 5 1 3 1 5 1" />
               <path d="M2 20c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" opacity="0.6" />
             </svg>
           </span>
-          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Vibe</h3>
-          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Open Air & Sonnenuntergang</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.</p>
+          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_vibe_title')}</h3>
+          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_vibe_value')}</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_vibe_desc')}</p>
           
           {/* Animated Swimmer & Cheers Background */}
           <div className="card-bg-anim vibe-bg">
@@ -325,9 +330,9 @@ export const EventBasics: React.FC = () => {
               <path d="M16 12a4 4 0 0 0-7.8-1.35H8a4 4 0 0 0 0 8h8a4 4 0 0 0 0-8z" fill="rgba(255,255,255,0.05)" />
             </svg>
           </span>
-          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>Wetter</h3>
-          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>Ausweichtermin vorhanden</p>
-          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>Klicke hier für das aktuelle Wetter in Frastanz. Bei Regen gibt es einen Ausweichtermin.</p>
+          <h3 className="card-title" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_weather_title')}</h3>
+          <p className="card-value" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_weather_value')}</p>
+          <p className="card-desc" style={{ position: 'relative', zIndex: 1 }}>{translate(lang, 'basics_weather_desc')}</p>
           
           {/* Animated Rising Sun Background */}
           <div className="card-bg-anim weather-bg">
@@ -358,12 +363,12 @@ export const EventBasics: React.FC = () => {
               <line x1="12" y1="5" x2="12" y2="19" strokeDasharray="3 3" />
             </svg>
           </span>
-          <h3 className="card-title">Tickets & Eintritt</h3>
+          <h3 className="card-title">{translate(lang, 'basics_ticket_title')}</h3>
           <p className="card-value" style={{ margin: '0.25rem 0 0.5rem', fontSize: '1.4rem' }}>
-            Sichere dir dein Ticket im Vorverkauf!
+            {translate(lang, 'basics_ticket_value')}
           </p>
           <p className="card-desc" style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>
-            Der Vorverkauf über Event Frog ist deutlich günstiger als die Abendkassa vor Ort. Kontingent ist limitiert!
+            {translate(lang, 'basics_ticket_desc')}
           </p>
           <a
             href="https://eventfrog.at/de/p/partys/house-techno/daydance-am-see-7468717015454245477.html"
@@ -372,7 +377,7 @@ export const EventBasics: React.FC = () => {
             className="btn btn-primary"
             style={{ fontSize: '0.9rem', padding: '0.75rem 1.75rem' }}
           >
-            Tickets bei Event Frog kaufen
+            {translate(lang, 'basics_ticket_btn')}
           </a>
         </div>
       </div>

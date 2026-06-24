@@ -3,6 +3,7 @@ import { EventBasics } from './components/EventBasics';
 import { Lineup } from './components/Lineup';
 import { GameContainer } from './components/GameContainer';
 import { Leaderboard } from './components/Leaderboard';
+import { Language, translate } from './lib/translations';
 
 // Character Scrambler effect (matrix/cyber decode feel)
 const scrambleText = (el: HTMLElement) => {
@@ -51,6 +52,23 @@ const scrambleText = (el: HTMLElement) => {
 };
 
 export default function App() {
+  const [lang, setLang] = React.useState<Language>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('float-lang');
+      if (saved === 'de' || saved === 'en') return saved as Language;
+    }
+    return 'de';
+  });
+
+  const handleLangChange = (newLang: Language) => {
+    setLang(newLang);
+    localStorage.setItem('float-lang', newLang);
+    // Clear scrambled text cache so new language texts can be scrambled correctly
+    document.querySelectorAll('[data-char-swap]').forEach((el) => {
+      el.removeAttribute('data-original');
+    });
+  };
+
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -209,6 +227,22 @@ export default function App() {
 
   return (
     <>
+      {/* Language Switcher Pill */}
+      <div className="lang-switcher-container">
+        <button
+          className={`lang-btn ${lang === 'de' ? 'active' : ''}`}
+          onClick={() => handleLangChange('de')}
+        >
+          DE
+        </button>
+        <button
+          className={`lang-btn ${lang === 'en' ? 'active' : ''}`}
+          onClick={() => handleLangChange('en')}
+        >
+          EN
+        </button>
+      </div>
+
       {/* Background Grid Lines */}
       <div className="grid-background">
         <div className="line"></div>
@@ -237,15 +271,15 @@ export default function App() {
             <p className="hero-slogan reveal reveal-delay-2" data-char-swap="true">
               Lose Your Ground
             </p>
-            <p className="hero-subtitle reveal reveal-delay-3">
-              Techno am See
+            <p className="hero-subtitle reveal reveal-delay-3" data-char-swap="true">
+              {translate(lang, 'hero_subtitle')}
             </p>
             <div className="hero-meta-container reveal reveal-delay-3">
               <span className="meta-item">📍 Untere Au, Frastanz</span>
               <span className="meta-item-separator">·</span>
-              <span className="meta-item">⏰ 18:00 bis 24:00 Uhr</span>
+              <span className="meta-item">⏰ {translate(lang, 'hero_date')}</span>
               <span className="meta-item-separator">·</span>
-              <span className="meta-item">🌅 Open Air</span>
+              <span className="meta-item">🌅 {translate(lang, 'hero_open_air')}</span>
             </div>
             
             <div className="hero-buttons reveal reveal-delay-4">
@@ -254,7 +288,7 @@ export default function App() {
                   onClick={() => scrollToSection('game-section')}
                   className="btn btn-primary"
                 >
-                  Spielen & Tickets gewinnen 🎮
+                  {translate(lang, 'hero_btn_play')}
                 </button>
                 {/* Rotating Badge SVG */}
                 <div className="rotating-badge-container">
@@ -263,7 +297,7 @@ export default function App() {
                       <path id="heroBadgePath" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
                     </defs>
                     <text>
-                      <textPath href="#heroBadgePath">SPIELEN & GEWINNEN • FLOAT JUMP CHALLENGE •</textPath>
+                      <textPath href="#heroBadgePath">{translate(lang, 'hero_badge')}</textPath>
                     </text>
                   </svg>
                 </div>
@@ -274,32 +308,32 @@ export default function App() {
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
               >
-                Tickets kaufen 🎟️
+                {translate(lang, 'hero_btn_buy')}
               </a>
             </div>
           </div>
         </section>
 
         {/* Event Basics Section */}
-        <EventBasics />
+        <EventBasics lang={lang} />
 
         {/* Lineup Section */}
-        <Lineup />
+        <Lineup lang={lang} />
 
         {/* Game Console Section */}
-        <GameContainer />
+        <GameContainer lang={lang} />
 
         {/* Highscore Leaderboard Section */}
-        <Leaderboard />
+        <Leaderboard lang={lang} />
 
 
       </main>
 
       {/* Footer */}
       <footer className="app-footer">
-        <p>© 2026 FLOAT Techno am See. Alle Rechte vorbehalten.</p>
+        <p>{translate(lang, 'footer_copyright')}</p>
         <p>
-          FLOAT Techno am See Untere Au - Musik, See & Gemeinschaft.
+          {translate(lang, 'footer_desc')}
         </p>
       </footer>
     </>

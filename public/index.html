@@ -1577,13 +1577,71 @@
       100% { transform: rotate(-10deg); }
     }
 
-    @keyframes djBobHead {
-      0% { transform: translateY(0) rotate(-2deg); }
-      100% { transform: translateY(3px) rotate(3deg); }
+
+    /* Language Switcher Pill */
+    .lang-switcher-container {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 1001;
+      display: flex;
+      background: rgba(18, 18, 18, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 30px;
+      padding: 3px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .lang-switcher-container:hover {
+      border-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 12px 40px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .lang-btn.active {
+      background: var(--text-primary);
+      color: var(--bg-dark);
+    }
+
+    @media (max-width: 768px) {
+      .lang-switcher-container {
+        top: 1rem;
+        right: 1rem;
+      }
+      .lang-btn {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.65rem;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Language Switcher Pill -->
+  <div class="lang-switcher-container">
+    <button class="lang-btn active" data-lang="de" onclick="changeLanguage('de')">DE</button>
+    <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
+  </div>
 
   <!-- Background Grid Lines -->
   <div class="grid-background">
@@ -1615,20 +1673,20 @@
         <p class="hero-slogan reveal reveal-delay-2" data-char-swap="true">
           Lose Your Ground
         </p>
-        <p class="hero-subtitle reveal reveal-delay-3">
+        <p class="hero-subtitle reveal reveal-delay-3" data-i18n="hero_subtitle" data-char-swap="true">
           Techno am See
         </p>
         <div class="hero-meta-container reveal reveal-delay-3">
           <span class="meta-item">📍 Untere Au, Frastanz</span>
           <span class="meta-item-separator">·</span>
-          <span class="meta-item">⏰ 18:00 bis 24:00 Uhr</span>
+          <span class="meta-item" data-i18n="hero_date">⏰ 18:00 bis 24:00 Uhr</span>
           <span class="meta-item-separator">·</span>
-          <span class="meta-item">🌅 Open Air</span>
+          <span class="meta-item" data-i18n="hero_open_air">🌅 Open Air</span>
         </div>
         
         <div class="hero-buttons reveal reveal-delay-4">
           <div class="cta-wrapper">
-            <button onclick="scrollToGame()" class="btn class-btn btn-primary">
+            <button onclick="scrollToGame()" class="btn class-btn btn-primary" data-i18n="hero_btn_play">
               Spielen & Tickets gewinnen 🎮
             </button>
             <!-- Rotating Badge SVG -->
@@ -1638,12 +1696,12 @@
                   <path id="heroBadgePath" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
                 </defs>
                 <text>
-                  <textPath href="#heroBadgePath">SPIELEN & GEWINNEN • FLOAT JUMP CHALLENGE •</textPath>
+                  <textPath href="#heroBadgePath" data-i18n="hero_badge">SPIELEN & GEWINNEN • FLOAT JUMP CHALLENGE •</textPath>
                 </text>
               </svg>
             </div>
           </div>
-          <a href="https://eventfrog.at/de/p/partys/house-techno/daydance-am-see-7468717015454245477.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <a href="https://eventfrog.at/de/p/partys/house-techno/daydance-am-see-7468717015454245477.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-i18n="hero_btn_buy">
             Tickets kaufen 🎟️
           </a>
         </div>
@@ -1652,7 +1710,7 @@
 
     <!-- Event Infos Section -->
     <section class="section-container" id="details">
-      <h2 class="section-title reveal" data-char-swap="true">Event Infos</h2>
+      <h2 class="section-title reveal" data-char-swap="true" data-i18n="basics_title">Event Infos</h2>
       <div class="basics-grid">
         <!-- Ort -->
         <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="glass-panel basic-card interactive reveal reveal-delay-1" style="position: relative; overflow: hidden;">
@@ -1663,9 +1721,9 @@
               <circle cx="12" cy="10" r="3" />
             </svg>
           </span>
-          <h3 class="card-title" style="position: relative; z-index: 1;">Ort</h3>
-          <p class="card-value" style="position: relative; z-index: 1;">Untere Au, Frastanz</p>
-          <p class="card-desc" style="position: relative; z-index: 1;">Direkt am malerischen Badesee mit Seezugang, Deko und kühlen Drinks. Parkplätze vorhanden.</p>
+          <h3 class="card-title" style="position: relative; z-index: 1;" data-i18n="basics_location_title">Ort</h3>
+          <p class="card-value" style="position: relative; z-index: 1;" data-i18n="basics_location_value">Untere Au, Frastanz</p>
+          <p class="card-desc" style="position: relative; z-index: 1;" data-i18n="basics_location_desc">Direkt am malerischen Badesee mit Seezugang, Deko und kühlen Drinks. Parkplätze vorhanden.</p>
           
           <!-- Animated Train/Bus Background -->
           <div class="card-bg-anim location-bg">
@@ -1701,9 +1759,9 @@
               <polyline points="12 6 12 12 16 14" class="clock-hands" />
             </svg>
           </span>
-          <h3 class="card-title" style="position: relative; z-index: 1;">Zeit</h3>
-          <p class="card-value" style="position: relative; z-index: 1;">18:00 - 24:00 Uhr</p>
-          <p class="card-desc" style="position: relative; z-index: 1;">Einlass ab 18:00 Uhr. Klicke hier, um den Termin im Kalender zu speichern.</p>
+          <h3 class="card-title" style="position: relative; z-index: 1;" data-i18n="basics_time_title">Zeit</h3>
+          <p class="card-value" style="position: relative; z-index: 1;" data-i18n="basics_time_value">18:00 - 24:00 Uhr</p>
+          <p class="card-desc" style="position: relative; z-index: 1;" data-i18n="basics_time_desc">Einlass ab 18:00 Uhr. Klicke hier, um den Termin im Kalender zu speichern.</p>
           
           <!-- Animated Big Clock Background -->
           <div class="card-bg-anim time-bg">
@@ -1730,9 +1788,9 @@
               <circle cx="12" cy="6" r="2.5" />
             </svg>
           </span>
-          <h3 class="card-title" style="position: relative; z-index: 1;">Musik & Lineup</h3>
-          <p class="card-value" style="position: relative; z-index: 1;">Techno / Psy-Techno / Dark Prog</p>
-          <p class="card-desc" style="position: relative; z-index: 1;">Treibende elektronische Bässe von regionalen & nationalen Acts. Klicke hier zum Lineup.</p>
+          <h3 class="card-title" style="position: relative; z-index: 1;" data-i18n="basics_music_title">Musik & Lineup</h3>
+          <p class="card-value" style="position: relative; z-index: 1;" data-i18n="basics_music_value">Techno / Psy-Techno / Dark Prog</p>
+          <p class="card-desc" style="position: relative; z-index: 1;" data-i18n="basics_music_desc">Treibende elektronische Bässe von regionalen & nationalen Acts. Klicke hier zum Lineup.</p>
           
           <!-- Animated DJ Booth Background -->
           <div class="dj-booth-bg">
@@ -1790,9 +1848,9 @@
               <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
             </svg>
           </span>
-          <h3 class="card-title" style="position: relative; z-index: 1;">Soundsystem</h3>
-          <p class="card-value" style="position: relative; z-index: 1;">Braincandy Soundsystem</p>
-          <p class="card-desc" style="position: relative; z-index: 1;">Das Event wird mit einem erstklassigen, druckvollen Soundsystem von Braincandy beschallt. Pack die Tanzschuhe ein!</p>
+          <h3 class="card-title" style="position: relative; z-index: 1;" data-i18n="basics_sound_title">Soundsystem</h3>
+          <p class="card-value" style="position: relative; z-index: 1;" data-i18n="basics_sound_value">Braincandy Soundsystem</p>
+          <p class="card-desc" style="position: relative; z-index: 1;" data-i18n="basics_sound_desc">Das Event wird mit einem erstklassigen, druckvollen Soundsystem von Braincandy beschallt. Pack die Tanzschuhe ein!</p>
           
           <!-- Animated Funktion-One Background Speaker Stack -->
           <div class="f1-speaker-bg">
@@ -1824,9 +1882,9 @@
               <line x1="22" y1="20" x2="24" y2="21" />
             </svg>
           </span>
-          <h3 class="card-title" style="position: relative; z-index: 1;">Visual Mapping</h3>
-          <p class="card-value" style="position: relative; z-index: 1;">René Fischer</p>
-          <p class="card-desc" style="position: relative; z-index: 1;">René Fischer illuminiert die Location mit eindrucksvollem 3D Visual Mapping und Laser-Effekten.</p>
+          <h3 class="card-title" style="position: relative; z-index: 1;" data-i18n="basics_mapping_title">Visual Mapping</h3>
+          <p class="card-value" style="position: relative; z-index: 1;" data-i18n="basics_mapping_value">René Fischer</p>
+          <p class="card-desc" style="position: relative; z-index: 1;" data-i18n="basics_mapping_desc">René Fischer illuminiert die Location mit eindrucksvollem 3D Visual Mapping und Laser-Effekten.</p>
           
           <!-- Animated Projector & Laser Background -->
           <div class="visual-mapping-bg">
@@ -1872,9 +1930,9 @@
               <path d="M2 20c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" opacity="0.6" />
             </svg>
           </span>
-          <h3 class="card-title" style="position: relative; z-index: 1;">Vibe</h3>
-          <p class="card-value" style="position: relative; z-index: 1;">Open Air & Sonnenuntergang</p>
-          <p class="card-desc" style="position: relative; z-index: 1;">Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.</p>
+          <h3 class="card-title" style="position: relative; z-index: 1;" data-i18n="basics_vibe_title">Vibe</h3>
+          <p class="card-value" style="position: relative; z-index: 1;" data-i18n="basics_vibe_value">Open Air & Sonnenuntergang</p>
+          <p class="card-desc" style="position: relative; z-index: 1;" data-i18n="basics_vibe_desc">Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.</p>
           
           <!-- Animated Swimmer & Cheers Background -->
           <div class="card-bg-anim vibe-bg">
@@ -1919,9 +1977,9 @@
               <path d="M16 12a4 4 0 0 0-7.8-1.35H8a4 4 0 0 0 0 8h8a4 4 0 0 0 0-8z" fill="rgba(255,255,255,0.05)" />
             </svg>
           </span>
-          <h3 class="card-title" style="position: relative; z-index: 1;">Wetter</h3>
-          <p class="card-value" style="position: relative; z-index: 1;">Ausweichtermin vorhanden</p>
-          <p class="card-desc" style="position: relative; z-index: 1;">Klicke hier für das aktuelle Wetter in Frastanz. Bei Regen gibt es einen Ausweichtermin.</p>
+          <h3 class="card-title" style="position: relative; z-index: 1;" data-i18n="basics_weather_title">Wetter</h3>
+          <p class="card-value" style="position: relative; z-index: 1;" data-i18n="basics_weather_value">Ausweichtermin vorhanden</p>
+          <p class="card-desc" style="position: relative; z-index: 1;" data-i18n="basics_weather_desc">Klicke hier für das aktuelle Wetter in Frastanz. Bei Regen gibt es einen Ausweichtermin.</p>
           
           <!-- Animated Rising Sun Background -->
           <div class="card-bg-anim weather-bg">
@@ -1951,14 +2009,14 @@
               <line x1="12" y1="5" x2="12" y2="19" stroke-dasharray="3 3" />
             </svg>
           </span>
-          <h3 class="card-title">Tickets & Eintritt</h3>
-          <p class="card-value" style="margin: 0.25rem 0 0.5rem; font-size: 1.4rem;">
+          <h3 class="card-title" data-i18n="basics_ticket_title">Tickets & Eintritt</h3>
+          <p class="card-value" style="margin: 0.25rem 0 0.5rem; font-size: 1.4rem;" data-i18n="basics_ticket_value">
             Sichere dir dein Ticket im Vorverkauf!
           </p>
-          <p class="card-desc" style="margin-bottom: 1rem; color: var(--text-primary);">
+          <p class="card-desc" style="margin-bottom: 1rem; color: var(--text-primary);" data-i18n="basics_ticket_desc">
             Der Vorverkauf über Event Frog ist deutlich günstiger als die Abendkassa vor Ort. Kontingent ist limitiert!
           </p>
-          <a href="https://eventfrog.at/de/p/partys/house-techno/daydance-am-see-7468717015454245477.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.75rem 1.75rem;">
+          <a href="https://eventfrog.at/de/p/partys/house-techno/daydance-am-see-7468717015454245477.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.75rem 1.75rem;" data-i18n="basics_ticket_btn">
             Tickets bei Event Frog kaufen
           </a>
         </div>
@@ -1967,15 +2025,15 @@
 
     <!-- Lineup Section -->
     <section class="lineup-section" id="lineup">
-      <h2 class="section-title reveal" data-char-swap="true">Line-Up</h2>
-      <p class="section-subtitle" style="color: var(--text-muted); margin-bottom: 2rem;">
+      <h2 class="section-title reveal" data-char-swap="true" data-i18n="lineup_title">Line-Up</h2>
+      <p class="section-subtitle" style="color: var(--text-muted); margin-bottom: 2rem;" data-i18n="lineup_subtitle">
         Internationales Lineup & regionaler Support.
       </p>
 
       <div class="lineup-grid">
         <!-- Falzar -->
         <div class="glass-panel dj-card reveal reveal-delay-1">
-          <span class="dj-origin">Frankreich 🇫🇷</span>
+          <span class="dj-origin" data-i18n="origin_france">Frankreich 🇫🇷</span>
           <img src="/falzar.jpg" alt="Falzar" class="dj-image" />
           <h3 class="dj-name">Falzar</h3>
           <p class="dj-label"><a href="https://www.instagram.com/zenonrecords/" target="_blank" rel="noopener noreferrer" class="dj-label-link">Zenon Records</a></p>
@@ -1998,7 +2056,7 @@
 
         <!-- Rico -->
         <div class="glass-panel dj-card reveal reveal-delay-2">
-          <span class="dj-origin">Frankreich 🇫🇷</span>
+          <span class="dj-origin" data-i18n="origin_france">Frankreich 🇫🇷</span>
           <img src="/rico.jpg" alt="Rico" class="dj-image" />
           <h3 class="dj-name">Rico</h3>
           <p class="dj-label"><a href="https://www.instagram.com/alpaka.muzik/" target="_blank" rel="noopener noreferrer" class="dj-label-link">AlpaKa MuziK</a> / <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="dj-label-link">Frequency Squad Rec.</a></p>
@@ -2021,7 +2079,7 @@
 
         <!-- Medved -->
         <div class="glass-panel dj-card reveal reveal-delay-3">
-          <span class="dj-origin">Feldkirch 🇦🇹</span>
+          <span class="dj-origin" data-i18n="origin_feldkirch">Feldkirch 🇦🇹</span>
           <img src="/medved.jpg" alt="Medved" class="dj-image" style="object-position: top;" />
           <h3 class="dj-name">Medved</h3>
           <p class="dj-label"><a href="https://www.instagram.com/sektorkollektiv/" target="_blank" rel="noopener noreferrer" class="dj-label-link">Sektor Kollektiv</a></p>
@@ -2044,7 +2102,7 @@
 
         <!-- Play'N'Error -->
         <div class="glass-panel dj-card reveal reveal-delay-4">
-          <span class="dj-origin">Lindau (DE) 🇩🇪</span>
+          <span class="dj-origin" data-i18n="origin_lindau">Lindau (DE) 🇩🇪</span>
           <img src="/playnerror.jpg" alt="Play'N'Error" class="dj-image" />
           <h3 class="dj-name">Play'N'Error</h3>
           <p class="dj-label"><a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="dj-label-link">Kultur Lindau e.V.</a></p>
@@ -2099,7 +2157,7 @@
             </a>
           </div>
         </div>
-        <p class="cooperation-text">
+        <p class="cooperation-text" data-i18n="cooperation_text">
           🤝 Dieses Event wird von 
           <a href="https://www.instagram.com/techn0_larry/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Techno Larry</a> und 
           <a href="https://www.instagram.com/rigomutilar/" target="_blank" rel="noopener noreferrer" class="cooperation-link">DJ Rigo</a> veranstaltet. 
@@ -2116,7 +2174,7 @@
 
     <!-- Game Console Section -->
     <section class="game-section" id="game-section">
-      <h2 class="section-title reveal" data-char-swap="true">FLOAT Jump Challenge</h2>
+      <h2 class="section-title reveal" data-char-swap="true" data-i18n="game_title">FLOAT Jump Challenge</h2>
       
       <div class="game-console reveal">
         <div class="canvas-wrapper" id="canvas-wrapper">
@@ -2137,19 +2195,19 @@
 
     <!-- Highscore Leaderboard Section -->
     <section class="section-container" id="leaderboard">
-      <h2 class="section-title reveal" data-char-swap="true">Leaderboard</h2>
+      <h2 class="section-title reveal" data-char-swap="true" data-i18n="leaderboard_title">Leaderboard</h2>
       
       <div class="glass-panel leaderboard-container reveal">
-        <div id="leaderboard-loading" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+        <div id="leaderboard-loading" style="text-align: center; padding: 2rem; color: var(--text-muted);" data-i18n="leaderboard_loading">
           Lade Highscores...
         </div>
         <div style="overflow-x: auto; display: none;" id="leaderboard-table-wrapper">
           <table class="leaderboard-table">
             <thead>
               <tr>
-                <th class="rank-cell">Rang</th>
-                <th>Raver</th>
-                <th style="text-align: right;">Score</th>
+                <th class="rank-cell" data-i18n="leaderboard_th_rank">Rang</th>
+                <th data-i18n="leaderboard_th_raver">Raver</th>
+                <th style="text-align: right;" data-i18n="leaderboard_th_score">Score</th>
               </tr>
             </thead>
             <tbody id="leaderboard-body">
@@ -2158,13 +2216,13 @@
           </table>
         </div>
 
-        <div class="leaderboard-disclaimer">
+        <div class="leaderboard-disclaimer" data-i18n="leaderboard_disclaimer">
           🔒 <strong>Fairplay & Info:</strong> Verdächtige oder manipulierte Scores werden automatisch gefiltert und gelöscht. Pro Person zählt nur der beste gültige Score. Wer bei Auslosung 24h vor Eventstart ganz oben steht, gewinnt!
         </div>
 
         <div class="glass-panel rules-box">
-          <h3 class="rules-title">Gewinnspiel-Regeln</h3>
-          <p class="rules-text">
+          <h3 class="rules-title" data-i18n="rules_title">Gewinnspiel-Regeln</h3>
+          <p class="rules-text" data-i18n="rules_text">
             Die Top 3 gültigen Scores gewinnen je 1 Free-Entry-Ticket + Goodie. Pro Person zählt nur der beste gültige Score.
             Mehrfach-Accounts, Fake-Daten oder manipulierte Scores können entfernt werden. Die Gewinner werden über Instagram oder E-Mail kontaktiert.
             Der Rechtsweg ist ausgeschlossen.
@@ -2177,15 +2235,275 @@
 
   <!-- Footer -->
   <footer class="app-footer">
-    <p>© 2026 FLOAT Techno am See. Alle Rechte vorbehalten.</p>
-    <p>FLOAT Techno am See Untere Au - Musik, See & Gemeinschaft.</p>
+    <p data-i18n="footer_copyright">© 2026 FLOAT Techno am See. Alle Rechte vorbehalten.</p>
+    <p data-i18n="footer_desc">FLOAT Techno am See Untere Au - Musik, See & Gemeinschaft.</p>
   </footer>
 
   <!-- =========================================================================
        JavaScript Game Engine & API client
        ========================================================================= -->
   <script>
+    // 1. Initial language tracking and simple switcher stub
+    let currentLanguage = (() => {
+      try {
+        const saved = localStorage.getItem('float-lang');
+        return (saved === 'de' || saved === 'en') ? saved : 'de';
+      } catch (e) {
+        return 'de';
+      }
+    })();
+
+    window.changeLanguage = function(lang) {
+      if (lang === 'de' || lang === 'en') {
+        currentLanguage = lang;
+        try {
+          localStorage.setItem('float-lang', lang);
+        } catch (e) {}
+      }
+    };
+
     document.addEventListener('DOMContentLoaded', () => {
+      // Translations Dictionary
+      const translations = {
+        de: {
+          // Hero
+          hero_subtitle: "Techno am See",
+          hero_date: "⏰ 18:00 bis 24:00 Uhr",
+          hero_open_air: "🌅 Open Air",
+          hero_btn_play: "Spielen & Tickets gewinnen 🎮",
+          hero_btn_buy: "Tickets kaufen 🎟️",
+          hero_badge: "SPIELEN & GEWINNEN • FLOAT JUMP CHALLENGE •",
+
+          // Event Info (Basics)
+          basics_title: "Event Infos",
+          basics_location_title: "Ort",
+          basics_location_value: "Untere Au, Frastanz",
+          basics_location_desc: "FLOAT direkt am malerischen Badesee. Parkplätze vor Ort vorhanden.",
+          basics_time_title: "Zeit",
+          basics_time_value: "18:00 - 24:00 Uhr",
+          basics_time_desc: "Einlass ab 18:00 Uhr. Klicke hier, um den Termin im Kalender zu speichern.",
+          basics_music_title: "Musik & Lineup",
+          basics_music_value: "Techno / Psy-Techno / Dark Prog",
+          basics_music_desc: "Treibende elektronische Bässe von regionalen & nationalen Acts. Klicke hier zum Lineup.",
+          basics_sound_title: "Soundsystem",
+          basics_sound_value: "Braincandy Soundsystem",
+          basics_sound_desc: "Das Event wird mit einem erstklassigen, druckvollen Soundsystem von Braincandy beschallt. Pack die Tanzschuhe ein!",
+          basics_mapping_title: "Visual Mapping",
+          basics_mapping_value: "René Fischer",
+          basics_mapping_desc: "René Fischer illuminiert die Location mit eindrucksvollem 3D Visual Mapping und Laser-Effekten.",
+          basics_vibe_title: "Vibe",
+          basics_vibe_value: "Open Air & Sonnenuntergang",
+          basics_vibe_desc: "Sommerliche Deko, kühle Drinks, Seezugang und erstklassige Soundanlage.",
+          basics_weather_title: "Wetter",
+          basics_weather_value: "Ausweichtermin vorhanden",
+          basics_weather_desc: "Klicke hier für das aktuelle Wetter in Frastanz. Bei Regen gibt es einen Ausweichtermin.",
+          basics_ticket_title: "Tickets & Eintritt",
+          basics_ticket_value: "Sichere dir dein Ticket im Vorverkauf!",
+          basics_ticket_desc: "Der Vorverkauf über Event Frog ist deutlich günstiger als die Abendkassa vor Ort. Kontingent ist limitiert!",
+          basics_ticket_btn: "Tickets bei Event Frog kaufen",
+
+          // Lineup
+          lineup_title: "Line-Up",
+          lineup_subtitle: "Internationales Lineup & regionaler Support.",
+          origin_france: "Frankreich 🇫🇷",
+          origin_feldkirch: "Feldkirch 🇦🇹",
+          origin_lindau: "Lindau (DE) 🇩🇪",
+          cooperation_text: `🤝 Dieses Event wird von \n          <a href="https://www.instagram.com/techn0_larry/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Techno Larry</a> und \n          <a href="https://www.instagram.com/rigomutilar/" target="_blank" rel="noopener noreferrer" class="cooperation-link">DJ Rigo</a> veranstaltet. \n          Unterstützt wird das Projekt in enger Kooperation mit den befreundeten Vereinen \n          <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Frequency Squad</a> und \n          <a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Kultur Lindau e.V.</a>. \n          Das erstklassige Soundsystem wird bereitgestellt von \n          <a href="https://www.instagram.com/braincandysoundsystem/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Braincandy Soundsystem</a>, und die \n          <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="cooperation-link">Wirtschaft Untere Au</a> hostet das Event als Location, \n          um gemeinsam die elektronische Musikkultur in der Region Bodensee-Vorarlberg zu stärken.`,
+
+          // Game Overlay
+          game_title: "FLOAT Jump Challenge",
+          game_overlay_start_title: "FLOAT Jump",
+          game_overlay_start_desc: "Springe von Stein zu Stein und fall nicht ins Wasser! Die Top 3 gewinnen Free Entry + Goodies.",
+          game_overlay_start_btn: "Spiel Starten",
+          game_overlay_start_hint: "Desktop: Leertaste / Klick<br>Mobile: Tippen auf Display",
+          game_overlay_gameover_title: "Game Over",
+          game_overlay_gameover_pts: "Punkte",
+          game_overlay_gameover_meta_dist: "Distanz",
+          game_overlay_gameover_meta_time: "Zeit",
+          game_form_name: "Anzeigename",
+          game_form_name_placeholder: "z.B. TechnoRaver",
+          game_form_email: "E-Mail (Privat für Gewinnbenachrichtigung)",
+          game_form_email_placeholder: "name@domain.com",
+          game_form_instagram: "Instagram Handle (Für Verifizierung)",
+          game_form_instagram_placeholder: "z.B. @dein.name",
+          game_form_consent_display: "Ich bin einverstanden, dass mein Name & Instagram-Handle im Leaderboard angezeigt werden.",
+          game_form_consent_rules: "Ich akzeptiere die Gewinnspielregeln.",
+          game_form_submit: "Score Eintragen",
+          game_form_replay: "Direkt noch einmal spielen",
+          game_overlay_verifying_title: "Verifiziere Score...",
+          game_overlay_verifying_desc: "Anti-Cheat Analyse läuft...",
+          game_overlay_submitted_success: "Erfolgreich!",
+          game_overlay_submitted_error: "Upps!",
+          game_overlay_submitted_btn_leaderboard: "Leaderboard ansehen",
+          game_overlay_submitted_btn_replay: "Nochmal spielen",
+          leaderboard_empty: "Noch keine Highscores eingetragen. Sei der Erste! 🚀",
+
+          // Leaderboard
+          leaderboard_title: "Leaderboard",
+          leaderboard_loading: "Lade Highscores...",
+          leaderboard_th_rank: "Rang",
+          leaderboard_th_raver: "Raver",
+          leaderboard_th_score: "Score",
+          leaderboard_disclaimer: "Fairplay & Info: Verdächtige oder manipulierte Scores werden automatisch gefiltert und gelöscht. Pro Person zählt nur der beste gültige Score. Wer bei Auslosung 24h vor Eventstart ganz oben steht, gewinnt!",
+          rules_title: "Gewinnspiel-Regeln",
+          rules_text: "Die Top 3 gültigen Scores gewinnen je 1 Free-Entry-Ticket + Goodie. Pro Person zählt nur der beste gültige Score. Mehrfach-Accounts, Fake-Daten oder manipulierte Scores können entfernt werden. Die Gewinner werden über Instagram oder E-Mail kontaktiert. Der Rechtsweg ist ausgeschlossen.",
+
+          // Footer
+          footer_copyright: "© 2026 FLOAT Techno am See. Alle Rechte vorbehalten.",
+          footer_desc: "FLOAT Techno am See Untere Au - Musik, See & Gemeinschaft."
+        },
+        en: {
+          // Hero
+          hero_subtitle: "Techno by the Lake",
+          hero_date: "⏰ 6:00 PM to 12:00 AM",
+          hero_open_air: "🌅 Open Air",
+          hero_btn_play: "Play & Win Tickets 🎮",
+          hero_btn_buy: "Buy Tickets 🎟️",
+          hero_badge: "PLAY & WIN • FLOAT JUMP CHALLENGE •",
+
+          // Event Info (Basics)
+          basics_title: "Event Info",
+          basics_location_title: "Location",
+          basics_location_value: "Untere Au, Frastanz",
+          basics_location_desc: "FLOAT right by the picturesque swimming lake. Parking available on site.",
+          basics_time_title: "Time",
+          basics_time_value: "6:00 PM - 12:00 AM",
+          basics_time_desc: "Doors open at 6:00 PM. Click here to save the date to your calendar.",
+          basics_music_title: "Music & Lineup",
+          basics_music_value: "Techno / Psy-Techno / Dark Prog",
+          basics_music_desc: "Driving electronic beats by regional & national acts. Click here for the lineup.",
+          basics_sound_title: "Sound System",
+          basics_sound_value: "Braincandy Sound System",
+          basics_sound_desc: "The event will be powered by a premium, high-impact sound system from Braincandy. Pack your dancing shoes!",
+          basics_mapping_title: "Visual Mapping",
+          basics_mapping_value: "René Fischer",
+          basics_mapping_desc: "René Fischer illuminates the location with impressive 3D visual mapping and laser effects.",
+          basics_vibe_title: "Vibe",
+          basics_vibe_value: "Open Air & Sunset",
+          basics_vibe_desc: "Summery decoration, cold drinks, lake access, and a top-notch sound system.",
+          basics_weather_title: "Weather",
+          basics_weather_value: "Alternative date available",
+          basics_weather_desc: "Click here for the current weather in Frastanz. In case of rain, there is an alternative date.",
+          basics_ticket_title: "Tickets & Admission",
+          basics_ticket_value: "Secure your ticket in advance sale!",
+          basics_ticket_desc: "Advance ticket sale via Event Frog is significantly cheaper than the box office on site. Tickets are limited!",
+          basics_ticket_btn: "Buy tickets at Event Frog",
+
+          // Lineup
+          lineup_title: "Line-Up",
+          lineup_subtitle: "International lineup & regional support.",
+          origin_france: "France 🇫🇷",
+          origin_feldkirch: "Feldkirch 🇦🇹",
+          origin_lindau: "Lindau (DE) 🇩🇪",
+          cooperation_text: `🤝 This event is organized by \n          <a href="https://www.instagram.com/techn0_larry/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Techno Larry</a> and \n          <a href="https://www.instagram.com/rigomutilar/" target="_blank" rel="noopener noreferrer" class="cooperation-link">DJ Rigo</a>. \n          The project is supported in close cooperation with friendly associations \n          <a href="https://www.instagram.com/frequencysquad/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Frequency Squad</a> and \n          <a href="https://www.instagram.com/kultur.lindau/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Kultur Lindau e.V.</a>. \n          The first-class sound system is provided by \n          <a href="https://www.instagram.com/braincandysoundsystem/" target="_blank" rel="noopener noreferrer" class="cooperation-link">Braincandy Sound System</a>, and \n          <a href="https://maps.google.com/?q=Badesee+Untere+Au,+Frastanz" target="_blank" rel="noopener noreferrer" class="cooperation-link">Wirtschaft Untere Au</a> hosts the event as a location to jointly strengthen the electronic music culture in the Lake Constance-Vorarlberg region.`,
+
+          // Game Overlay
+          game_title: "FLOAT Jump Challenge",
+          game_overlay_start_title: "FLOAT Jump",
+          game_overlay_start_desc: "Jump from stone to stone and don't fall into the water! The top 3 win Free Entry + Goodies.",
+          game_overlay_start_btn: "Start Game",
+          game_overlay_start_hint: "Desktop: Spacebar / Click<br>Mobile: Tap on screen",
+          game_overlay_gameover_title: "Game Over",
+          game_overlay_gameover_pts: "Points",
+          game_overlay_gameover_meta_dist: "Distance",
+          game_overlay_gameover_meta_time: "Time",
+          game_form_name: "Display Name",
+          game_form_name_placeholder: "e.g. TechnoRaver",
+          game_form_email: "Email (Private for prize notification)",
+          game_form_email_placeholder: "name@domain.com",
+          game_form_instagram: "Instagram Handle (For verification)",
+          game_form_instagram_placeholder: "e.g. @your.name",
+          game_form_consent_display: "I agree that my name & Instagram handle will be displayed on the leaderboard.",
+          game_form_consent_rules: "I accept the raffle rules.",
+          game_form_submit: "Submit Score",
+          game_form_replay: "Play again immediately",
+          game_overlay_verifying_title: "Verifying Score...",
+          game_overlay_verifying_desc: "Anti-Cheat analysis running...",
+          game_overlay_submitted_success: "Success!",
+          game_overlay_submitted_error: "Oops!",
+          game_overlay_submitted_btn_leaderboard: "View Leaderboard",
+          game_overlay_submitted_btn_replay: "Play Again",
+          leaderboard_empty: "No highscores submitted yet. Be the first! 🚀",
+
+          // Leaderboard
+          leaderboard_title: "Leaderboard",
+          leaderboard_loading: "Loading highscores...",
+          leaderboard_th_rank: "Rank",
+          leaderboard_th_raver: "Raver",
+          leaderboard_th_score: "Score",
+          leaderboard_disclaimer: "Fairplay & Info: Suspicious or manipulated scores are automatically filtered and deleted. Only the best valid score per person counts. Whoever is at the top at the draw 24h before event start wins!",
+          rules_title: "Raffle Rules",
+          rules_text: "The top 3 valid scores each win 1 Free Entry ticket + Goodie. Only the best valid score per person counts. Multiple accounts, fake data, or manipulated scores may be removed. Winners will be contacted via Instagram or email. Legal recourse is excluded.",
+
+          // Footer
+          footer_copyright: "© 2026 FLOAT Techno by the Lake. All rights reserved.",
+          footer_desc: "FLOAT Techno by the Lake Untere Au - Music, Lake & Community."
+        }
+      };
+
+      let currentOverlayState = 'START';
+      let currentOverlayParams = {};
+
+      function updateStaticTranslations() {
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (key && translations[currentLanguage] && translations[currentLanguage][key] !== undefined) {
+            if (key === 'cooperation_text') {
+              el.innerHTML = translations[currentLanguage][key];
+            } else {
+              el.innerText = translations[currentLanguage][key];
+            }
+          }
+        });
+
+        // Update HUD Mute Button Text
+        const muteBtn = document.getElementById('mute-btn');
+        if (muteBtn) {
+          const isMuted = audioController ? audioController.muted : false;
+          muteBtn.innerText = isMuted ? 
+            (currentLanguage === 'en' ? '🔇 Mute: On' : '🔇 Mute: An') : 
+            (currentLanguage === 'en' ? '🔊 Sound: On' : '🔊 Sound: An');
+        }
+
+        // Update HUD Pause Button Text
+        const pauseBtn = document.getElementById('pause-btn');
+        if (pauseBtn) {
+          if (gameEngineInstance && gameEngineInstance.isPaused) {
+            pauseBtn.innerText = currentLanguage === 'en' ? '▶️ Resume' : '▶️ Weiter';
+          } else {
+            pauseBtn.innerText = currentLanguage === 'en' ? '⏸️ Pause' : '⏸️ Pause';
+          }
+        }
+
+        // Re-render overlay
+        if (currentOverlayState) {
+          renderOverlay(currentOverlayState, currentOverlayParams);
+        }
+      }
+
+      // Complete window.changeLanguage implementation with DOM access
+      window.changeLanguage = function(lang) {
+        if (lang !== 'de' && lang !== 'en') return;
+        currentLanguage = lang;
+        try {
+          localStorage.setItem('float-lang', lang);
+        } catch (e) {}
+
+        document.querySelectorAll('[data-char-swap]').forEach((el) => {
+          el.removeAttribute('data-original');
+        });
+
+        document.querySelectorAll('.lang-switcher-container .lang-btn').forEach((btn) => {
+          if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+
+        updateStaticTranslations();
+      };
+
       // 1. Scramble Text Function (matrix/cyber decode feel)
       const scrambleText = (el) => {
         const original = el.getAttribute('data-original') || el.innerText;
@@ -2347,17 +2665,21 @@
     });
 
     function downloadCalendarEvent() {
+      const prodId = `PRODID:-//FLOAT ${currentLanguage === 'de' ? 'Techno am See' : 'Techno by the Lake'}//${currentLanguage.toUpperCase()}`;
+      const summary = `SUMMARY:FLOAT ${currentLanguage === 'de' ? 'Techno am See' : 'Techno by the Lake'}`;
+      const description = `DESCRIPTION:FLOAT ${currentLanguage === 'de' ? 'Techno am See direkt am malerischen Badesee Untere Au. Techno\\, Psy-Techno\\, Dark Prog.' : 'Techno by the Lake right next to the picturesque Badesee Untere Au. Techno\\, Psy-Techno\\, Dark Prog.'}`;
+
       const icsData = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
-        'PRODID:-//FLOAT Techno am See//DE',
+        prodId,
         'BEGIN:VEVENT',
         'UID:float-techno-am-see-2026',
         'DTSTAMP:20260604T180000Z',
         'DTSTART:20260815T160000Z',
         'DTEND:20260815T220000Z',
-        'SUMMARY:FLOAT Techno am See',
-        'DESCRIPTION:FLOAT Techno am See direkt am malerischen Badesee Untere Au. Techno\\, Psy-Techno\\, Dark Prog.',
+        summary,
+        description,
         'LOCATION:Badesee Untere Au\\, Frastanz',
         'END:VEVENT',
         'END:VCALENDAR'
@@ -2912,7 +3234,7 @@
           this.ctx.stroke();
 
           this.ctx.fillStyle = '#6c757d';
-          this.ctx.font = '9px Cakra, sans-serif';
+          this.ctx.font = '9px BDOGrotesk, sans-serif';
           this.ctx.textAlign = 'center';
           this.ctx.fillText(`${p.index}`, renderX + p.width / 2, p.y + 18);
           this.ctx.restore();
@@ -3025,12 +3347,12 @@
 
         // 9. ScoreHUD
         this.ctx.fillStyle = '#ffffff';
-        this.ctx.font = '800 20px Cakra, sans-serif';
+        this.ctx.font = '800 20px BDOGrotesk, sans-serif';
         this.ctx.textAlign = 'left';
         this.ctx.fillText(`${this.score}`, 18, 38);
 
         this.ctx.fillStyle = '#00f0ff';
-        this.ctx.font = '800 11px Cakra, sans-serif';
+        this.ctx.font = '800 11px BDOGrotesk, sans-serif';
         this.ctx.textAlign = 'right';
         const speedFact = (this.speed * 10).toFixed(0);
         this.ctx.fillText(`KMN/H: ${speedFact}`, this.logicalWidth - 18, 34);
@@ -3038,7 +3360,7 @@
         if (this.speedNotificationTimer > 0) {
           this.ctx.save();
           this.ctx.fillStyle = '#ff007f';
-          this.ctx.font = '900 16px Cakra, sans-serif';
+          this.ctx.font = '900 16px BDOGrotesk, sans-serif';
           this.ctx.textAlign = 'center';
           this.ctx.shadowColor = '#ff007f';
           this.ctx.shadowBlur = 8;
@@ -3052,12 +3374,13 @@
           this.ctx.fillStyle = 'rgba(6, 13, 19, 0.75)';
           this.ctx.fillRect(0, 0, this.logicalWidth, this.logicalHeight);
           this.ctx.fillStyle = '#ffffff';
-          this.ctx.font = '800 24px Cakra, sans-serif';
+          this.ctx.font = '800 24px BDOGrotesk, sans-serif';
           this.ctx.textAlign = 'center';
           this.ctx.fillText('PAUSE', this.logicalWidth / 2, this.logicalHeight / 2 - 10);
           this.ctx.fillStyle = '#a9d6e5';
-          this.ctx.font = '12px Cakra, sans-serif';
-          this.ctx.fillText('Hier tippen zum Weiterspielen', this.logicalWidth / 2, this.logicalHeight / 2 + 15);
+          this.ctx.font = '12px BDOGrotesk, sans-serif';
+          const resumeText = currentLanguage === 'en' ? 'Tap here to resume' : 'Hier tippen zum Weiterspielen';
+          this.ctx.fillText(resumeText, this.logicalWidth / 2, this.logicalHeight / 2 + 15);
         }
       }
     }
@@ -3073,6 +3396,9 @@
 
     // View State Renderers
     function renderOverlay(state, params = {}) {
+      currentOverlayState = state;
+      currentOverlayParams = params;
+
       const container = document.getElementById('overlay-screen');
       if (state === 'HIDDEN') {
         container.style.display = 'none';
@@ -3082,10 +3408,10 @@
 
       if (state === 'START') {
         container.innerHTML = `
-          <h3 class="game-overlay-title">FLOAT Jump</h3>
-          <p class="game-overlay-desc">Springe von Stein zu Stein und fall nicht ins Wasser! Die Top 3 gewinnen Free Entry + Goodies.</p>
-          <button class="btn btn-primary" onclick="triggerStartGame()">Spiel Starten</button>
-          <div class="game-controls-hint">Desktop: Leertaste / Klick<br>Mobile: Tippen auf Display</div>
+          <h3 class="game-overlay-title">${translations[currentLanguage].game_overlay_start_title}</h3>
+          <p class="game-overlay-desc">${translations[currentLanguage].game_overlay_start_desc}</p>
+          <button class="btn btn-primary" onclick="triggerStartGame()">${translations[currentLanguage].game_overlay_start_btn}</button>
+          <div class="game-controls-hint">${translations[currentLanguage].game_overlay_start_hint}</div>
         `;
       } else if (state === 'GAMEOVER') {
         const { score, finalDistance, durationMs } = params;
@@ -3093,58 +3419,74 @@
         const savedEmail = localStorage.getItem('game_email') || '';
         const savedInstagram = localStorage.getItem('game_instagram') || '';
         container.innerHTML = `
-          <h3 class="game-overlay-title" style="color: var(--neon-pink); margin-top: 0.5rem;">Game Over</h3>
-          <p style="font-size: 1.5rem; font-weight: 800; color: #fff; margin: 0.25rem 0;">${score} Punkte</p>
-          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">Distanz: ${finalDistance}m · Zeit: ${(durationMs / 1000).toFixed(1)}s</p>
+          <h3 class="game-overlay-title" style="color: var(--neon-pink); margin-top: 0.5rem;">${translations[currentLanguage].game_overlay_gameover_title}</h3>
+          <p style="font-size: 1.5rem; font-weight: 800; color: #fff; margin: 0.25rem 0;">${score} ${translations[currentLanguage].game_overlay_gameover_pts}</p>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            ${translations[currentLanguage].game_overlay_gameover_meta_dist}: ${finalDistance}m · ${translations[currentLanguage].game_overlay_gameover_meta_time}: ${(durationMs / 1000).toFixed(1)}s
+          </p>
 
           <form class="submit-form" onsubmit="triggerSubmitScore(event)">
             <div class="form-group">
-              <label class="form-label">Anzeigename</label>
-              <input type="text" id="form-name" required maxlength="16" placeholder="z.B. TechnoRaver" class="form-input" value="${savedName}">
+              <label class="form-label">${translations[currentLanguage].game_form_name}</label>
+              <input type="text" id="form-name" required maxlength="16" placeholder="${translations[currentLanguage].game_form_name_placeholder}" class="form-input" value="${savedName}">
             </div>
             <div class="form-group">
-              <label class="form-label">E-Mail (Privat für Gewinn)</label>
-              <input type="email" id="form-email" required placeholder="name@domain.com" class="form-input" value="${savedEmail}">
+              <label class="form-label">${translations[currentLanguage].game_form_email}</label>
+              <input type="email" id="form-email" required placeholder="${translations[currentLanguage].game_form_email_placeholder}" class="form-input" value="${savedEmail}">
             </div>
             <div class="form-group">
-              <label class="form-label">Instagram Handle</label>
-              <input type="text" id="form-instagram" required placeholder="z.B. @dein.name" class="form-input" value="${savedInstagram}">
+              <label class="form-label">${translations[currentLanguage].game_form_instagram}</label>
+              <input type="text" id="form-instagram" required placeholder="${translations[currentLanguage].game_form_instagram_placeholder}" class="form-input" value="${savedInstagram}">
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 0.4rem; margin: 0.25rem 0;">
               <label class="form-checkbox-label">
                 <input type="checkbox" required id="form-consent-display">
-                <span>Ich bin einverstanden, dass mein Name & IG im Leaderboard angezeigt werden.</span>
+                <span>${translations[currentLanguage].game_form_consent_display}</span>
               </label>
               <label class="form-checkbox-label">
                 <input type="checkbox" required id="form-consent-rules">
-                <span>Ich akzeptiere die Gewinnspielregeln.</span>
+                <span>${translations[currentLanguage].game_form_consent_rules}</span>
               </label>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.65rem;">Score Eintragen</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.65rem;">${translations[currentLanguage].game_form_submit}</button>
           </form>
 
           <button class="btn btn-secondary" onclick="triggerStartGame()" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem; font-size: 0.85rem;">
-            Direkt noch einmal spielen
+            ${translations[currentLanguage].game_form_replay}
           </button>
         `;
       } else if (state === 'SUBMITTING') {
         container.innerHTML = `
-          <h3 class="game-overlay-title">Verifiziere Score...</h3>
-          <p class="game-overlay-desc">Anti-Cheat Analyse läuft...</p>
+          <h3 class="game-overlay-title">${translations[currentLanguage].game_overlay_verifying_title}</h3>
+          <p class="game-overlay-desc">${translations[currentLanguage].game_overlay_verifying_desc}</p>
           <div class="spinner"></div>
         `;
       } else if (state === 'SUBMITTED') {
         const { success, message } = params;
+        let displayMessage = message;
+        if (success) {
+          if (message === 'Score successfully submitted!' || message === 'Score erfolgreich eingetragen!') {
+            displayMessage = currentLanguage === 'en' ? 'Score successfully submitted!' : 'Score erfolgreich eingetragen!';
+          }
+        } else {
+          if (!message || message === 'Fehler beim Eintragen.' || message === 'Fehler beim Eintragen des Scores.') {
+            displayMessage = currentLanguage === 'en' ? 'Error submitting score.' : 'Fehler beim Eintragen des Scores.';
+          } else if (message === 'Verbindungsfehler zum Server.' || message === 'Netzwerkfehler beim Eintragen deines Scores.') {
+            displayMessage = currentLanguage === 'en' ? 'Network error submitting your score.' : 'Verbindungsfehler zum Server.';
+          } else if (message === 'Dein Score konnte nicht validiert werden. Verdacht auf unregelmäßiges Gameplay.') {
+            displayMessage = currentLanguage === 'en' ? 'Your score could not be validated. Suspicion of irregular gameplay.' : 'Dein Score konnte nicht validiert werden. Verdacht auf unregelmäßiges Gameplay.';
+          }
+        }
         container.innerHTML = `
           <h3 class="game-overlay-title" style="color: ${success ? 'var(--neon-cyan)' : 'var(--neon-pink)'}">
-            ${success ? 'Erfolgreich!' : 'Upps!'}
+            ${success ? translations[currentLanguage].game_overlay_submitted_success : translations[currentLanguage].game_overlay_submitted_error}
           </h3>
-          <p class="game-overlay-desc" style="color: #fff; margin-bottom: 1.5rem;">${message}</p>
-          <button class="btn btn-primary" onclick="showLeaderboardView()">Leaderboard ansehen</button>
+          <p class="game-overlay-desc" style="color: #fff; margin-bottom: 1.5rem;">${displayMessage}</p>
+          <button class="btn btn-primary" onclick="showLeaderboardView()">${translations[currentLanguage].game_overlay_submitted_btn_leaderboard}</button>
           <button class="btn btn-secondary" onclick="triggerStartGame()" style="margin-top: 0.5rem; font-size: 0.85rem; padding: 0.6rem 1.5rem;">
-            Nochmal spielen
+            ${translations[currentLanguage].game_overlay_submitted_btn_replay}
           </button>
         `;
       }
@@ -3159,7 +3501,9 @@
     // Toggle mute logic
     function toggleMute() {
       const muted = audioController.toggleMute();
-      document.getElementById('mute-btn').innerText = muted ? '🔇 Mute: An' : '🔊 Sound: An';
+      document.getElementById('mute-btn').innerText = muted ? 
+        (currentLanguage === 'en' ? '🔇 Mute: On' : '🔇 Mute: An') : 
+        (currentLanguage === 'en' ? '🔊 Sound: On' : '🔊 Sound: An');
     }
 
     // Pause logic
@@ -3170,7 +3514,7 @@
           document.getElementById('pause-btn').innerText = '⏸️ Pause';
         } else {
           gameEngineInstance.pause();
-          document.getElementById('pause-btn').innerText = '▶️ Weiter';
+          document.getElementById('pause-btn').innerText = currentLanguage === 'en' ? '▶️ Resume' : '▶️ Weiter';
         }
       }
     }
@@ -3264,9 +3608,12 @@
           localStorage.setItem('game_displayName', displayName);
           localStorage.setItem('game_email', email);
           localStorage.setItem('game_instagram', instagram);
+          const mockMsg = currentLanguage === 'en' 
+            ? `[MOCK] Score of ${currentRunData.score} points registered locally!` 
+            : `[MOCK] Score von ${currentRunData.score} Punkten lokal eingetragen!`;
           renderOverlay('SUBMITTED', {
             success: true,
-            message: `[MOCK] Score von ${currentRunData.score} Punkten lokal eingetragen!`
+            message: mockMsg
           });
           fetchLeaderboard();
         }, 1000);
@@ -3311,7 +3658,7 @@
             tbody.innerHTML = `
               <tr>
                 <td colspan="3" style="text-align: center; padding: 2.5rem; color: var(--text-muted);">
-                  Noch keine Highscores eingetragen. Sei der Erste! 🚀
+                  ${translations[currentLanguage].leaderboard_empty}
                 </td>
               </tr>
             `;
@@ -3348,7 +3695,7 @@
           tableWrapper.style.display = 'block';
         }
       } catch (e) {
-        loader.innerText = 'Fehler beim Laden des Leaderboards.';
+        loader.innerText = currentLanguage === 'en' ? 'Error loading leaderboard.' : 'Fehler beim Laden des Leaderboards.';
       }
     }
 
@@ -3379,7 +3726,7 @@
 
     // Initialize page
     window.onload = () => {
-      renderOverlay('START');
+      window.changeLanguage(currentLanguage);
       fetchLeaderboard();
     };
   </script>

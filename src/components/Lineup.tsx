@@ -209,6 +209,15 @@ export const Lineup: React.FC<LineupProps> = ({ lang }) => {
         <p className="cooperation-text">
           🤝 {translate(lang, 'cooperation_text_1')}{' '}
           <a
+            href="https://www.instagram.com/float_movement/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cooperation-link"
+          >
+            Float Movement
+          </a>{' '}
+          {translate(lang, 'cooperation_text_1_post')}{' '}
+          <a
             href="https://www.instagram.com/frequencysquad/"
             target="_blank"
             rel="noopener noreferrer"

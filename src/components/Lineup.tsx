@@ -36,7 +36,7 @@ export const Lineup: React.FC<LineupProps> = ({ lang }) => {
       name: 'Rico',
       origin: translate(lang, 'origin_france'),
       labels: [
-        { text: 'AlpaKa MuziK', url: 'https://www.instagram.com/alpaka.muzik/' },
+        { text: 'AlpaKa MuziK', url: 'https://www.instagram.com/alpaka_muzik/' },
         { text: 'Frequency Squad Rec.', url: 'https://www.instagram.com/frequencysquad/' }
       ],
       instagram: 'https://www.instagram.com/rico_utr/',
@@ -47,7 +47,7 @@ export const Lineup: React.FC<LineupProps> = ({ lang }) => {
       name: 'Medved',
       origin: translate(lang, 'origin_feldkirch'),
       labels: [
-        { text: 'Sektor Kollektiv', url: 'https://www.instagram.com/sektorkollektiv/' }
+        { text: 'Sektor Techno', url: 'https://www.instagram.com/sektor.techno/' }
       ],
       instagram: 'https://www.instagram.com/medved_music/',
       soundcloud: 'https://soundcloud.com/medved_198',

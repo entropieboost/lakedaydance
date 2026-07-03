@@ -94,7 +94,7 @@ export const translations = {
     leaderboard_dev_warning: "Aktuell werden Demo-Highscores angezeigt, da Firebase noch nicht fertig verbunden ist.",
     leaderboard_disclaimer: "Fairplay & Info: Verdächtige oder manipulierte Scores werden automatisch gefiltert und gelöscht. Pro Person zählt nur der beste gültige Score. Wer bei Auslosung 24h vor Eventstart ganz oben steht, gewinnt!",
     rules_title: "Gewinnspiel-Regeln",
-    rules_text: "Die Top 3 gültigen Scores gewinnen je 1 Free-Entry-Ticket + Goodie. Pro Person zählt nur der beste gültige Score. Mehrfach-Accounts, Fake-Daten oder manipulierte Scores können entfernt werden. Die Gewinner werden über Instagram oder E-Mail kontaktiert. Der Rechtsweg ist ausgeschlossen.",
+    rules_text: "Die Top 3 gültigen Scores gewinnen je 1 Free-Entry-Ticket + Goodie. Pro Person zählt nur der beste gültige Score. Um am Gewinnspiel teilzunehmen, musst du dem Instagram-Profil <a href=\"https://www.instagram.com/float_movement/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"cooperation-link\">@float_movement</a> folgen und den Gewinnspielbeitrag in deiner Story teilen. Mehrfach-Accounts, Fake-Daten oder manipulierte Scores können entfernt werden. Die Gewinner werden über Instagram oder E-Mail kontaktiert. Der Rechtsweg ist ausgeschlossen.",
 
     // Footer
     footer_copyright: "© 2026 FLOAT Techno am See. Alle Rechte vorbehalten.",
@@ -195,7 +195,7 @@ export const translations = {
     leaderboard_dev_warning: "Currently showing demo highscores because Firebase is not yet connected.",
     leaderboard_disclaimer: "Fairplay & Info: Suspicious or manipulated scores are automatically filtered and deleted. Only the best valid score per person counts. Whoever is at the top at the draw 24h before event start wins!",
     rules_title: "Raffle Rules",
-    rules_text: "The top 3 valid scores each win 1 Free Entry ticket + Goodie. Only the best valid score per person counts. Multiple accounts, fake data, or manipulated scores may be removed. Winners will be contacted via Instagram or email. Legal recourse is excluded.",
+    rules_text: "The top 3 valid scores each win 1 Free Entry ticket + Goodie. Only the best valid score per person counts. To participate in the raffle, you must follow the Instagram profile <a href=\"https://www.instagram.com/float_movement/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"cooperation-link\">@float_movement</a> and share the raffle post in your story. Multiple accounts, fake data, or manipulated scores may be removed. Winners will be contacted via Instagram or email. Legal recourse is excluded.",
 
     // Footer
     footer_copyright: "© 2026 FLOAT Techno by the Lake. All rights reserved.",

@@ -170,9 +170,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ lang }) => {
 
         <div className="glass-panel rules-box">
           <h3 className="rules-title">{translate(lang, 'rules_title')}</h3>
-          <p className="rules-text">
-            {translate(lang, 'rules_text')}
-          </p>
+          <p className="rules-text" dangerouslySetInnerHTML={{ __html: translate(lang, 'rules_text') }} />
         </div>
       </div>
     </section>
